@@ -677,7 +677,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
     <!-- Başlık -->
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;">
-      <button onclick="showPage('page-app')" style="background:none;border:1px solid var(--border);color:var(--muted);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.borderColor='#555'" onmouseout="this.style.borderColor='var(--border)'">← Geri</button>
+      <button onclick="showPage('page-app');showTab(window._lastTab||'read')" style="background:none;border:1px solid var(--border);color:var(--muted);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.borderColor='#555'" onmouseout="this.style.borderColor='var(--border)'">← Geri</button>
       <div style="font-family:'DM Serif Display',serif;font-size:26px;">Ayarlar</div>
     </div>
 
@@ -2112,7 +2112,7 @@ async function doDiscordLogin(){
   closeLoginModal();
   const { error } = await window._supabase.auth.signInWithOAuth({
     provider: 'discord',
-    options: { redirectTo: 'https://verla-tr.netlify.app/' }
+    options: { redirectTo: 'https://verla.org/' }
   });
   if(error) showNotif('Hata', error.message);
 }
@@ -2196,7 +2196,7 @@ async function doGoogleLogin(){
   const { error } = await window._supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: 'https://verla-tr.netlify.app'
+      redirectTo: 'https://verla.org'
     }
   });
   if(error) showNotif('Hata', error.message);
@@ -4167,7 +4167,11 @@ function showSettingsPage(){
   if(emailDisp && currentUser) emailDisp.textContent = currentUser.email || '—';
   const emailEl = document.getElementById('profileEmail');
   if(emailEl && currentUser) emailEl.value = currentUser.email || '';
+  // Aktif sekmeyi kaydet
+  window._lastTab = document.querySelector('.tab.active')?.getAttribute('onclick')?.match(/'(\w+)'/)?.[1] || 'read';
   showPage('page-settings');
+  // Güvenlik sekmesini aktif yap
+  switchSettingsTab('security');
 }
 
 function openSettingsModal(){
