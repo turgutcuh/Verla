@@ -108,7 +108,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 ══════════════════════════════ */
 #page-onboarding{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;overflow-y:auto;}
 #page-onboarding.active{display:flex;}
-#page-settings.active{display:grid;grid-template-columns:260px 1fr;}
+#page-settings.active{display:grid;grid-template-columns:260px 1fr;min-height:100vh;}
 
 /* Karanlık geçiş overlay */
 .ob-transition{display:none;}
@@ -671,210 +671,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
   </div>
 </div>
 
-<!-- AYARLAR SAYFASI -->
-<div id="page-settings" class="page" style="min-height:100vh;overflow:hidden;">
-
-  <!-- Sol sidebar - tam yükseklik -->
-  <div style="background:#111;border-right:1px solid var(--border);min-height:100vh;display:flex;flex-direction:column;padding:32px 0;">
-    
-    <!-- Başlık -->
-    <div style="padding:0 24px 28px;border-bottom:1px solid var(--border);margin-bottom:12px;">
-      <button onclick="showPage('page-app');showTab(window._lastTab||'read')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#f0ede6'" onmouseout="this.style.color='var(--muted)'">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Geri
-      </button>
-      <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);">Ayarlar</div>
-    </div>
-
-    <!-- Menü -->
-    <div style="flex:1;padding:8px 12px;">
-      <button onclick="switchSettingsTab('security')" id="stBtn-security" class="settings-tab-btn active-st">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Güvenlik
-      </button>
-      <button onclick="switchSettingsTab('privacy')" id="stBtn-privacy" class="settings-tab-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        Gizlilik
-      </button>
-      <button onclick="switchSettingsTab('appearance')" id="stBtn-appearance" class="settings-tab-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Görünüm
-      </button>
-      <button onclick="switchSettingsTab('account')" id="stBtn-account" class="settings-tab-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Hesap
-      </button>
-    </div>
-
-    <!-- Çıkış -->
-    <div style="padding:12px;">
-      <button onclick="doLogout()" style="width:100%;padding:12px 16px;background:none;border:1px solid rgba(255,95,95,0.2);border-radius:10px;color:#ff5f5f;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;text-align:left;display:flex;align-items:center;gap:10px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,95,95,0.08)'" onmouseout="this.style.background='none'">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Çıkış Yap
-      </button>
-    </div>
-  </div>
-
-  <!-- Sağ içerik - tam yükseklik -->
-  <div style="padding:40px;overflow-y:auto;min-height:100vh;">
-    <div style="width:100%;">
-
-      <!-- Sağ içerik -->
-      <div>
-
-        <!-- Güvenlik -->
-        <div id="st-security">
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;">
-            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Güvenlik</div>
-
-            <!-- E-posta -->
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <div style="font-size:14px;font-weight:500;">E-posta Adresi</div>
-                <div style="font-size:11px;color:#c9f06e;background:rgba(201,240,110,0.1);padding:3px 10px;border-radius:99px;">Doğrulandı ✓</div>
-              </div>
-              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Hesabına giriş yapmak için kullandığın e-posta.</div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-size:14px;color:var(--text);" id="settingsEmailDisplay">—</div>
-                <button onclick="startEmailChange()" style="padding:11px 16px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;white-space:nowrap;transition:all 0.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#f0ede6'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Değiştir</button>
-              </div>
-            </div>
-
-            <!-- Şifre -->
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="font-size:14px;font-weight:500;margin-bottom:6px;">Şifre</div>
-              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Güçlü bir şifre hesabını korur. En az 8 karakter, büyük/küçük harf içermeli.</div>
-              <button onclick="showForgotPass()" style="padding:11px 20px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#f0ede6'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Şifremi Değiştir</button>
-            </div>
-
-            <!-- Telefon (yakında) -->
-            <div>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-                <div style="font-size:14px;font-weight:500;">Telefon Numarası</div>
-                <div style="font-size:11px;color:var(--muted);background:var(--bg);padding:3px 10px;border-radius:99px;">Yakında</div>
-              </div>
-              <div style="font-size:12px;color:var(--muted);">SMS ile iki faktörlü doğrulama ekle. (Yakında geliyor)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gizlilik -->
-        <div id="st-privacy" style="display:none;">
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;">
-            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Gizlilik</div>
-
-            <!-- Arkadaşlık İstekleri -->
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Arkadaşlık İstekleri</div>
-                  <div style="font-size:12px;color:var(--muted);">Herkesten arkadaşlık isteği alabilirsin.</div>
-                </div>
-                <div style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;" id="friendReqToggle" onclick="toggleFriendRequests()">
-                  <div id="friendReqThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Profil Görünürlüğü -->
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Profil Görünürlüğü</div>
-                  <div style="font-size:12px;color:var(--muted);">Profilin herkese açık görünsün.</div>
-                </div>
-                <div style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;" id="profileVisToggle" onclick="toggleProfileVisibility()">
-                  <div id="profileVisThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Sıralamada Görün -->
-            <div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Sıralamada Görün</div>
-                  <div style="font-size:12px;color:var(--muted);">Liderlik tablosunda adın gözüksün.</div>
-                </div>
-                <div style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;" id="leaderboardToggle" onclick="toggleLeaderboard()">
-                  <div id="leaderboardThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Görünüm -->
-        <div id="st-appearance" style="display:none;">
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;">
-            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Görünüm</div>
-
-            <!-- Tema -->
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="font-size:14px;font-weight:500;margin-bottom:6px;">Tema</div>
-              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Uygulamanın görsel temasını seç.</div>
-              <div style="display:flex;gap:10px;">
-                <div onclick="setTheme('dark')" id="themeCardDark" style="flex:1;padding:16px;background:#0e0e0e;border:2px solid #c9f06e;border-radius:12px;cursor:pointer;text-align:center;">
-                  <div style="font-size:20px;margin-bottom:6px;">🌙</div>
-                  <div style="font-size:13px;color:#f0ede6;">Koyu</div>
-                </div>
-                <div onclick="setTheme('light')" id="themeCardLight" style="flex:1;padding:16px;background:#f5f5f0;border:2px solid #2a2a2a;border-radius:12px;cursor:pointer;text-align:center;">
-                  <div style="font-size:20px;margin-bottom:6px;">☀️</div>
-                  <div style="font-size:13px;color:#1a1a1a;">Açık</div>
-                  <div style="font-size:10px;color:#888;margin-top:2px;">Yakında</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Yazı Boyutu -->
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="font-size:14px;font-weight:500;margin-bottom:6px;">Yazı Boyutu</div>
-              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Okuma deneyimini kişiselleştir.</div>
-              <div style="display:flex;gap:8px;">
-                <button onclick="setFontSize('small')" id="fsSmall" style="flex:1;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all 0.2s;">A<span style="font-size:9px;">küçük</span></button>
-                <button onclick="setFontSize('medium')" id="fsMedium" style="flex:1;padding:10px;background:var(--bg);border:2px solid #c9f06e;border-radius:10px;color:#c9f06e;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;transition:all 0.2s;">A<span style="font-size:10px;">orta</span></button>
-                <button onclick="setFontSize('large')" id="fsLarge" style="flex:1;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:16px;transition:all 0.2s;">A<span style="font-size:11px;">büyük</span></button>
-              </div>
-            </div>
-
-            <!-- Animasyonlar -->
-            <div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div>
-                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Animasyonlar</div>
-                  <div style="font-size:12px;color:var(--muted);">Geçiş animasyonlarını etkinleştir.</div>
-                </div>
-                <div onclick="toggleAnimations()" id="animToggle" style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;">
-                  <div id="animThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hesap -->
-        <div id="st-account" style="display:none;">
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;">
-            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Hesap</div>
-
-            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
-              <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Veri İndir</div>
-              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Hesabınla ilgili tüm verileri indir.</div>
-              <button style="padding:11px 20px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#f0ede6'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Verilerimi İndir</button>
-            </div>
-
-            <div>
-              <div style="font-size:14px;font-weight:500;margin-bottom:4px;color:#ff5f5f;">Hesabı Sil</div>
-              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Hesabını ve tüm verilerini kalıcı olarak sil. Bu işlem geri alınamaz.</div>
-              <button onclick="deleteAccount()" style="padding:11px 20px;background:transparent;border:1px solid rgba(255,95,95,0.3);border-radius:10px;color:#ff5f5f;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,95,95,0.08)'" onmouseout="this.style.background='transparent'">Hesabı Kalıcı Olarak Sil</button>
-            </div>
-          </div>
-        </div>
-
-    </div>
-  </div>
-</div>
-
 <!-- ADMIN PANELİ -->
 <div id="page-admin" class="page" style="min-height:100vh;padding:40px 24px;max-width:900px;margin:0 auto;">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;">
@@ -1421,6 +1217,210 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
           </div>
 
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- AYARLAR SAYFASI -->
+<div id="page-settings" class="page">
+
+  <!-- Sol sidebar - tam yükseklik -->
+  <div style="background:#111;border-right:1px solid var(--border);min-height:100vh;display:flex;flex-direction:column;padding:32px 0;">
+    
+    <!-- Başlık -->
+    <div style="padding:0 24px 28px;border-bottom:1px solid var(--border);margin-bottom:12px;">
+      <button onclick="showPage('page-app');showTab(window._lastTab||'read')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#f0ede6'" onmouseout="this.style.color='var(--muted)'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Geri
+      </button>
+      <div style="font-family:'DM Serif Display',serif;font-size:22px;color:var(--text);">Ayarlar</div>
+    </div>
+
+    <!-- Menü -->
+    <div style="flex:1;padding:8px 12px;">
+      <button onclick="switchSettingsTab('security')" id="stBtn-security" class="settings-tab-btn active-st">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Güvenlik
+      </button>
+      <button onclick="switchSettingsTab('privacy')" id="stBtn-privacy" class="settings-tab-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        Gizlilik
+      </button>
+      <button onclick="switchSettingsTab('appearance')" id="stBtn-appearance" class="settings-tab-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Görünüm
+      </button>
+      <button onclick="switchSettingsTab('account')" id="stBtn-account" class="settings-tab-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Hesap
+      </button>
+    </div>
+
+    <!-- Çıkış -->
+    <div style="padding:12px;">
+      <button onclick="doLogout()" style="width:100%;padding:12px 16px;background:none;border:1px solid rgba(255,95,95,0.2);border-radius:10px;color:#ff5f5f;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;text-align:left;display:flex;align-items:center;gap:10px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,95,95,0.08)'" onmouseout="this.style.background='none'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Çıkış Yap
+      </button>
+    </div>
+  </div>
+
+  <!-- Sağ içerik - tam yükseklik -->
+  <div style="padding:40px;overflow-y:auto;min-height:100vh;">
+    <div style="width:100%;">
+
+      <!-- Sağ içerik -->
+      <div>
+
+        <!-- Güvenlik -->
+        <div id="st-security">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;">
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Güvenlik</div>
+
+            <!-- E-posta -->
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:14px;font-weight:500;">E-posta Adresi</div>
+                <div style="font-size:11px;color:#c9f06e;background:rgba(201,240,110,0.1);padding:3px 10px;border-radius:99px;">Doğrulandı ✓</div>
+              </div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Hesabına giriş yapmak için kullandığın e-posta.</div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <div style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-size:14px;color:var(--text);" id="settingsEmailDisplay">—</div>
+                <button onclick="startEmailChange()" style="padding:11px 16px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;white-space:nowrap;transition:all 0.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#f0ede6'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Değiştir</button>
+              </div>
+            </div>
+
+            <!-- Şifre -->
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="font-size:14px;font-weight:500;margin-bottom:6px;">Şifre</div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Güçlü bir şifre hesabını korur. En az 8 karakter, büyük/küçük harf içermeli.</div>
+              <button onclick="showForgotPass()" style="padding:11px 20px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#f0ede6'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Şifremi Değiştir</button>
+            </div>
+
+            <!-- Telefon (yakında) -->
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+                <div style="font-size:14px;font-weight:500;">Telefon Numarası</div>
+                <div style="font-size:11px;color:var(--muted);background:var(--bg);padding:3px 10px;border-radius:99px;">Yakında</div>
+              </div>
+              <div style="font-size:12px;color:var(--muted);">SMS ile iki faktörlü doğrulama ekle. (Yakında geliyor)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gizlilik -->
+        <div id="st-privacy" style="display:none;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;">
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Gizlilik</div>
+
+            <!-- Arkadaşlık İstekleri -->
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Arkadaşlık İstekleri</div>
+                  <div style="font-size:12px;color:var(--muted);">Herkesten arkadaşlık isteği alabilirsin.</div>
+                </div>
+                <div style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;" id="friendReqToggle" onclick="toggleFriendRequests()">
+                  <div id="friendReqThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profil Görünürlüğü -->
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Profil Görünürlüğü</div>
+                  <div style="font-size:12px;color:var(--muted);">Profilin herkese açık görünsün.</div>
+                </div>
+                <div style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;" id="profileVisToggle" onclick="toggleProfileVisibility()">
+                  <div id="profileVisThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sıralamada Görün -->
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Sıralamada Görün</div>
+                  <div style="font-size:12px;color:var(--muted);">Liderlik tablosunda adın gözüksün.</div>
+                </div>
+                <div style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;" id="leaderboardToggle" onclick="toggleLeaderboard()">
+                  <div id="leaderboardThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Görünüm -->
+        <div id="st-appearance" style="display:none;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:16px;">
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Görünüm</div>
+
+            <!-- Tema -->
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="font-size:14px;font-weight:500;margin-bottom:6px;">Tema</div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Uygulamanın görsel temasını seç.</div>
+              <div style="display:flex;gap:10px;">
+                <div onclick="setTheme('dark')" id="themeCardDark" style="flex:1;padding:16px;background:#0e0e0e;border:2px solid #c9f06e;border-radius:12px;cursor:pointer;text-align:center;">
+                  <div style="font-size:20px;margin-bottom:6px;">🌙</div>
+                  <div style="font-size:13px;color:#f0ede6;">Koyu</div>
+                </div>
+                <div onclick="setTheme('light')" id="themeCardLight" style="flex:1;padding:16px;background:#f5f5f0;border:2px solid #2a2a2a;border-radius:12px;cursor:pointer;text-align:center;">
+                  <div style="font-size:20px;margin-bottom:6px;">☀️</div>
+                  <div style="font-size:13px;color:#1a1a1a;">Açık</div>
+                  <div style="font-size:10px;color:#888;margin-top:2px;">Yakında</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yazı Boyutu -->
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="font-size:14px;font-weight:500;margin-bottom:6px;">Yazı Boyutu</div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Okuma deneyimini kişiselleştir.</div>
+              <div style="display:flex;gap:8px;">
+                <button onclick="setFontSize('small')" id="fsSmall" style="flex:1;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;transition:all 0.2s;">A<span style="font-size:9px;">küçük</span></button>
+                <button onclick="setFontSize('medium')" id="fsMedium" style="flex:1;padding:10px;background:var(--bg);border:2px solid #c9f06e;border-radius:10px;color:#c9f06e;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;transition:all 0.2s;">A<span style="font-size:10px;">orta</span></button>
+                <button onclick="setFontSize('large')" id="fsLarge" style="flex:1;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:16px;transition:all 0.2s;">A<span style="font-size:11px;">büyük</span></button>
+              </div>
+            </div>
+
+            <!-- Animasyonlar -->
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <div>
+                  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Animasyonlar</div>
+                  <div style="font-size:12px;color:var(--muted);">Geçiş animasyonlarını etkinleştir.</div>
+                </div>
+                <div onclick="toggleAnimations()" id="animToggle" style="width:44px;height:24px;background:#c9f06e;border-radius:99px;cursor:pointer;position:relative;">
+                  <div id="animThumb" style="position:absolute;top:3px;left:23px;width:18px;height:18px;background:#0e0e0e;border-radius:50%;transition:left 0.2s;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hesap -->
+        <div id="st-account" style="display:none;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;">
+            <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--border);">Hesap</div>
+
+            <div style="margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);">
+              <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Veri İndir</div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Hesabınla ilgili tüm verileri indir.</div>
+              <button style="padding:11px 20px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.borderColor='#555';this.style.color='#f0ede6'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Verilerimi İndir</button>
+            </div>
+
+            <div>
+              <div style="font-size:14px;font-weight:500;margin-bottom:4px;color:#ff5f5f;">Hesabı Sil</div>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:14px;">Hesabını ve tüm verilerini kalıcı olarak sil. Bu işlem geri alınamaz.</div>
+              <button onclick="deleteAccount()" style="padding:11px 20px;background:transparent;border:1px solid rgba(255,95,95,0.3);border-radius:10px;color:#ff5f5f;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,95,95,0.08)'" onmouseout="this.style.background='transparent'">Hesabı Kalıcı Olarak Sil</button>
+            </div>
+          </div>
+        </div>
+
     </div>
   </div>
 </div>
@@ -4196,13 +4196,12 @@ function showSettingsPage(){
   if(emailDisp && currentUser) emailDisp.textContent = currentUser.email || '—';
   const emailEl = document.getElementById('profileEmail');
   if(emailEl && currentUser) emailEl.value = currentUser.email || '';
-  // Nav'ı gizle
-  const landingNav = document.getElementById('landingNav');
-  if(landingNav) landingNav.style.display = 'none';
   // Aktif sekmeyi kaydet
   window._lastTab = document.querySelector('.tab.active')?.getAttribute('onclick')?.match(/'(\w+)'/)?.[1] || 'read';
   showPage('page-settings');
-  // Güvenlik sekmesini aktif yap
+  // Nav'ı gizle
+  const landingNav = document.getElementById('landingNav');
+  if(landingNav) landingNav.style.display = 'none';
   switchSettingsTab('security');
 }
 
