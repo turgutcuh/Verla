@@ -65,20 +65,22 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 .hero{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 
-/* orta bant: solda taşan üç satırlık başlık, sağda buton — aynı dikey merkez */
-.hero-mid{flex:1;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:96px 48px 40px;flex-wrap:wrap;}
-.hero-stack{min-width:0;}
-.hl{font-family:var(--display);font-size:clamp(38px,8vw,100px);line-height:0.9;text-transform:uppercase;letter-spacing:-0.02em;cursor:default;white-space:nowrap;transform-origin:left center;transition:transform 0.32s cubic-bezier(.2,.8,.3,1),-webkit-text-stroke-color 0.32s;}
+/* orta bant: başlık bloğu + buton BİR GRUP olarak yatay+dikey ortalı.
+   .hero-stack sabit genişlikte — kelimeler değişince (Oku./Dinle./Anla.) butonun
+   x konumu kaymasın diye; Türkçe kelimeler bu genişliğe rahat sığıyor. */
+.hero-mid{flex:1;display:flex;align-items:center;justify-content:center;gap:64px;padding:96px 5vw 44px;flex-wrap:wrap;max-width:1280px;margin:0 auto;width:100%;}
+.hero-stack{width:clamp(260px,48vw,720px);flex-shrink:0;}
+.hl{font-family:var(--display);font-size:clamp(44px,9.2vw,138px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;cursor:default;white-space:nowrap;transform-origin:left center;transition:transform 0.32s cubic-bezier(.2,.8,.3,1),-webkit-text-stroke-color 0.32s;}
 .hl:hover{transform:scale(1.045);}
 .hl-1{color:var(--text);}
-.hl-2{color:var(--accent);padding-left:60px;}
+.hl-2{color:var(--accent);padding-left:0.9em;}
 .hl-3{color:transparent;-webkit-text-stroke:1.5px var(--border);}
 .hl-3:hover{-webkit-text-stroke-color:var(--accent);}
 .hw{display:inline-block;transition:opacity 0.34s ease,transform 0.34s cubic-bezier(.2,.8,.3,1);}
 .hw.out{opacity:0;transform:translateY(-16px);}
 .hw.in{opacity:0;transform:translateY(16px);}
 
-.hero-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;padding:18px 36px;border-radius:14px;border:none;background:var(--accent);color:#15130F;font-size:15px;cursor:pointer;font-family:var(--display);text-transform:uppercase;letter-spacing:0.2px;transition:transform 0.28s cubic-bezier(.2,.8,.3,1),box-shadow 0.28s,background 0.28s;animation:heroBreathe 3.4s ease-in-out infinite;}
+.hero-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:11px;padding:22px 48px;border-radius:15px;border:none;background:var(--accent);color:#15130F;font-size:18px;cursor:pointer;font-family:var(--display);text-transform:uppercase;letter-spacing:0.2px;transition:transform 0.28s cubic-bezier(.2,.8,.3,1),box-shadow 0.28s,background 0.28s;animation:heroBreathe 3.4s ease-in-out infinite;}
 .hero-cta-arw{display:inline-block;transition:transform 0.28s cubic-bezier(.2,.8,.3,1);}
 .hero-cta:hover{transform:scale(1.08);background:#B8A78F;box-shadow:0 14px 36px -10px rgba(160,143,122,.55);animation:none;}
 .hero-cta:hover .hero-cta-arw{transform:translateX(5px);}
@@ -118,6 +120,20 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 @media(max-width:760px){
   .hero-mid{flex-direction:column;align-items:flex-start;padding:92px 24px 30px;gap:22px;}
+}
+/* Dik (portrait) mobil: içerik dikeyde ORTALANSIN — yoksa taban kuraldaki
+   justify-content:space-between yüzünden başlık en üstte, Başla en altta kalıyor.
+   Yatay (landscape) kasıtlı olarak dokunulmadı, kullanıcı "yan iyi" dedi.
+   Aşağıdaki @media(max-width:768px) bloğu .hl'yi tekrar tanımladığı için
+   burada .hero öneki ile özgüllük artırıldı (kaynak sırasından bağımsız kazansın). */
+@media(max-width:760px) and (orientation:portrait){
+  /* padding-top, sabit nav'ın yüksekliğini de telafi ediyor — yoksa "ortalı"
+     içerik nav'ın altında kaldığı için görsel olarak yukarıda görünüyor. */
+  .hero .hero-mid{justify-content:center;gap:26px;padding:120px 22px 24px;}
+  .hero .hero-stack{width:auto;}
+  .hero .hl{font-size:clamp(40px,15vw,78px);line-height:0.9;}
+  .hero .hl-2{padding-left:0.5em;}
+  .hero .hero-cta{padding:20px 42px;font-size:17px;}
 }
 @media(prefers-reduced-motion:reduce){
   .hero-flags-track{animation:none;}.hero-cta{animation:none;}.hw{transition:none;}
@@ -1604,7 +1620,7 @@ const UI_LANGS = {
   },
   en: {
     heroSets: [
-      ['Read.','Listen.','Understand.'],
+      ['Read.','Listen.','Grasp.'],
       ['Learn.','Explore.','Grow.'],
       ['Rise.','Win.','Compete.'],
     ],
@@ -1625,9 +1641,9 @@ const UI_LANGS = {
   },
   de: {
     heroSets: [
-      ['Lesen.','Hören.','Verstehen.'],
-      ['Lernen.','Entdecken.','Wachsen.'],
-      ['Aufsteigen.','Gewinnen.','Kämpfen.'],
+      ['Lesen.','Hören.','Denk.'],
+      ['Lernen.','Entdecke.','Wachse.'],
+      ['Steige.','Gewinn.','Kämpf.'],
     ],
     login: 'Anmelden', signup: 'Registrieren', loginSignup: 'Anmelden / Registrieren',
     free: 'Starten', heroSub: 'Echte Inhalte lesen. Wörter lernen. Mit Rivalen wetteifern.',
@@ -1641,9 +1657,9 @@ const UI_LANGS = {
   },
   es: {
     heroSets: [
-      ['Lee.','Escucha.','Entiende.'],
+      ['Lee.','Oye.','Capta.'],
       ['Aprende.','Explora.','Crece.'],
-      ['Sube.','Gana.','Compite.'],
+      ['Sube.','Gana.','Reta.'],
     ],
     login: 'Iniciar sesión', signup: 'Registrarse', loginSignup: 'Iniciar / Registrarse',
     free: 'Empezar', heroSub: 'Lee contenido real. Aprende palabras. Compite con rivales.',
@@ -1657,9 +1673,9 @@ const UI_LANGS = {
   },
   fr: {
     heroSets: [
-      ['Lis.','Écoute.','Comprends.'],
+      ['Lis.','Écoute.','Saisis.'],
       ['Apprends.','Explore.','Grandis.'],
-      ['Progresse.','Gagne.','Rivalise.'],
+      ['Grimpe.','Gagne.','Défie.'],
     ],
     login: 'Se connecter', signup: "S'inscrire", loginSignup: 'Connexion / Inscription',
     free: 'Commencer', heroSub: 'Lis du contenu réel. Apprends des mots. Rivalise.',
