@@ -536,24 +536,49 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .content-warn-btn:hover{opacity:0.88;}
 
 /* BİLDİRİM BUTONU */
-.notif-btn{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:50%;background:#1a1a1a;border:1px solid #3A3220;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;z-index:900;transition:background 0.2s;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
-.notif-btn:hover{background:#222;}
-.notif-badge{position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:#ff5f5f;border:2px solid #15130F;display:none;}
-.notif-panel{position:fixed;bottom:84px;left:24px;width:320px;background:#201C15;border:1px solid #3A3220;border-radius:16px;z-index:901;box-shadow:0 8px 32px rgba(0,0,0,0.5);transform:scale(0.95) translateY(8px);opacity:0;pointer-events:none;transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1);}
+/* Zil butonu — "Kartlı" yön: yuvarlak kare + sayılı rozet */
+.notif-btn{position:fixed;bottom:24px;left:24px;width:48px;height:48px;border-radius:14px;background:var(--surface);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:900;transition:border-color 0.18s ease,background 0.18s ease;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+.notif-btn svg{width:20px;height:20px;color:var(--accent);}
+.notif-btn:hover{border-color:rgba(160,143,122,0.55);background:var(--surface2);}
+.notif-badge{position:absolute;top:-6px;right:-6px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:var(--accent);color:#15130F;font-size:10.5px;font-weight:600;display:none;align-items:center;justify-content:center;border:2px solid var(--bg);font-variant-numeric:tabular-nums;line-height:1;}
+/* Panel — "Sakin" yön: kutusuz liste, okunmamış = ince taupe çubuk */
+.notif-panel{position:fixed;bottom:84px;left:24px;width:328px;background:var(--surface);border:1px solid var(--border);border-radius:16px;z-index:901;box-shadow:0 14px 40px rgba(0,0,0,0.5);transform:scale(0.96) translateY(8px);opacity:0;pointer-events:none;transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1);overflow:hidden;}
 .notif-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
-.notif-panel-header{padding:16px 18px;border-bottom:1px solid #3A3220;display:flex;align-items:center;justify-content:space-between;}
-.notif-panel-title{font-size:14px;font-weight:500;}
-.notif-panel-body{max-height:320px;overflow-y:auto;padding:8px 0;}
-.notif-item{padding:12px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #2A2418;transition:background 0.15s;}
-.notif-item:hover{background:#2A2418;}
-.notif-item:last-child{border-bottom:none;}
-.notif-item.unread{background:#1a1f14;}
-.notif-empty{padding:24px;text-align:center;color:#555;font-size:13px;}
+.notif-panel-header{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px;}
+.notif-panel-title{font-family:var(--display);font-size:12.5px;color:var(--text);letter-spacing:0.01em;}
+.notif-count{font-size:10px;color:var(--accent);background:var(--accent-dim);padding:2px 7px;border-radius:999px;font-weight:500;display:none;}
+.notif-mark{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;padding:0;transition:color 0.15s;}
+.notif-mark svg{width:13px;height:13px;}
+.notif-mark:hover{color:var(--text);}
+.notif-panel-body{max-height:340px;overflow-y:auto;padding:8px;display:flex;flex-direction:column;gap:4px;}
+.notif-item{display:flex;gap:11px;padding:11px 10px;border-radius:10px;transition:background 0.15s;}
+.notif-item:hover{background:var(--accent-dim2);}
+.notif-item.unread{background:var(--accent-dim2);}
+.notif-rail{width:3px;border-radius:99px;background:transparent;flex-shrink:0;}
+.notif-item.unread .notif-rail{background:var(--accent);}
+.notif-body{flex:1;min-width:0;font-size:12.5px;line-height:1.55;color:#C2B9A4;}
+.notif-top{display:flex;gap:8px;align-items:baseline;justify-content:space-between;}
+.notif-who{font-weight:500;color:var(--text);}
+.notif-time{font-size:10.5px;color:#6E6553;white-space:nowrap;flex-shrink:0;}
+.notif-acts{display:flex;gap:6px;margin-top:8px;}
+.notif-bt{padding:5px 11px;border-radius:7px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;}
+.notif-bt-y{background:var(--accent);color:#15130F;font-weight:500;}
+.notif-bt-n{background:transparent;border:1px solid var(--border);color:var(--muted);}
+.notif-bt-n:hover{color:var(--text);border-color:#4A4030;}
+.notif-empty{padding:26px 20px;text-align:center;color:var(--muted);font-size:12.5px;}
 
-.notif{position:fixed;bottom:22px;right:22px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;transform:translateY(80px);opacity:0;transition:all 0.3s ease;z-index:700;max-width:240px;}
-.notif.show{transform:translateY(0);opacity:1;}
-.notif-t{font-weight:500;font-size:13px;margin-bottom:2px;}
-.notif-s{color:var(--muted);font-size:12px;}
+/* Toast — "hap" (kapsül) biçim, türüne göre renkli ikon */
+.notif{position:fixed;bottom:22px;right:22px;display:flex;align-items:center;gap:11px;background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:9px 20px 9px 9px;transform:translateY(24px) scale(0.96);opacity:0;transition:transform 0.34s cubic-bezier(.2,.9,.3,1),opacity 0.24s ease;z-index:700;max-width:340px;box-shadow:0 14px 38px rgba(0,0,0,0.5);pointer-events:none;}
+.notif.show{transform:translateY(0) scale(1);opacity:1;}
+.notif-ic{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--accent-dim);color:var(--accent);box-shadow:inset 0 0 0 1px rgba(160,143,122,0.18);}
+.notif-ic svg{width:15px;height:15px;}
+.notif.ok .notif-ic{background:rgba(147,165,107,0.16);color:#93A56B;box-shadow:inset 0 0 0 1px rgba(147,165,107,0.22);}
+.notif.warn .notif-ic{background:rgba(255,95,95,0.14);color:#FF5F5F;box-shadow:inset 0 0 0 1px rgba(255,95,95,0.20);}
+.notif.reward .notif-ic{background:rgba(245,200,66,0.15);color:#F5C842;box-shadow:inset 0 0 0 1px rgba(245,200,66,0.22);}
+.notif-txt{min-width:0;}
+.notif-t{font-weight:500;font-size:13px;color:var(--text);line-height:1.3;}
+.notif-s{color:var(--muted);font-size:11.5px;line-height:1.45;margin-top:2px;}
+.notif-s:empty{display:none;}
 
 /* ══════════════════════════════
    ANİMASYON KAPATMA (ayarlardan)
@@ -607,7 +632,8 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
   .ob-question{font-size:28px;}
 
   /* Bildirim kutusu ekrana sığsın */
-  .notif{left:14px;right:14px;max-width:none;}
+  .notif{left:14px;right:14px;max-width:none;border-radius:18px;}
+  .notif-panel{left:14px;right:14px;width:auto;}
 }
 
 @media(max-width:420px){
@@ -774,13 +800,14 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
 
 <!-- BİLDİRİM BUTONU VE PANELİ -->
 <div class="notif-btn" id="notifBtn" onclick="toggleNotifPanel()" style="display:none;">
-  🔔
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 15.8H6.2c.7-1 1.2-2.3 1.2-3.9V10a4.6 4.6 0 0 1 9.2 0v1.9c0 1.6.5 2.9 1.2 3.9Z"/><path d="M10.2 18.4a2 2 0 0 0 3.6 0"/></svg>
   <div class="notif-badge" id="notifBadge"></div>
 </div>
 <div class="notif-panel" id="notifPanel">
   <div class="notif-panel-header">
     <div class="notif-panel-title">Bildirimler</div>
-    <button onclick="markAllRead()" style="background:none;border:none;color:#9C9278;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='#9C9278'">Tümünü okundu say</button>
+    <span class="notif-count" id="notifCount">0</span>
+    <button class="notif-mark" onclick="markAllRead()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 12.5 3.5 3.5 7-8"/><path d="m10.5 16 7-8"/></svg>Okundu say</button>
   </div>
   <div class="notif-panel-body" id="notifPanelBody">
     <div class="notif-empty">Henüz bildirim yok</div>
@@ -1610,7 +1637,7 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
 </div>
 
 <!-- NOTIF -->
-<div class="notif" id="notif"><div class="notif-t" id="nT"></div><div class="notif-s" id="nS"></div></div>
+<div class="notif" id="notif"><div class="notif-ic" id="nIc"></div><div class="notif-txt"><div class="notif-t" id="nT"></div><div class="notif-s" id="nS"></div></div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
@@ -4804,16 +4831,20 @@ async function loadNotifications(){
     (senders||[]).forEach(s => {
       const req = pending.find(p => p.sender_id === s.id);
       const avatar = s.avatar_url
-        ? `<img src="${s.avatar_url}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;">`
-        : `<div style="width:36px;height:36px;border-radius:50%;background:rgba(160,143,122,0.15);display:flex;align-items:center;justify-content:center;font-size:15px;color:#A08F7A;flex-shrink:0;">${(s.display_name||s.username)[0].toUpperCase()}</div>`;
+        ? `<img src="${s.avatar_url}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;">`
+        : `<div style="width:32px;height:32px;border-radius:50%;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:13px;color:var(--accent);flex-shrink:0;">${(s.display_name||s.username)[0].toUpperCase()}</div>`;
       items.push(`
         <div class="notif-item unread">
+          <div class="notif-rail"></div>
           ${avatar}
-          <div style="flex:1;">
-            <div style="font-size:13px;"><strong>${s.display_name||s.username}</strong> sana arkadaşlık isteği gönderdi.</div>
-            <div style="display:flex;gap:6px;margin-top:6px;">
-              <button onclick="respondFriendRequest('${req.id}','accepted');loadNotifications();" style="padding:4px 10px;background:#A08F7A;border:none;border-radius:6px;color:#15130F;cursor:pointer;font-size:11px;font-family:'DM Sans',sans-serif;">✓ Kabul</button>
-              <button onclick="respondFriendRequest('${req.id}','rejected');loadNotifications();" style="padding:4px 10px;background:transparent;border:1px solid #3A3220;border-radius:6px;color:#9C9278;cursor:pointer;font-size:11px;font-family:'DM Sans',sans-serif;">✕ Reddet</button>
+          <div class="notif-body">
+            <div class="notif-top">
+              <span><span class="notif-who">${s.display_name||s.username}</span> sana arkadaşlık isteği gönderdi.</span>
+              <span class="notif-time">${timeAgo(req.created_at)}</span>
+            </div>
+            <div class="notif-acts">
+              <button class="notif-bt notif-bt-y" onclick="respondFriendRequest('${req.id}','accepted');loadNotifications();">Kabul</button>
+              <button class="notif-bt notif-bt-n" onclick="respondFriendRequest('${req.id}','rejected');loadNotifications();">Reddet</button>
             </div>
           </div>
         </div>`);
@@ -4829,13 +4860,20 @@ async function loadNotifications(){
       .in('id', receiverIds);
 
     (receivers||[]).forEach(r => {
+      const acc = accepted.find(a => a.receiver_id === r.id);
       const avatar = r.avatar_url
-        ? `<img src="${r.avatar_url}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;">`
-        : `<div style="width:36px;height:36px;border-radius:50%;background:rgba(160,143,122,0.15);display:flex;align-items:center;justify-content:center;font-size:15px;color:#A08F7A;flex-shrink:0;">${(r.display_name||r.username)[0].toUpperCase()}</div>`;
+        ? `<img src="${r.avatar_url}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;">`
+        : `<div style="width:32px;height:32px;border-radius:50%;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:13px;color:var(--accent);flex-shrink:0;">${(r.display_name||r.username)[0].toUpperCase()}</div>`;
       items.push(`
         <div class="notif-item">
+          <div class="notif-rail"></div>
           ${avatar}
-          <div style="font-size:13px;"><strong>${r.display_name||r.username}</strong> arkadaşlık isteğini kabul etti! 🎉</div>
+          <div class="notif-body">
+            <div class="notif-top">
+              <span><span class="notif-who">${r.display_name||r.username}</span> arkadaşlık isteğini kabul etti.</span>
+              <span class="notif-time">${timeAgo(acc && acc.created_at)}</span>
+            </div>
+          </div>
         </div>`);
     });
   }
@@ -4850,15 +4888,36 @@ async function loadNotifications(){
 }
 
 function updateNotifBadge(count){
+  const n = count || 0;
   const badge = document.getElementById('notifBadge');
-  if(badge) badge.style.display = count > 0 ? 'block' : 'none';
+  if(badge){
+    badge.textContent = n > 9 ? '9+' : String(n);
+    badge.style.display = n > 0 ? 'flex' : 'none';
+  }
+  const chip = document.getElementById('notifCount');
+  if(chip){
+    chip.textContent = n;
+    chip.style.display = n > 0 ? 'inline-block' : 'none';
+  }
+}
+
+// "2 sa", "dün", "3 gün" gibi kisa goreli zaman
+function timeAgo(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  const diff = (Date.now() - d.getTime()) / 1000;
+  if(diff < 60)     return 'az önce';
+  if(diff < 3600)   return Math.floor(diff/60) + ' dk';
+  if(diff < 86400)  return Math.floor(diff/3600) + ' sa';
+  if(diff < 172800) return 'dün';
+  if(diff < 604800) return Math.floor(diff/86400) + ' gün';
+  return d.toLocaleDateString('tr-TR', { day:'numeric', month:'short' });
 }
 
 function markAllRead(){
-  const badge = document.getElementById('notifBadge');
-  if(badge) badge.style.display = 'none';
-  const items = document.querySelectorAll('.notif-item.unread');
-  items.forEach(i => i.classList.remove('unread'));
+  updateNotifBadge(0);
+  document.querySelectorAll('.notif-item.unread').forEach(i => i.classList.remove('unread'));
 }
 
 async function checkNotifBadge(){
@@ -5488,11 +5547,34 @@ function markKnown(){
 
 // ── NOTIF ──
 let nT;
-function showNotif(title,sub){
+// Toast ikonlari — tur basina tek cizgi SVG
+const NOTIF_ICONS = {
+  info:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 11.2v5"/><circle cx="12" cy="7.9" r="1" fill="currentColor" stroke="none"/></svg>',
+  ok:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.6 4.2 4.2L19 7"/></svg>',
+  warn:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.4 20.8 19.2H3.2z"/><path d="M12 10.2v4"/><circle cx="12" cy="16.8" r=".95" fill="currentColor" stroke="none"/></svg>',
+  reward:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 20.4 12 12 20.4 3.6 12Z"/><path d="M12 8.2 15.8 12 12 15.8 8.2 12Z"/></svg>',
+};
+
+// Baslik metninden turu cikar (cagri yerlerini tek tek degistirmeye gerek kalmasin)
+function notifType(title){
+  const t = String(title || '');
+  if(/^\s*⚠/.test(t) || /hata|gönderilemedi|değiştirilemez|yüklenemedi|başarısız/i.test(t)) return 'warn';
+  if(/^\s*✓/.test(t) || /güncellendi|kabul edildi|gönderildi|çıkarıldı/i.test(t)) return 'ok';
+  if(/coin|ödül|seviye atla|streak/i.test(t)) return 'reward';
+  return 'info';
+}
+
+function showNotif(title,sub,type){
   clearTimeout(nT);
-  document.getElementById('nT').textContent=title;
-  document.getElementById('nS').textContent=sub;
-  const n=document.getElementById('notif');
+  const n = document.getElementById('notif');
+  const kind = type || notifType(title);
+  n.classList.remove('ok','warn','reward');
+  if(kind !== 'info') n.classList.add(kind);
+  const ic = document.getElementById('nIc');
+  if(ic) ic.innerHTML = NOTIF_ICONS[kind] || NOTIF_ICONS.info;
+  // Basa yapisik sembolleri temizle — artik gercek ikon var
+  document.getElementById('nT').textContent = String(title || '').replace(/^[\s✓⚠✕✦ℹ]+/, '');
+  document.getElementById('nS').textContent = sub || '';
   n.classList.add('show');
   nT=setTimeout(()=>n.classList.remove('show'),2800);
 }
