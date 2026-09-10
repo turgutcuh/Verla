@@ -607,25 +607,25 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
     <!-- Adım 1: E-posta gir -->
     <div id="forgotStep1">
       <div style="font-size:40px;text-align:center;margin-bottom:16px;">🔑</div>
-      <div style="font-family:var(--display);font-size:20px;text-align:center;margin-bottom:8px;">Şifreni Sıfırla</div>
-      <div style="font-size:13px;color:#888;text-align:center;margin-bottom:20px;">Kayıtlı e-posta adresini gir, sıfırlama kodu gönderelim.</div>
-      <input id="forgotEmail" type="email" placeholder="ornek@mail.com"
+      <div style="font-family:var(--display);font-size:20px;text-align:center;margin-bottom:8px;" data-i18n="fgT1">Şifreni Sıfırla</div>
+      <div style="font-size:13px;color:#888;text-align:center;margin-bottom:20px;" data-i18n="fgS1">Kayıtlı e-posta adresini gir, sıfırlama kodu gönderelim.</div>
+      <input id="forgotEmail" type="email" placeholder="ornek@mail.com" data-i18n-ph="phEmail"
         style="width:100%;background:#15130F;border:1px solid #3A3220;border-radius:10px;padding:12px 14px;font-size:14px;color:#EEE7D7;font-family:'DM Sans',sans-serif;outline:none;margin-bottom:6px;"
         onfocus="this.style.borderColor='rgba(160,143,122,0.4)'" onblur="this.style.borderColor='#3A3220'"
         onkeydown="if(event.key==='Enter')sendForgotCode()">
       <div id="forgotStep1Err" style="font-size:12px;color:#ff5f5f;min-height:16px;margin-bottom:14px;"></div>
-      <button onclick="sendForgotCode()" id="forgotSendBtn" style="width:100%;padding:13px;background:#A08F7A;border:none;border-radius:10px;color:#15130F;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;">Kod Gönder →</button>
+      <button onclick="sendForgotCode()" id="forgotSendBtn" style="width:100%;padding:13px;background:#A08F7A;border:none;border-radius:10px;color:#15130F;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;" data-i18n="fgSend">Kod Gönder →</button>
       <div style="text-align:center;margin-top:14px;">
-        <button onclick="closeForgotPass();openLoginModal()" style="background:none;border:none;color:#9C9278;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='#9C9278'">← Giriş ekranına dön</button>
+        <button onclick="closeForgotPass();openLoginModal()" style="background:none;border:none;color:#9C9278;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;" onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='#9C9278'" data-i18n="fgBackLogin">← Giriş ekranına dön</button>
       </div>
     </div>
 
     <!-- Adım 2: Kod gir -->
     <div id="forgotStep2" style="display:none;">
       <div style="font-size:40px;text-align:center;margin-bottom:16px;">📨</div>
-      <div style="font-family:var(--display);font-size:20px;text-align:center;margin-bottom:8px;">Kodu Gir</div>
+      <div style="font-family:var(--display);font-size:20px;text-align:center;margin-bottom:8px;" data-i18n="fgT2">Kodu Gir</div>
       <div id="forgotCodeSentTo" style="font-size:12px;color:#888;text-align:center;margin-bottom:4px;"></div>
-      <div style="font-size:11px;color:#9C9278;text-align:center;margin-bottom:20px;">Spam klasörünü de kontrol et.</div>
+      <div style="font-size:11px;color:#9C9278;text-align:center;margin-bottom:20px;" data-i18n="fgSpam">Spam klasörünü de kontrol et.</div>
       <div style="display:flex;gap:8px;justify-content:center;margin-bottom:6px;">
         <input id="fc0" type="text" inputmode="numeric" maxlength="1" oninput="fcInput(this,0)" onkeydown="fcKey(event,0)" onpaste="fcPaste(event,0)" onfocus="this.style.borderColor='rgba(160,143,122,0.45)'" onblur="this.style.borderColor=this.value?'rgba(160,143,122,0.25)':'#3A3220'" style="width:44px;height:52px;background:#15130F;border:1px solid #3A3220;border-radius:10px;text-align:center;font-size:20px;font-weight:500;color:#EEE7D7;outline:none;font-family:var(--display);">
         <input id="fc1" type="text" inputmode="numeric" maxlength="1" oninput="fcInput(this,1)" onkeydown="fcKey(event,1)" onpaste="fcPaste(event,1)" onfocus="this.style.borderColor='rgba(160,143,122,0.45)'" onblur="this.style.borderColor=this.value?'rgba(160,143,122,0.25)':'#3A3220'" style="width:44px;height:52px;background:#15130F;border:1px solid #3A3220;border-radius:10px;text-align:center;font-size:20px;font-weight:500;color:#EEE7D7;outline:none;font-family:var(--display);">
@@ -635,9 +635,9 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
         <input id="fc5" type="text" inputmode="numeric" maxlength="1" oninput="fcInput(this,5)" onkeydown="fcKey(event,5)" onpaste="fcPaste(event,5)" onfocus="this.style.borderColor='rgba(160,143,122,0.45)'" onblur="this.style.borderColor=this.value?'rgba(160,143,122,0.25)':'#3A3220'" style="width:44px;height:52px;background:#15130F;border:1px solid #3A3220;border-radius:10px;text-align:center;font-size:20px;font-weight:500;color:#EEE7D7;outline:none;font-family:var(--display);">
       </div>
       <div id="forgotStep2Err" style="font-size:12px;color:#ff5f5f;min-height:16px;margin-bottom:14px;text-align:center;"></div>
-      <button onclick="verifyForgotCode()" style="width:100%;padding:13px;background:#A08F7A;border:none;border-radius:10px;color:#15130F;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;margin-bottom:12px;">Doğrula →</button>
+      <button onclick="verifyForgotCode()" style="width:100%;padding:13px;background:#A08F7A;border:none;border-radius:10px;color:#15130F;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;margin-bottom:12px;" data-i18n="fgVerify">Doğrula →</button>
       <div style="text-align:center;">
-        <button id="forgotResendBtn" onclick="resendForgotCode()" disabled style="background:none;border:none;color:#9C9278;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;">Kodu tekrar gönder</button>
+        <button id="forgotResendBtn" onclick="resendForgotCode()" disabled style="background:none;border:none;color:#9C9278;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;" data-i18n="fgResend">Kodu tekrar gönder</button>
         <span id="forgotResendTimer" style="font-size:12px;color:#9C9278;"></span>
       </div>
     </div>
@@ -645,31 +645,31 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
     <!-- Adım 3: Yeni şifre -->
     <div id="forgotStep3" style="display:none;">
       <div style="font-size:40px;text-align:center;margin-bottom:16px;">🔒</div>
-      <div style="font-family:var(--display);font-size:20px;text-align:center;margin-bottom:8px;">Yeni Şifre Belirle</div>
-      <div style="font-size:13px;color:#888;text-align:center;margin-bottom:20px;">En az 8 karakter, büyük ve küçük harf içermeli.</div>
-      
+      <div style="font-family:var(--display);font-size:20px;text-align:center;margin-bottom:8px;" data-i18n="fgT3">Yeni Şifre Belirle</div>
+      <div style="font-size:13px;color:#888;text-align:center;margin-bottom:20px;" data-i18n="fgS3">En az 8 karakter, büyük ve küçük harf içermeli.</div>
+
       <div style="position:relative;margin-bottom:10px;">
-        <input id="forgotNewPass" type="password" placeholder="Yeni şifren"
+        <input id="forgotNewPass" type="password" placeholder="Yeni şifren" data-i18n-ph="fgPhNew"
           style="width:100%;background:#15130F;border:1px solid #3A3220;border-radius:10px;padding:12px 44px 12px 14px;font-size:14px;color:#EEE7D7;font-family:'DM Sans',sans-serif;outline:none;"
           onfocus="this.style.borderColor='rgba(160,143,122,0.4)'" onblur="this.style.borderColor='#3A3220'"
           oninput="checkForgotPassCriteria()">
         <button type="button" onclick="toggleForgotPass('forgotNewPass','fp1')" id="fp1" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#9C9278;cursor:pointer;font-size:15px;">👁</button>
       </div>
       <div style="position:relative;margin-bottom:10px;">
-        <input id="forgotNewPass2" type="password" placeholder="Şifreni tekrar gir"
+        <input id="forgotNewPass2" type="password" placeholder="Şifreni tekrar gir" data-i18n-ph="fgPhNew2"
           style="width:100%;background:#15130F;border:1px solid #3A3220;border-radius:10px;padding:12px 44px 12px 14px;font-size:14px;color:#EEE7D7;font-family:'DM Sans',sans-serif;outline:none;"
           onfocus="this.style.borderColor='rgba(160,143,122,0.4)'" onblur="this.style.borderColor='#3A3220'">
         <button type="button" onclick="toggleForgotPass('forgotNewPass2','fp2')" id="fp2" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#9C9278;cursor:pointer;font-size:15px;">👁</button>
       </div>
 
       <div style="background:#1a1a1a;border:1px solid #3A3220;border-radius:10px;padding:12px 14px;margin-bottom:14px;display:flex;flex-direction:column;gap:6px;">
-        <div id="fpc-len"   style="display:flex;align-items:center;gap:8px;font-size:12px;color:#9C9278;"><span id="fpc-len-i">○</span> En az 8 karakter</div>
-        <div id="fpc-upper" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#9C9278;"><span id="fpc-upper-i">○</span> En az 1 büyük harf</div>
-        <div id="fpc-lower" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#9C9278;"><span id="fpc-lower-i">○</span> En az 1 küçük harf</div>
+        <div id="fpc-len"   style="display:flex;align-items:center;gap:8px;font-size:12px;color:#9C9278;"><span id="fpc-len-i">○</span> <span data-i18n="critLen">En az 8 karakter</span></div>
+        <div id="fpc-upper" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#9C9278;"><span id="fpc-upper-i">○</span> <span data-i18n="critUpper">En az 1 büyük harf</span></div>
+        <div id="fpc-lower" style="display:flex;align-items:center;gap:8px;font-size:12px;color:#9C9278;"><span id="fpc-lower-i">○</span> <span data-i18n="critLower">En az 1 küçük harf</span></div>
       </div>
 
       <div id="forgotStep3Err" style="font-size:12px;color:#ff5f5f;min-height:16px;margin-bottom:8px;"></div>
-      <button onclick="submitNewPassword()" style="width:100%;padding:13px;background:#A08F7A;border:none;border-radius:10px;color:#15130F;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;">Şifremi Güncelle →</button>
+      <button onclick="submitNewPassword()" style="width:100%;padding:13px;background:#A08F7A;border:none;border-radius:10px;color:#15130F;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;" data-i18n="fgUpdate">Şifremi Güncelle →</button>
     </div>
 
   </div>
@@ -934,11 +934,11 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
   <div class="modal-box">
     <button class="modal-close" onclick="closeLoginModal()">×</button>
     <div class="modal-logo">verla</div>
-    <div class="modal-tagline">Tekrar hoş geldin.</div>
+    <div class="modal-tagline" data-i18n="modalTagline">Tekrar hoş geldin.</div>
     <div class="f-err" id="loginErr"></div>
-    <label class="f-label">E-posta</label>
-    <input class="f-input" id="loginEmail" type="email" placeholder="ornek@mail.com">
-    <label class="f-label">Şifre</label>
+    <label class="f-label" data-i18n="lmEmail">E-posta</label>
+    <input class="f-input" id="loginEmail" type="email" placeholder="ornek@mail.com" data-i18n-ph="phEmail">
+    <label class="f-label" data-i18n="lmPass">Şifre</label>
     <div style="position:relative;">
       <input class="f-input" id="loginPass" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()" style="padding-right:44px;margin-bottom:0;">
       <button type="button" onclick="toggleLoginPass()" id="loginEyeBtn"
@@ -948,13 +948,13 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
     <div style="display:flex;align-items:center;justify-content:space-between;margin:14px 0 4px;">
       <label style="display:flex;align-items:center;gap:7px;cursor:pointer;font-size:12px;color:#9C9278;">
         <input type="checkbox" id="rememberMe" style="accent-color:#A08F7A;width:14px;height:14px;">
-        Beni hatırla
+        <span data-i18n="lmRemember">Beni hatırla</span>
       </label>
       <button onclick="showForgotPass()" style="background:none;border:none;color:#9C9278;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0;transition:color 0.15s;"
-        onmouseover="this.style.color='#A08F7A'" onmouseout="this.style.color='#9C9278'">Şifremi unuttum</button>
+        onmouseover="this.style.color='#A08F7A'" onmouseout="this.style.color='#9C9278'" data-i18n="lmForgot">Şifremi unuttum</button>
     </div>
-    <button class="f-btn" id="loginBtn" onclick="doLogin()">Giriş Yap</button>
-    <div class="f-divider"><div class="f-div-line"></div><div class="f-div-txt">veya</div><div class="f-div-line"></div></div>
+    <button class="f-btn" id="loginBtn" onclick="doLogin()" data-i18n="loginBtn">Giriş Yap</button>
+    <div class="f-divider"><div class="f-div-line"></div><div class="f-div-txt" data-i18n="or">veya</div><div class="f-div-line"></div></div>
     <!-- Facebook eklenince grid-template-columns'u "1fr 1fr 1fr" yap -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <button onclick="doGoogleLogin()"
@@ -980,7 +980,7 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
           Discord
         </button>
       </div>
-    <div class="f-signup-link">Hesabın yok mu? <a onclick="closeLoginModal();goOnboarding()">Ücretsiz başla →</a></div>
+    <div class="f-signup-link"><span data-i18n="lmNoAccount">Hesabın yok mu?</span> <a onclick="closeLoginModal();goOnboarding()" data-i18n="lmStartFree">Ücretsiz başla →</a></div>
   </div>
 </div>
 
@@ -993,16 +993,16 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
 
 <!-- Karşılama ekranı -->
 <div id="obWelcome" style="flex-direction:column;align-items:center;justify-content:center;gap:20px;">
-  <div style="font-family:var(--display);font-size:52px;color:#A08F7A;letter-spacing:-1px;line-height:1;">verla</div>
+  <div style="font-family:var(--display);font-size:52px;letter-spacing:-1px;line-height:1;"><span style="color:var(--accent)">ver</span><span style="color:var(--la-tone)">la</span></div>
   <div id="welcomeTagline" style="font-family:'DM Sans',sans-serif;font-size:22px;color:#888;font-weight:300;letter-spacing:0.3px;min-height:32px;text-align:center;max-width:440px;line-height:1.5;"></div>
 </div>
 
 <div id="page-onboarding" class="page">
   <div class="ob-wrap">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;">
-      <div onclick="backToLanding()" style="font-family:var(--display);font-size:20px;color:var(--accent);cursor:pointer;letter-spacing:-0.5px;">verla</div>
+      <div onclick="backToLanding()" style="font-family:var(--display);font-size:20px;cursor:pointer;letter-spacing:-0.5px;"><span style="color:var(--accent)">ver</span><span style="color:var(--la-tone)">la</span></div>
       <div class="ob-dots" id="obDots" style="justify-content:center;"></div>
-      <button onclick="backToLanding()"
+      <button onclick="backToLanding()" data-i18n="obHomeArrow"
         style="background:none;border:none;color:#555;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:4px;padding:0;transition:color 0.2s;white-space:nowrap;"
         onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='#555'">
         ← Ana sayfa
@@ -1708,6 +1708,509 @@ const UI_LANGS = {
 
 let currentUILang = 'tr';
 
+/* ═══════════════════════════════════════════════════════════════════
+   ÇOK DİLLİ METİN DEPOSU — Faz 1: giriş öncesi (onboarding, giriş
+   modalı, şifremi unuttum). Sonraki fazlarda uygulama içi eklenecek.
+   UI_LANGS'e birleşir; T('anahtar',{degisken}) ile okunur.
+   ═══════════════════════════════════════════════════════════════════ */
+const I18N_EXT = {
+  tr: {
+    or:'veya', sending:'Gönderiliyor...', errorTitle:'Hata', backReturn:'← Geri dön',
+    lmEmail:'E-posta', lmPass:'Şifre', lmRemember:'Beni hatırla', lmForgot:'Şifremi unuttum',
+    lmNoAccount:'Hesabın yok mu?', lmStartFree:'Ücretsiz başla →', phEmail:'ornek@mail.com',
+    obHomeArrow:'← Ana sayfa', obBackShort:'← Geri',
+    loginTooMany:'Çok fazla deneme. {n} saniye bekle.',
+    loginLocked30:'Çok fazla yanlış deneme. 30 saniye bekle.',
+    loginFillAll:'Tüm alanları doldurun.',
+    loginInProgress:'Giriş yapılıyor...',
+    loginBadCreds:'E-posta veya şifre hatalı. ({n} deneme hakkın kaldı)',
+    fgT1:'Şifreni Sıfırla',
+    fgS1:'Kayıtlı e-posta adresini gir, sıfırlama kodu gönderelim.',
+    fgSend:'Kod Gönder →', fgBackLogin:'← Giriş ekranına dön',
+    fgT2:'Kodu Gir', fgSpam:'Spam klasörünü de kontrol et.',
+    fgVerify:'Doğrula →', fgResend:'Kodu tekrar gönder',
+    fgT3:'Yeni Şifre Belirle', fgS3:'En az 8 karakter, büyük ve küçük harf içermeli.',
+    fgPhNew:'Yeni şifren', fgPhNew2:'Şifreni tekrar gir', fgUpdate:'Şifremi Güncelle →',
+    fgWaitSecs:'Lütfen {n} saniye bekle.', fgWaitS:'{n}s bekle',
+    fgSentTo:'{email} adresine gönderildi', fgSendFail:'E-posta gönderilemedi: {msg}',
+    fgUpdatedTitle:'✓ Şifre güncellendi', fgUpdatedBody:'Yeni şifrenle giriş yapabilirsin.',
+    fgUpdateFail:'Şifre güncellenemedi. Lütfen tekrar kod al.',
+    obWelcome1:'Merhaba, Verla’ya hoş geldin.', obWelcome2:'Başlamadan önce seni tanıyalım.',
+    obQUsername:'Sana nasıl seslenelim?',
+    obQNative:'Ana dilini seçelim.', obQNativeNamed:'{name}, ana dilini seçelim.',
+    obQLearn:'Hangi dili öğrenmek istiyorsun?',
+    obQLevel:'{lang} seviyeni nasıl tanımlarsın?',
+    obQTest:'Seviyeni hemen öğrenmek ister misin?',
+    obQGoal:'Günlük hedefiniz ne olsun?',
+    obQAccount:'Son adım — hesabını oluştur.',
+    obQVerify:'E-postanı doğrula.',
+    obHintMulti:'Birden fazla seçebilirsin.',
+    obHintTest:'Kısa bir test ile sana uygun seviyeyi bulalım.',
+    obHintSpam:'Spam klasörünü de kontrol et.',
+    obContinue:'Devam', obCreate:'Hesabı Oluştur', obAdv:'İleri',
+    obTestYes:'✦ Evet, test edelim', obTestYesSub:'~2 dakika sürer, seviyeni bulalım',
+    obTestSkip:'Şimdilik atla', obTestSoon:'Seviye testi yakında geliyor! Şimdilik A1 olarak ayarlıyoruz.',
+    obPhUsername:'İsmin veya takma adın', obPhPass:'Şifren', obPhPass2:'Şifreni tekrar gir',
+    fEmail:'E-posta', fPass:'Şifre', fPass2:'Şifre tekrar',
+    critLen:'En az 8 karakter', critUpper:'En az 1 büyük harf', critLower:'En az 1 küçük harf',
+    obVerifySent:'<span style="color:#A08F7A;font-weight:500;">{email}</span> adresine<br>6 haneli doğrulama kodu gönderdik.',
+    obVerifyBtn:'Doğrula →', obResend:'Kodu tekrar gönder', obVerified:'✓ Doğrulandı',
+    obFinishNew:'Hesabın oluşturuluyor...', obFinishOauth:'Profil tamamlanıyor...',
+    errUsernameReq:'Kullanıcı adı gerekli.',
+    errUsernameMin:'En az 3 karakter olmalı.',
+    errUsernameMax:'En fazla 18 karakter olabilir.',
+    errUsernameChars:'Sadece İngilizce harf, rakam ve _ kullanabilirsin.',
+    errUsernameTaken:'❌ Bu kullanıcı adı zaten alınmış.',
+    errNativeReq:'En az bir ana dil seç.',
+    errLearnReq:'En az bir dil seç.',
+    errLevelReq:'Bir seviye seç.',
+    errGoalReq:'Bir hedef seç.',
+    errPassReq:'Şifre gerekli.',
+    errPassMin8:'Şifre en az 8 karakter olmalı.',
+    errPassUpper:'En az 1 büyük harf gerekli.',
+    errPassLower:'En az 1 küçük harf gerekli.',
+    errPassMatch:'Şifreler eşleşmiyor.',
+    errPassMinShort:'En az 8 karakter gerekli.',
+    errEmailReq:'E-posta gerekli.',
+    errEmailSpace:'E-posta boşluk içeremez.',
+    errEmailInvalid:'Geçerli bir e-posta adresi gir.',
+    errEmailInvalidShort:'Geçerli bir e-posta gir.',
+    errEmailTemp:'Geçici e-posta adresleri kabul edilmiyor.',
+    errEmailFake:'Gerçek bir e-posta adresi gir.',
+    errEmailRegistered:'Bu e-posta zaten kayıtlı.',
+    errMailFail:'Mail gönderilemedi. Lütfen tekrar dene.',
+    errCode6:'Lütfen 6 haneli kodu gir.',
+    errCodeWrong:'Kod yanlış. Tekrar dene.',
+    errGeneric:'Bir hata oluştu: {msg}',
+    emailChecking:'Kontrol ediliyor...', emailValid:'E-posta geçerli',
+    langNames:{},
+    goals:[['Rahat','Günde 5 kelime'],['Orta','Günde 10 kelime'],['Yoğun','Günde 20 kelime']],
+    lvlTxt:{},
+  },
+  en: {
+    or:'or', sending:'Sending...', errorTitle:'Error', backReturn:'← Go back',
+    lmEmail:'Email', lmPass:'Password', lmRemember:'Remember me', lmForgot:'Forgot password',
+    lmNoAccount:"Don't have an account?", lmStartFree:'Start free →', phEmail:'you@mail.com',
+    obHomeArrow:'← Home', obBackShort:'← Back',
+    loginTooMany:'Too many attempts. Wait {n} seconds.',
+    loginLocked30:'Too many wrong attempts. Wait 30 seconds.',
+    loginFillAll:'Fill in all fields.',
+    loginInProgress:'Signing in...',
+    loginBadCreds:'Wrong email or password. ({n} attempts left)',
+    fgT1:'Reset Your Password',
+    fgS1:"Enter your registered email and we'll send a reset code.",
+    fgSend:'Send Code →', fgBackLogin:'← Back to login',
+    fgT2:'Enter the Code', fgSpam:'Check your spam folder too.',
+    fgVerify:'Verify →', fgResend:'Resend code',
+    fgT3:'Set a New Password', fgS3:'At least 8 characters, with upper and lowercase.',
+    fgPhNew:'Your new password', fgPhNew2:'Re-enter your password', fgUpdate:'Update Password →',
+    fgWaitSecs:'Please wait {n} seconds.', fgWaitS:'wait {n}s',
+    fgSentTo:'Sent to {email}', fgSendFail:'Could not send email: {msg}',
+    fgUpdatedTitle:'✓ Password updated', fgUpdatedBody:'You can sign in with your new password.',
+    fgUpdateFail:'Could not update password. Please request a new code.',
+    obWelcome1:'Hi, welcome to Verla.', obWelcome2:"Let's get to know you before we start.",
+    obQUsername:'What should we call you?',
+    obQNative:"Let's choose your native language.", obQNativeNamed:"{name}, let's choose your native language.",
+    obQLearn:'Which language do you want to learn?',
+    obQLevel:'How would you describe your {lang} level?',
+    obQTest:'Want to find out your level now?',
+    obQGoal:'What is your daily goal?',
+    obQAccount:'Last step — create your account.',
+    obQVerify:'Verify your email.',
+    obHintMulti:'You can pick more than one.',
+    obHintTest:'A short test to find the right level for you.',
+    obHintSpam:'Check your spam folder too.',
+    obContinue:'Continue', obCreate:'Create Account', obAdv:'Advanced',
+    obTestYes:'✦ Yes, test me', obTestYesSub:'~2 minutes, find your level',
+    obTestSkip:'Skip for now', obTestSoon:'Level test coming soon! Setting you to A1 for now.',
+    obPhUsername:'Your name or nickname', obPhPass:'Your password', obPhPass2:'Re-enter your password',
+    fEmail:'Email', fPass:'Password', fPass2:'Repeat password',
+    critLen:'At least 8 characters', critUpper:'At least 1 uppercase letter', critLower:'At least 1 lowercase letter',
+    obVerifySent:'We sent a 6-digit verification code to<br><span style="color:#A08F7A;font-weight:500;">{email}</span>.',
+    obVerifyBtn:'Verify →', obResend:'Resend code', obVerified:'✓ Verified',
+    obFinishNew:'Creating your account...', obFinishOauth:'Completing your profile...',
+    errUsernameReq:'Username is required.',
+    errUsernameMin:'Must be at least 3 characters.',
+    errUsernameMax:'Can be at most 18 characters.',
+    errUsernameChars:'Only letters, numbers and _ are allowed.',
+    errUsernameTaken:'❌ This username is already taken.',
+    errNativeReq:'Pick at least one native language.',
+    errLearnReq:'Pick at least one language.',
+    errLevelReq:'Pick a level.',
+    errGoalReq:'Pick a goal.',
+    errPassReq:'Password is required.',
+    errPassMin8:'Password must be at least 8 characters.',
+    errPassUpper:'At least 1 uppercase letter required.',
+    errPassLower:'At least 1 lowercase letter required.',
+    errPassMatch:'Passwords do not match.',
+    errPassMinShort:'At least 8 characters required.',
+    errEmailReq:'Email is required.',
+    errEmailSpace:'Email cannot contain spaces.',
+    errEmailInvalid:'Enter a valid email address.',
+    errEmailInvalidShort:'Enter a valid email.',
+    errEmailTemp:'Temporary email addresses are not accepted.',
+    errEmailFake:'Enter a real email address.',
+    errEmailRegistered:'This email is already registered.',
+    errMailFail:'Could not send email. Please try again.',
+    errCode6:'Please enter the 6-digit code.',
+    errCodeWrong:'Wrong code. Try again.',
+    errGeneric:'Something went wrong: {msg}',
+    emailChecking:'Checking...', emailValid:'Email is valid',
+    langNames:{'Türkçe':'Turkish','İngilizce':'English','İspanyolca':'Spanish','Fransızca':'French','Almanca':'German','İtalyanca':'Italian','Japonca':'Japanese','Portekizce':'Portuguese','Rusça':'Russian','Korece':'Korean','Çince':'Chinese','Arapça':'Arabic'},
+    goals:[['Relaxed','5 words a day'],['Medium','10 words a day'],['Intense','20 words a day']],
+    lvlTxt:{
+      default:{ new:['Just started','I know nothing, from scratch'], A1:['Beginner','Basic greetings and numbers'], A2:['Elementary','I can form simple sentences'], B1:['Intermediate','I understand everyday conversations'], B2:['Upper Intermediate','I communicate fluently'], C1:['Advanced','I understand complex texts'], C2:['Mastery','Near-native command'], unknown:["I don't know my level","Let's find out with a test"] },
+      'Japonca':{ new:['Just started',"I don't even know hiragana"], N5:['N5 — Beginner','Basic hiragana and words'], N4:['N4 — Elementary','I understand simple conversations'], N3:['N3 — Intermediate','I follow most daily situations'], N2:['N2 — Advanced','I read news and articles'], N1:['N1 — Mastery','Fluent in any setting'], unknown:["I don't know my level","Let's find out with a test"] },
+      'Çince':{ new:['Just started',"I don't even know pinyin"], HSK1:['HSK 1','150 basic words'], HSK2:['HSK 2','300 words, simple sentences'], HSK3:['HSK 3','600 words, everyday talk'], HSK4:['HSK 4','1200 words, fluent exchange'], HSK5:['HSK 5','2500 words, I read newspapers'], HSK6:['HSK 6','Close to native level'], unknown:["I don't know my level","Let's find out with a test"] },
+      'Korece':{ new:['Just started',"I don't even know Hangul"], TOPIK1:['TOPIK 1','Basic words and alphabet'], TOPIK2:['TOPIK 2','Simple everyday conversations'], TOPIK3:['TOPIK 3','I understand most situations'], TOPIK4:['TOPIK 4','Fluent communication'], TOPIK5:['TOPIK 5','Professional level'], TOPIK6:['TOPIK 6','Near-native command'], unknown:["I don't know my level","Let's find out with a test"] },
+      'Arapça':{ new:['Just started',"I don't know the Arabic alphabet"], A1:['Beginner','Basic words and alphabet'], A2:['Elementary','I can form simple sentences'], B1:['Intermediate','I understand everyday conversations'], B2:['Upper Intermediate','I speak on various topics'], C1:['Advanced','I understand classical texts'], C2:['Mastery','Modern and classical Arabic'], unknown:["I don't know my level","Let's find out with a test"] },
+    },
+  },
+  de: {
+    or:'oder', sending:'Wird gesendet...', errorTitle:'Fehler', backReturn:'← Zurück',
+    lmEmail:'E-Mail', lmPass:'Passwort', lmRemember:'Angemeldet bleiben', lmForgot:'Passwort vergessen',
+    lmNoAccount:'Noch kein Konto?', lmStartFree:'Kostenlos starten →', phEmail:'du@mail.com',
+    obHomeArrow:'← Startseite', obBackShort:'← Zurück',
+    loginTooMany:'Zu viele Versuche. Warte {n} Sekunden.',
+    loginLocked30:'Zu viele Fehlversuche. Warte 30 Sekunden.',
+    loginFillAll:'Fülle alle Felder aus.',
+    loginInProgress:'Anmeldung läuft...',
+    loginBadCreds:'E-Mail oder Passwort falsch. ({n} Versuche übrig)',
+    fgT1:'Passwort zurücksetzen',
+    fgS1:'Gib deine registrierte E-Mail ein, wir senden einen Code.',
+    fgSend:'Code senden →', fgBackLogin:'← Zurück zur Anmeldung',
+    fgT2:'Code eingeben', fgSpam:'Prüfe auch deinen Spam-Ordner.',
+    fgVerify:'Bestätigen →', fgResend:'Code erneut senden',
+    fgT3:'Neues Passwort festlegen', fgS3:'Mindestens 8 Zeichen, Groß- und Kleinbuchstaben.',
+    fgPhNew:'Dein neues Passwort', fgPhNew2:'Passwort wiederholen', fgUpdate:'Passwort aktualisieren →',
+    fgWaitSecs:'Bitte warte {n} Sekunden.', fgWaitS:'{n}s warten',
+    fgSentTo:'An {email} gesendet', fgSendFail:'E-Mail konnte nicht gesendet werden: {msg}',
+    fgUpdatedTitle:'✓ Passwort aktualisiert', fgUpdatedBody:'Du kannst dich mit dem neuen Passwort anmelden.',
+    fgUpdateFail:'Passwort konnte nicht aktualisiert werden. Fordere einen neuen Code an.',
+    obWelcome1:'Hallo, willkommen bei Verla.', obWelcome2:'Lernen wir dich kennen, bevor es losgeht.',
+    obQUsername:'Wie sollen wir dich nennen?',
+    obQNative:'Wähle deine Muttersprache.', obQNativeNamed:'{name}, wähle deine Muttersprache.',
+    obQLearn:'Welche Sprache möchtest du lernen?',
+    obQLevel:'Wie schätzt du dein Niveau in {lang} ein?',
+    obQTest:'Möchtest du dein Niveau jetzt herausfinden?',
+    obQGoal:'Was ist dein Tagesziel?',
+    obQAccount:'Letzter Schritt — erstelle dein Konto.',
+    obQVerify:'Bestätige deine E-Mail.',
+    obHintMulti:'Du kannst mehrere auswählen.',
+    obHintTest:'Ein kurzer Test findet das richtige Niveau für dich.',
+    obHintSpam:'Prüfe auch deinen Spam-Ordner.',
+    obContinue:'Weiter', obCreate:'Konto erstellen', obAdv:'Fortgeschritten',
+    obTestYes:'✦ Ja, teste mich', obTestYesSub:'~2 Minuten, finde dein Niveau',
+    obTestSkip:'Vorerst überspringen', obTestSoon:'Der Niveautest kommt bald! Wir setzen dich vorerst auf A1.',
+    obPhUsername:'Dein Name oder Spitzname', obPhPass:'Dein Passwort', obPhPass2:'Passwort wiederholen',
+    fEmail:'E-Mail', fPass:'Passwort', fPass2:'Passwort wiederholen',
+    critLen:'Mindestens 8 Zeichen', critUpper:'Mindestens 1 Großbuchstabe', critLower:'Mindestens 1 Kleinbuchstabe',
+    obVerifySent:'Wir haben einen 6-stelligen Code an<br><span style="color:#A08F7A;font-weight:500;">{email}</span> gesendet.',
+    obVerifyBtn:'Bestätigen →', obResend:'Code erneut senden', obVerified:'✓ Bestätigt',
+    obFinishNew:'Dein Konto wird erstellt...', obFinishOauth:'Dein Profil wird vervollständigt...',
+    errUsernameReq:'Benutzername ist erforderlich.',
+    errUsernameMin:'Mindestens 3 Zeichen.',
+    errUsernameMax:'Höchstens 18 Zeichen.',
+    errUsernameChars:'Nur Buchstaben, Zahlen und _ erlaubt.',
+    errUsernameTaken:'❌ Dieser Benutzername ist bereits vergeben.',
+    errNativeReq:'Wähle mindestens eine Muttersprache.',
+    errLearnReq:'Wähle mindestens eine Sprache.',
+    errLevelReq:'Wähle ein Niveau.',
+    errGoalReq:'Wähle ein Ziel.',
+    errPassReq:'Passwort ist erforderlich.',
+    errPassMin8:'Passwort muss mindestens 8 Zeichen haben.',
+    errPassUpper:'Mindestens 1 Großbuchstabe erforderlich.',
+    errPassLower:'Mindestens 1 Kleinbuchstabe erforderlich.',
+    errPassMatch:'Passwörter stimmen nicht überein.',
+    errPassMinShort:'Mindestens 8 Zeichen erforderlich.',
+    errEmailReq:'E-Mail ist erforderlich.',
+    errEmailSpace:'E-Mail darf keine Leerzeichen enthalten.',
+    errEmailInvalid:'Gib eine gültige E-Mail-Adresse ein.',
+    errEmailInvalidShort:'Gib eine gültige E-Mail ein.',
+    errEmailTemp:'Temporäre E-Mail-Adressen werden nicht akzeptiert.',
+    errEmailFake:'Gib eine echte E-Mail-Adresse ein.',
+    errEmailRegistered:'Diese E-Mail ist bereits registriert.',
+    errMailFail:'E-Mail konnte nicht gesendet werden. Bitte erneut versuchen.',
+    errCode6:'Bitte gib den 6-stelligen Code ein.',
+    errCodeWrong:'Falscher Code. Versuche es erneut.',
+    errGeneric:'Ein Fehler ist aufgetreten: {msg}',
+    emailChecking:'Wird geprüft...', emailValid:'E-Mail ist gültig',
+    langNames:{'Türkçe':'Türkisch','İngilizce':'Englisch','İspanyolca':'Spanisch','Fransızca':'Französisch','Almanca':'Deutsch','İtalyanca':'Italienisch','Japonca':'Japanisch','Portekizce':'Portugiesisch','Rusça':'Russisch','Korece':'Koreanisch','Çince':'Chinesisch','Arapça':'Arabisch'},
+    goals:[['Entspannt','5 Wörter pro Tag'],['Mittel','10 Wörter pro Tag'],['Intensiv','20 Wörter pro Tag']],
+    lvlTxt:{
+      default:{ new:['Gerade angefangen','Ich kann nichts, von null'], A1:['Anfänger','Grüße und Zahlen'], A2:['Grundstufe','Ich bilde einfache Sätze'], B1:['Mittelstufe','Ich verstehe Alltagsgespräche'], B2:['Obere Mittelstufe','Ich kommuniziere fließend'], C1:['Fortgeschritten','Ich verstehe komplexe Texte'], C2:['Meisterschaft','Muttersprachliches Niveau'], unknown:['Ich kenne mein Niveau nicht','Finden wir es per Test heraus'] },
+      'Japonca':{ new:['Gerade angefangen','Ich kann nicht mal Hiragana'], N5:['N5 — Anfänger','Grundlegendes Hiragana und Wörter'], N4:['N4 — Grundstufe','Ich verstehe einfache Gespräche'], N3:['N3 — Mittelstufe','Ich folge den meisten Alltagssituationen'], N2:['N2 — Fortgeschritten','Ich lese Nachrichten und Artikel'], N1:['N1 — Meisterschaft','Fließend in jeder Situation'], unknown:['Ich kenne mein Niveau nicht','Finden wir es per Test heraus'] },
+      'Çince':{ new:['Gerade angefangen','Ich kann nicht mal Pinyin'], HSK1:['HSK 1','150 Grundwörter'], HSK2:['HSK 2','300 Wörter, einfache Sätze'], HSK3:['HSK 3','600 Wörter, Alltagssprache'], HSK4:['HSK 4','1200 Wörter, fließender Austausch'], HSK5:['HSK 5','2500 Wörter, ich lese Zeitungen'], HSK6:['HSK 6','Nahe am Muttersprachler'], unknown:['Ich kenne mein Niveau nicht','Finden wir es per Test heraus'] },
+      'Korece':{ new:['Gerade angefangen','Ich kann nicht mal Hangul'], TOPIK1:['TOPIK 1','Grundwörter und Alphabet'], TOPIK2:['TOPIK 2','Einfache Alltagsgespräche'], TOPIK3:['TOPIK 3','Ich verstehe die meisten Situationen'], TOPIK4:['TOPIK 4','Fließende Kommunikation'], TOPIK5:['TOPIK 5','Berufliches Niveau'], TOPIK6:['TOPIK 6','Muttersprachliches Niveau'], unknown:['Ich kenne mein Niveau nicht','Finden wir es per Test heraus'] },
+      'Arapça':{ new:['Gerade angefangen','Ich kenne das arabische Alphabet nicht'], A1:['Anfänger','Grundwörter und Alphabet'], A2:['Grundstufe','Ich bilde einfache Sätze'], B1:['Mittelstufe','Ich verstehe Alltagsgespräche'], B2:['Obere Mittelstufe','Ich spreche über verschiedene Themen'], C1:['Fortgeschritten','Ich verstehe klassische Texte'], C2:['Meisterschaft','Modernes und klassisches Arabisch'], unknown:['Ich kenne mein Niveau nicht','Finden wir es per Test heraus'] },
+    },
+  },
+  es: {
+    or:'o', sending:'Enviando...', errorTitle:'Error', backReturn:'← Volver',
+    lmEmail:'Correo', lmPass:'Contraseña', lmRemember:'Recuérdame', lmForgot:'Olvidé mi contraseña',
+    lmNoAccount:'¿No tienes cuenta?', lmStartFree:'Empieza gratis →', phEmail:'tu@correo.com',
+    obHomeArrow:'← Inicio', obBackShort:'← Atrás',
+    loginTooMany:'Demasiados intentos. Espera {n} segundos.',
+    loginLocked30:'Demasiados intentos fallidos. Espera 30 segundos.',
+    loginFillAll:'Rellena todos los campos.',
+    loginInProgress:'Iniciando sesión...',
+    loginBadCreds:'Correo o contraseña incorrectos. ({n} intentos restantes)',
+    fgT1:'Restablecer contraseña',
+    fgS1:'Introduce tu correo registrado y te enviaremos un código.',
+    fgSend:'Enviar código →', fgBackLogin:'← Volver al inicio de sesión',
+    fgT2:'Introduce el código', fgSpam:'Revisa también tu carpeta de spam.',
+    fgVerify:'Verificar →', fgResend:'Reenviar código',
+    fgT3:'Establece una nueva contraseña', fgS3:'Al menos 8 caracteres, con mayúsculas y minúsculas.',
+    fgPhNew:'Tu nueva contraseña', fgPhNew2:'Repite la contraseña', fgUpdate:'Actualizar contraseña →',
+    fgWaitSecs:'Espera {n} segundos, por favor.', fgWaitS:'espera {n}s',
+    fgSentTo:'Enviado a {email}', fgSendFail:'No se pudo enviar el correo: {msg}',
+    fgUpdatedTitle:'✓ Contraseña actualizada', fgUpdatedBody:'Ya puedes iniciar sesión con tu nueva contraseña.',
+    fgUpdateFail:'No se pudo actualizar la contraseña. Solicita un nuevo código.',
+    obWelcome1:'Hola, te damos la bienvenida a Verla.', obWelcome2:'Conozcámonos antes de empezar.',
+    obQUsername:'¿Cómo quieres que te llamemos?',
+    obQNative:'Elige tu idioma nativo.', obQNativeNamed:'{name}, elige tu idioma nativo.',
+    obQLearn:'¿Qué idioma quieres aprender?',
+    obQLevel:'¿Cómo describirías tu nivel de {lang}?',
+    obQTest:'¿Quieres averiguar tu nivel ahora?',
+    obQGoal:'¿Cuál es tu meta diaria?',
+    obQAccount:'Último paso: crea tu cuenta.',
+    obQVerify:'Verifica tu correo.',
+    obHintMulti:'Puedes elegir varios.',
+    obHintTest:'Una prueba corta para encontrar tu nivel.',
+    obHintSpam:'Revisa también tu carpeta de spam.',
+    obContinue:'Continuar', obCreate:'Crear cuenta', obAdv:'Avanzado',
+    obTestYes:'✦ Sí, evalúame', obTestYesSub:'~2 minutos, encuentra tu nivel',
+    obTestSkip:'Omitir por ahora', obTestSoon:'¡La prueba de nivel llega pronto! Por ahora te ponemos en A1.',
+    obPhUsername:'Tu nombre o apodo', obPhPass:'Tu contraseña', obPhPass2:'Repite la contraseña',
+    fEmail:'Correo', fPass:'Contraseña', fPass2:'Repetir contraseña',
+    critLen:'Al menos 8 caracteres', critUpper:'Al menos 1 mayúscula', critLower:'Al menos 1 minúscula',
+    obVerifySent:'Enviamos un código de verificación de 6 dígitos a<br><span style="color:#A08F7A;font-weight:500;">{email}</span>.',
+    obVerifyBtn:'Verificar →', obResend:'Reenviar código', obVerified:'✓ Verificado',
+    obFinishNew:'Creando tu cuenta...', obFinishOauth:'Completando tu perfil...',
+    errUsernameReq:'El nombre de usuario es obligatorio.',
+    errUsernameMin:'Debe tener al menos 3 caracteres.',
+    errUsernameMax:'Puede tener 18 caracteres como máximo.',
+    errUsernameChars:'Solo se permiten letras, números y _.',
+    errUsernameTaken:'❌ Este nombre de usuario ya está en uso.',
+    errNativeReq:'Elige al menos un idioma nativo.',
+    errLearnReq:'Elige al menos un idioma.',
+    errLevelReq:'Elige un nivel.',
+    errGoalReq:'Elige una meta.',
+    errPassReq:'La contraseña es obligatoria.',
+    errPassMin8:'La contraseña debe tener al menos 8 caracteres.',
+    errPassUpper:'Se requiere al menos 1 mayúscula.',
+    errPassLower:'Se requiere al menos 1 minúscula.',
+    errPassMatch:'Las contraseñas no coinciden.',
+    errPassMinShort:'Se requieren al menos 8 caracteres.',
+    errEmailReq:'El correo es obligatorio.',
+    errEmailSpace:'El correo no puede tener espacios.',
+    errEmailInvalid:'Introduce un correo válido.',
+    errEmailInvalidShort:'Introduce un correo válido.',
+    errEmailTemp:'No se aceptan correos temporales.',
+    errEmailFake:'Introduce un correo real.',
+    errEmailRegistered:'Este correo ya está registrado.',
+    errMailFail:'No se pudo enviar el correo. Inténtalo de nuevo.',
+    errCode6:'Introduce el código de 6 dígitos.',
+    errCodeWrong:'Código incorrecto. Inténtalo de nuevo.',
+    errGeneric:'Ha ocurrido un error: {msg}',
+    emailChecking:'Comprobando...', emailValid:'Correo válido',
+    langNames:{'Türkçe':'Turco','İngilizce':'Inglés','İspanyolca':'Español','Fransızca':'Francés','Almanca':'Alemán','İtalyanca':'Italiano','Japonca':'Japonés','Portekizce':'Portugués','Rusça':'Ruso','Korece':'Coreano','Çince':'Chino','Arapça':'Árabe'},
+    goals:[['Relajado','5 palabras al día'],['Medio','10 palabras al día'],['Intenso','20 palabras al día']],
+    lvlTxt:{
+      default:{ new:['Recién empiezo','No sé nada, desde cero'], A1:['Principiante','Saludos y números básicos'], A2:['Elemental','Formo frases sencillas'], B1:['Intermedio','Entiendo conversaciones cotidianas'], B2:['Intermedio alto','Me comunico con fluidez'], C1:['Avanzado','Entiendo textos complejos'], C2:['Maestría','Dominio casi nativo'], unknown:['No sé mi nivel','Averigüémoslo con una prueba'] },
+      'Japonca':{ new:['Recién empiezo','Ni siquiera sé hiragana'], N5:['N5 — Principiante','Hiragana y palabras básicas'], N4:['N4 — Elemental','Entiendo conversaciones simples'], N3:['N3 — Intermedio','Sigo la mayoría de situaciones diarias'], N2:['N2 — Avanzado','Leo noticias y artículos'], N1:['N1 — Maestría','Fluido en cualquier contexto'], unknown:['No sé mi nivel','Averigüémoslo con una prueba'] },
+      'Çince':{ new:['Recién empiezo','Ni siquiera sé pinyin'], HSK1:['HSK 1','150 palabras básicas'], HSK2:['HSK 2','300 palabras, frases simples'], HSK3:['HSK 3','600 palabras, habla cotidiana'], HSK4:['HSK 4','1200 palabras, intercambio fluido'], HSK5:['HSK 5','2500 palabras, leo periódicos'], HSK6:['HSK 6','Cercano al nivel nativo'], unknown:['No sé mi nivel','Averigüémoslo con una prueba'] },
+      'Korece':{ new:['Recién empiezo','Ni siquiera sé Hangul'], TOPIK1:['TOPIK 1','Palabras básicas y alfabeto'], TOPIK2:['TOPIK 2','Conversaciones cotidianas simples'], TOPIK3:['TOPIK 3','Entiendo la mayoría de situaciones'], TOPIK4:['TOPIK 4','Comunicación fluida'], TOPIK5:['TOPIK 5','Nivel profesional'], TOPIK6:['TOPIK 6','Dominio casi nativo'], unknown:['No sé mi nivel','Averigüémoslo con una prueba'] },
+      'Arapça':{ new:['Recién empiezo','No conozco el alfabeto árabe'], A1:['Principiante','Palabras básicas y alfabeto'], A2:['Elemental','Formo frases sencillas'], B1:['Intermedio','Entiendo conversaciones cotidianas'], B2:['Intermedio alto','Hablo de varios temas'], C1:['Avanzado','Entiendo textos clásicos'], C2:['Maestría','Árabe moderno y clásico'], unknown:['No sé mi nivel','Averigüémoslo con una prueba'] },
+    },
+  },
+  fr: {
+    or:'ou', sending:'Envoi...', errorTitle:'Erreur', backReturn:'← Retour',
+    lmEmail:'E-mail', lmPass:'Mot de passe', lmRemember:'Se souvenir de moi', lmForgot:'Mot de passe oublié',
+    lmNoAccount:'Pas de compte ?', lmStartFree:'Commencer gratuitement →', phEmail:'toi@mail.com',
+    obHomeArrow:'← Accueil', obBackShort:'← Retour',
+    loginTooMany:'Trop de tentatives. Attends {n} secondes.',
+    loginLocked30:'Trop de tentatives échouées. Attends 30 secondes.',
+    loginFillAll:'Remplis tous les champs.',
+    loginInProgress:'Connexion...',
+    loginBadCreds:'E-mail ou mot de passe incorrect. ({n} tentatives restantes)',
+    fgT1:'Réinitialise ton mot de passe',
+    fgS1:"Saisis ton e-mail enregistré, nous t'enverrons un code.",
+    fgSend:'Envoyer le code →', fgBackLogin:'← Retour à la connexion',
+    fgT2:'Saisis le code', fgSpam:'Vérifie aussi ton dossier spam.',
+    fgVerify:'Vérifier →', fgResend:'Renvoyer le code',
+    fgT3:'Définis un nouveau mot de passe', fgS3:'Au moins 8 caractères, avec majuscule et minuscule.',
+    fgPhNew:'Ton nouveau mot de passe', fgPhNew2:'Répète le mot de passe', fgUpdate:'Mettre à jour →',
+    fgWaitSecs:"Attends {n} secondes, s'il te plaît.", fgWaitS:'attends {n}s',
+    fgSentTo:'Envoyé à {email}', fgSendFail:"Impossible d'envoyer l'e-mail : {msg}",
+    fgUpdatedTitle:'✓ Mot de passe mis à jour', fgUpdatedBody:'Tu peux te connecter avec ton nouveau mot de passe.',
+    fgUpdateFail:'Impossible de mettre à jour le mot de passe. Demande un nouveau code.',
+    obWelcome1:'Salut, bienvenue sur Verla.', obWelcome2:'Faisons connaissance avant de commencer.',
+    obQUsername:"Comment devons-nous t'appeler ?",
+    obQNative:'Choisis ta langue maternelle.', obQNativeNamed:'{name}, choisis ta langue maternelle.',
+    obQLearn:'Quelle langue veux-tu apprendre ?',
+    obQLevel:'Comment décrirais-tu ton niveau en {lang} ?',
+    obQTest:'Tu veux connaître ton niveau maintenant ?',
+    obQGoal:'Quel est ton objectif quotidien ?',
+    obQAccount:'Dernière étape — crée ton compte.',
+    obQVerify:'Vérifie ton e-mail.',
+    obHintMulti:'Tu peux en choisir plusieurs.',
+    obHintTest:'Un test court pour trouver ton niveau.',
+    obHintSpam:'Vérifie aussi ton dossier spam.',
+    obContinue:'Continuer', obCreate:'Créer le compte', obAdv:'Avancé',
+    obTestYes:'✦ Oui, teste-moi', obTestYesSub:'~2 minutes, trouve ton niveau',
+    obTestSkip:"Passer pour l'instant", obTestSoon:"Le test de niveau arrive bientôt ! On te met en A1 pour l'instant.",
+    obPhUsername:'Ton nom ou pseudo', obPhPass:'Ton mot de passe', obPhPass2:'Répète le mot de passe',
+    fEmail:'E-mail', fPass:'Mot de passe', fPass2:'Répéter le mot de passe',
+    critLen:'Au moins 8 caractères', critUpper:'Au moins 1 majuscule', critLower:'Au moins 1 minuscule',
+    obVerifySent:'Nous avons envoyé un code de vérification à 6 chiffres à<br><span style="color:#A08F7A;font-weight:500;">{email}</span>.',
+    obVerifyBtn:'Vérifier →', obResend:'Renvoyer le code', obVerified:'✓ Vérifié',
+    obFinishNew:'Création de ton compte...', obFinishOauth:'Finalisation de ton profil...',
+    errUsernameReq:"Le nom d'utilisateur est requis.",
+    errUsernameMin:'Au moins 3 caractères.',
+    errUsernameMax:'18 caractères maximum.',
+    errUsernameChars:'Seuls les lettres, chiffres et _ sont autorisés.',
+    errUsernameTaken:"❌ Ce nom d'utilisateur est déjà pris.",
+    errNativeReq:'Choisis au moins une langue maternelle.',
+    errLearnReq:'Choisis au moins une langue.',
+    errLevelReq:'Choisis un niveau.',
+    errGoalReq:'Choisis un objectif.',
+    errPassReq:'Le mot de passe est requis.',
+    errPassMin8:'Le mot de passe doit faire au moins 8 caractères.',
+    errPassUpper:'Au moins 1 majuscule requise.',
+    errPassLower:'Au moins 1 minuscule requise.',
+    errPassMatch:'Les mots de passe ne correspondent pas.',
+    errPassMinShort:'Au moins 8 caractères requis.',
+    errEmailReq:"L'e-mail est requis.",
+    errEmailSpace:"L'e-mail ne peut pas contenir d'espaces.",
+    errEmailInvalid:'Saisis une adresse e-mail valide.',
+    errEmailInvalidShort:'Saisis un e-mail valide.',
+    errEmailTemp:'Les adresses e-mail temporaires ne sont pas acceptées.',
+    errEmailFake:'Saisis une vraie adresse e-mail.',
+    errEmailRegistered:'Cet e-mail est déjà enregistré.',
+    errMailFail:"Impossible d'envoyer l'e-mail. Réessaie.",
+    errCode6:'Saisis le code à 6 chiffres.',
+    errCodeWrong:'Code incorrect. Réessaie.',
+    errGeneric:'Une erreur est survenue : {msg}',
+    emailChecking:'Vérification...', emailValid:'E-mail valide',
+    langNames:{'Türkçe':'Turc','İngilizce':'Anglais','İspanyolca':'Espagnol','Fransızca':'Français','Almanca':'Allemand','İtalyanca':'Italien','Japonca':'Japonais','Portekizce':'Portugais','Rusça':'Russe','Korece':'Coréen','Çince':'Chinois','Arapça':'Arabe'},
+    goals:[['Tranquille','5 mots par jour'],['Moyen','10 mots par jour'],['Intense','20 mots par jour']],
+    lvlTxt:{
+      default:{ new:['Je débute','Je ne sais rien, à partir de zéro'], A1:['Débutant','Salutations et nombres de base'], A2:['Élémentaire','Je fais des phrases simples'], B1:['Intermédiaire','Je comprends les conversations courantes'], B2:['Intermédiaire avancé','Je communique couramment'], C1:['Avancé','Je comprends les textes complexes'], C2:['Maîtrise','Niveau quasi natif'], unknown:['Je ne connais pas mon niveau','Trouvons-le avec un test'] },
+      'Japonca':{ new:['Je débute','Je ne connais même pas les hiragana'], N5:['N5 — Débutant','Hiragana et mots de base'], N4:['N4 — Élémentaire','Je comprends les conversations simples'], N3:['N3 — Intermédiaire','Je suis la plupart des situations du quotidien'], N2:['N2 — Avancé','Je lis les actualités et les articles'], N1:["N1 — Maîtrise","À l'aise dans tous les contextes"], unknown:['Je ne connais pas mon niveau','Trouvons-le avec un test'] },
+      'Çince':{ new:['Je débute','Je ne connais même pas le pinyin'], HSK1:['HSK 1','150 mots de base'], HSK2:['HSK 2','300 mots, phrases simples'], HSK3:['HSK 3','600 mots, langage courant'], HSK4:['HSK 4','1200 mots, échanges fluides'], HSK5:['HSK 5','2500 mots, je lis les journaux'], HSK6:['HSK 6','Proche du niveau natif'], unknown:['Je ne connais pas mon niveau','Trouvons-le avec un test'] },
+      'Korece':{ new:['Je débute','Je ne connais même pas le Hangul'], TOPIK1:['TOPIK 1','Mots de base et alphabet'], TOPIK2:['TOPIK 2','Conversations simples du quotidien'], TOPIK3:['TOPIK 3','Je comprends la plupart des situations'], TOPIK4:['TOPIK 4','Communication fluide'], TOPIK5:['TOPIK 5','Niveau professionnel'], TOPIK6:['TOPIK 6','Niveau quasi natif'], unknown:['Je ne connais pas mon niveau','Trouvons-le avec un test'] },
+      'Arapça':{ new:['Je débute',"Je ne connais pas l'alphabet arabe"], A1:['Débutant','Mots de base et alphabet'], A2:['Élémentaire','Je fais des phrases simples'], B1:['Intermédiaire','Je comprends les conversations courantes'], B2:['Intermédiaire avancé','Je parle de sujets variés'], C1:['Avancé','Je comprends les textes classiques'], C2:['Maîtrise','Arabe moderne et classique'], unknown:['Je ne connais pas mon niveau','Trouvons-le avec un test'] },
+    },
+  },
+  ja: {
+    or:'または', sending:'送信中...', errorTitle:'エラー', backReturn:'← 戻る',
+    lmEmail:'メール', lmPass:'パスワード', lmRemember:'ログイン状態を保持', lmForgot:'パスワードを忘れた',
+    lmNoAccount:'アカウントをお持ちでないですか？', lmStartFree:'無料で始める →', phEmail:'you@mail.com',
+    obHomeArrow:'← ホーム', obBackShort:'← 戻る',
+    loginTooMany:'試行回数が多すぎます。{n}秒お待ちください。',
+    loginLocked30:'失敗が多すぎます。30秒お待ちください。',
+    loginFillAll:'すべての項目を入力してください。',
+    loginInProgress:'ログイン中...',
+    loginBadCreds:'メールまたはパスワードが違います。（残り{n}回）',
+    fgT1:'パスワードをリセット',
+    fgS1:'登録済みのメールを入力してください。リセットコードを送信します。',
+    fgSend:'コードを送信 →', fgBackLogin:'← ログインに戻る',
+    fgT2:'コードを入力', fgSpam:'迷惑メールフォルダも確認してください。',
+    fgVerify:'認証 →', fgResend:'コードを再送信',
+    fgT3:'新しいパスワードを設定', fgS3:'8文字以上、大文字と小文字を含めてください。',
+    fgPhNew:'新しいパスワード', fgPhNew2:'パスワードを再入力', fgUpdate:'パスワードを更新 →',
+    fgWaitSecs:'{n}秒お待ちください。', fgWaitS:'{n}秒待つ',
+    fgSentTo:'{email} に送信しました', fgSendFail:'メールを送信できませんでした：{msg}',
+    fgUpdatedTitle:'✓ パスワードを更新しました', fgUpdatedBody:'新しいパスワードでログインできます。',
+    fgUpdateFail:'パスワードを更新できませんでした。もう一度コードを取得してください。',
+    obWelcome1:'こんにちは、Verla へようこそ。', obWelcome2:'始める前に、あなたのことを教えてください。',
+    obQUsername:'何とお呼びすればいいですか？',
+    obQNative:'母語を選びましょう。', obQNativeNamed:'{name}さん、母語を選びましょう。',
+    obQLearn:'どの言語を学びたいですか？',
+    obQLevel:'{lang}のレベルはどのくらいですか？',
+    obQTest:'今すぐレベルを確認しますか？',
+    obQGoal:'1日の目標は？',
+    obQAccount:'最後のステップ — アカウントを作成。',
+    obQVerify:'メールを認証してください。',
+    obHintMulti:'複数選択できます。',
+    obHintTest:'短いテストであなたに合ったレベルを見つけます。',
+    obHintSpam:'迷惑メールフォルダも確認してください。',
+    obContinue:'続ける', obCreate:'アカウントを作成', obAdv:'上級',
+    obTestYes:'✦ はい、テストする', obTestYesSub:'約2分、レベルを診断',
+    obTestSkip:'今はスキップ', obTestSoon:'レベルテストは近日公開！今はA1に設定します。',
+    obPhUsername:'名前またはニックネーム', obPhPass:'パスワード', obPhPass2:'パスワードを再入力',
+    fEmail:'メール', fPass:'パスワード', fPass2:'パスワード（確認）',
+    critLen:'8文字以上', critUpper:'大文字を1つ以上', critLower:'小文字を1つ以上',
+    obVerifySent:'<span style="color:#A08F7A;font-weight:500;">{email}</span> 宛に<br>6桁の認証コードを送信しました。',
+    obVerifyBtn:'認証 →', obResend:'コードを再送信', obVerified:'✓ 認証済み',
+    obFinishNew:'アカウントを作成中...', obFinishOauth:'プロフィールを仕上げ中...',
+    errUsernameReq:'ユーザー名を入力してください。',
+    errUsernameMin:'3文字以上にしてください。',
+    errUsernameMax:'18文字以内にしてください。',
+    errUsernameChars:'英字・数字・_ のみ使用できます。',
+    errUsernameTaken:'❌ このユーザー名は既に使われています。',
+    errNativeReq:'母語を1つ以上選んでください。',
+    errLearnReq:'言語を1つ以上選んでください。',
+    errLevelReq:'レベルを選んでください。',
+    errGoalReq:'目標を選んでください。',
+    errPassReq:'パスワードを入力してください。',
+    errPassMin8:'パスワードは8文字以上にしてください。',
+    errPassUpper:'大文字を1つ以上入れてください。',
+    errPassLower:'小文字を1つ以上入れてください。',
+    errPassMatch:'パスワードが一致しません。',
+    errPassMinShort:'8文字以上必要です。',
+    errEmailReq:'メールを入力してください。',
+    errEmailSpace:'メールにスペースは使えません。',
+    errEmailInvalid:'有効なメールアドレスを入力してください。',
+    errEmailInvalidShort:'有効なメールを入力してください。',
+    errEmailTemp:'使い捨てメールアドレスは使用できません。',
+    errEmailFake:'実在するメールアドレスを入力してください。',
+    errEmailRegistered:'このメールは既に登録されています。',
+    errMailFail:'メールを送信できませんでした。もう一度お試しください。',
+    errCode6:'6桁のコードを入力してください。',
+    errCodeWrong:'コードが違います。もう一度お試しください。',
+    errGeneric:'エラーが発生しました：{msg}',
+    emailChecking:'確認中...', emailValid:'メールは有効です',
+    langNames:{'Türkçe':'トルコ語','İngilizce':'英語','İspanyolca':'スペイン語','Fransızca':'フランス語','Almanca':'ドイツ語','İtalyanca':'イタリア語','Japonca':'日本語','Portekizce':'ポルトガル語','Rusça':'ロシア語','Korece':'韓国語','Çince':'中国語','Arapça':'アラビア語'},
+    goals:[['ゆっくり','1日5単語'],['ふつう','1日10単語'],['集中','1日20単語']],
+    lvlTxt:{
+      default:{ new:['始めたばかり','何も知らない、ゼロから'], A1:['初級','基本のあいさつと数字'], A2:['初級上','簡単な文が作れる'], B1:['中級','日常会話が理解できる'], B2:['中上級','流暢にやり取りできる'], C1:['上級','複雑な文章が理解できる'], C2:['熟達','ネイティブに近い'], unknown:['レベルが分からない','テストで確認しましょう'] },
+      'Japonca':{ new:['始めたばかり','ひらがなも分からない'], N5:['N5 — 初級','基本のひらがなと単語'], N4:['N4 — 初級上','簡単な会話が分かる'], N3:['N3 — 中級','日常の場面はだいたい分かる'], N2:['N2 — 上級','ニュースや記事が読める'], N1:['N1 — 熟達','どんな場面でも流暢'], unknown:['レベルが分からない','テストで確認しましょう'] },
+      'Çince':{ new:['始めたばかり','ピンインも分からない'], HSK1:['HSK 1','基本語150語'], HSK2:['HSK 2','300語、簡単な文'], HSK3:['HSK 3','600語、日常会話'], HSK4:['HSK 4','1200語、流暢なやり取り'], HSK5:['HSK 5','2500語、新聞が読める'], HSK6:['HSK 6','ネイティブに近い'], unknown:['レベルが分からない','テストで確認しましょう'] },
+      'Korece':{ new:['始めたばかり','ハングルも分からない'], TOPIK1:['TOPIK 1','基本語と文字'], TOPIK2:['TOPIK 2','簡単な日常会話'], TOPIK3:['TOPIK 3','ほとんどの場面が分かる'], TOPIK4:['TOPIK 4','流暢な意思疎通'], TOPIK5:['TOPIK 5','プロレベル'], TOPIK6:['TOPIK 6','ネイティブに近い'], unknown:['レベルが分からない','テストで確認しましょう'] },
+      'Arapça':{ new:['始めたばかり','アラビア文字が分からない'], A1:['初級','基本語と文字'], A2:['初級上','簡単な文が作れる'], B1:['中級','日常会話が理解できる'], B2:['中上級','様々な話題を話せる'], C1:['上級','古典的な文章が理解できる'], C2:['熟達','現代・古典アラビア語に精通'], unknown:['レベルが分からない','テストで確認しましょう'] },
+    },
+  },
+};
+['tr','en','de','es','fr','ja'].forEach(k => Object.assign(UI_LANGS[k], I18N_EXT[k]));
+
+const UILANG_META = {
+  tr:['https://flagcdn.com/w160/tr.png','TR'], en:['https://flagcdn.com/w160/gb.png','EN'],
+  de:['https://flagcdn.com/w160/de.png','DE'], es:['https://flagcdn.com/w160/es.png','ES'],
+  fr:['https://flagcdn.com/w160/fr.png','FR'], ja:['https://flagcdn.com/w160/jp.png','JA'],
+};
+
+// Metin çekici — T('anahtar', {degisken: deger}); çeviri yoksa tr'ye, o da yoksa anahtara düşer
+function T(key, vars){
+  const d = UI_LANGS[currentUILang] || UI_LANGS.tr;
+  let s = (d && d[key] != null) ? d[key] : (UI_LANGS.tr[key] != null ? UI_LANGS.tr[key] : key);
+  if(vars) for(const k in vars) s = String(s).split('{' + k + '}').join(vars[k]);
+  return s;
+}
+// Yerelleştirilmiş dil adı — kanonik (Türkçe) ada göre; çeviri yoksa kanonik kalır
+function langName(canonical){
+  const m = (UI_LANGS[currentUILang] || {}).langNames || {};
+  return m[canonical] || canonical;
+}
+// data-i18n / data-i18n-html / data-i18n-ph taşıyan statik düğümleri çevirir
+function applyI18n(root){
+  root = root || document;
+  root.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = T(el.getAttribute('data-i18n')); });
+  root.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = T(el.getAttribute('data-i18n-html')); });
+  root.querySelectorAll('[data-i18n-ph]').forEach(el => { el.setAttribute('placeholder', T(el.getAttribute('data-i18n-ph'))); });
+}
+
 function toggleLangMenu() {
   const menu = document.getElementById('langMenu');
   if(!menu) return;
@@ -1753,6 +2256,14 @@ function setUILang(code, flag, name) {
   document.querySelectorAll('.lm-item').forEach(el => el.classList.remove('sel'));
   const activeEl = document.querySelector('.lm-item[data-code="' + code + '"]');
   if(activeEl) activeEl.classList.add('sel');
+
+  // Seçimi hatırla — sayfa yenilenince korunsun
+  try { localStorage.setItem('verla_uilang', code); } catch(e) {}
+  // Statik giriş-öncesi düğümler (giriş modalı, şifremi unuttum, onboarding kabuğu)
+  applyI18n(document);
+  // Onboarding açıksa mevcut adımı yeni dille yeniden çiz
+  const _obPage = document.getElementById('page-onboarding');
+  if(_obPage && _obPage.classList.contains('active') && typeof renderObStep === 'function') renderObStep();
 }
 
 // Dışarı tıklayınca menüyü kapat
@@ -1912,6 +2423,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   buildHeroFlags();
   restoreSettings();
 
+  // Kaydedilmiş arayüz dili — varsa uygula (tr zaten varsayılan)
+  try {
+    const _savedLang = localStorage.getItem('verla_uilang');
+    if(_savedLang && _savedLang !== 'tr' && UI_LANGS[_savedLang] && UILANG_META[_savedLang]) {
+      setUILang(_savedLang, UILANG_META[_savedLang][0], UILANG_META[_savedLang][1]);
+    }
+  } catch(e) {}
+  applyI18n(document);
+
   // Şifre sıfırlama linkiyle mi gelindi? (öyleyse otomatik girişe izin verme)
   const isRecovery = window.location.search.includes('reset=true')
                   || window.location.hash.includes('type=recovery');
@@ -2030,17 +2550,17 @@ function checkForgotCooldown(){
   if(elapsed < cooldown){
     const remaining = cooldown - elapsed;
     const btn = document.getElementById('forgotSendBtn');
-    if(btn){ btn.disabled=true; btn.textContent=`${remaining}s bekle`; }
-    
+    if(btn){ btn.disabled=true; btn.textContent=T('fgWaitS',{n:remaining}); }
+
     clearInterval(forgotResendInterval);
     let secs = remaining;
     forgotResendInterval = setInterval(()=>{
       secs--;
       const b = document.getElementById('forgotSendBtn');
-      if(b) b.textContent = `${secs}s bekle`;
+      if(b) b.textContent = T('fgWaitS',{n:secs});
       if(secs<=0){
         clearInterval(forgotResendInterval);
-        if(b){ b.disabled=false; b.textContent='Kod Gönder →'; }
+        if(b){ b.disabled=false; b.textContent=T('fgSend'); }
       }
     },1000);
   }
@@ -2059,20 +2579,20 @@ async function sendForgotCode(){
   const errEl = document.getElementById('forgotStep1Err');
   const btn = document.getElementById('forgotSendBtn');
 
-  if(!email){ errEl.textContent='E-posta gerekli.'; return; }
+  if(!email){ errEl.textContent=T('errEmailReq'); return; }
   if(!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)){
-    errEl.textContent='Geçerli bir e-posta gir.'; return;
+    errEl.textContent=T('errEmailInvalidShort'); return;
   }
 
   // Cooldown kontrolü
   const lastSent = parseInt(localStorage.getItem('forgotLastSent') || '0');
   const elapsed = Math.floor((Date.now() - lastSent) / 1000);
   if(elapsed < 60){
-    errEl.textContent = `Lütfen ${60-elapsed} saniye bekle.`;
+    errEl.textContent = T('fgWaitSecs',{n:60-elapsed});
     return;
   }
 
-  btn.textContent='Gönderiliyor...'; btn.disabled=true;
+  btn.textContent=T('sending'); btn.disabled=true;
   errEl.textContent='';
 
   // Profil tablosundan e-posta kontrolü
@@ -2093,13 +2613,13 @@ async function sendForgotCode(){
     // Başarı ekranı göster
     document.getElementById('forgotStep1').style.display='none';
     document.getElementById('forgotStep2').style.display='block';
-    document.getElementById('forgotCodeSentTo').textContent = email + ' adresine gönderildi';
+    document.getElementById('forgotCodeSentTo').textContent = T('fgSentTo',{email});
     document.getElementById('forgotStep2Err').textContent = '';
 
   } catch(e){
-    errEl.textContent='E-posta gönderilemedi: ' + e.message;
+    errEl.textContent=T('fgSendFail',{msg:e.message});
   }
-  btn.textContent='Kod Gönder →'; btn.disabled=false;
+  btn.textContent=T('fgSend'); btn.disabled=false;
 }
 
 async function resendForgotCode(){
@@ -2154,14 +2674,14 @@ function fcPaste(e,idx){
 function verifyForgotCode(){
   const entered=Array.from({length:6},(_,i)=>document.getElementById('fc'+i)?.value||'').join('');
   const errEl=document.getElementById('forgotStep2Err');
-  if(entered.length<6){errEl.textContent='Lütfen 6 haneli kodu gir.';return;}
+  if(entered.length<6){errEl.textContent=T('errCode6');return;}
   if(entered===forgotCode){
     errEl.textContent='';
     document.getElementById('forgotStep2').style.display='none';
     document.getElementById('forgotStep3').style.display='block';
     setTimeout(()=>document.getElementById('forgotNewPass')?.focus(),100);
   } else {
-    errEl.textContent='Kod yanlış. Tekrar dene.';
+    errEl.textContent=T('errCodeWrong');
     for(let i=0;i<6;i++){
       const inp=document.getElementById('fc'+i);
       if(inp){inp.style.borderColor='rgba(255,95,95,0.6)';inp.style.animation='shake 0.3s ease';setTimeout(()=>{inp.style.animation='';inp.style.borderColor='#3A3220';},400);}
@@ -2210,10 +2730,10 @@ async function submitNewPassword(){
   const pass2=document.getElementById('forgotNewPass2')?.value||'';
   const errEl=document.getElementById('forgotStep3Err');
 
-  if(pass.length<8){errEl.textContent='En az 8 karakter gerekli.';return;}
-  if(!/\p{Lu}/u.test(pass)){errEl.textContent='En az 1 büyük harf gerekli.';return;}
-  if(!/\p{Ll}/u.test(pass)){errEl.textContent='En az 1 küçük harf gerekli.';return;}
-  if(pass!==pass2){errEl.textContent='Şifreler eşleşmiyor.';return;}
+  if(pass.length<8){errEl.textContent=T('errPassMinShort');return;}
+  if(!/\p{Lu}/u.test(pass)){errEl.textContent=T('errPassUpper');return;}
+  if(!/\p{Ll}/u.test(pass)){errEl.textContent=T('errPassLower');return;}
+  if(pass!==pass2){errEl.textContent=T('errPassMatch');return;}
 
   try {
     // OTP ile giriş yapıp şifreyi güncelle
@@ -2233,9 +2753,9 @@ async function submitNewPassword(){
     }
 
     closeForgotPass();
-    showNotif('✓ Şifre güncellendi', 'Yeni şifrenle giriş yapabilirsin.');
+    showNotif(T('fgUpdatedTitle'), T('fgUpdatedBody'));
   } catch(e){
-    errEl.textContent='Şifre güncellenemedi. Lütfen tekrar kod al.';
+    errEl.textContent=T('fgUpdateFail');
   }
 }
 
@@ -2245,7 +2765,7 @@ async function doDiscordLogin(){
     provider: 'discord',
     options: { redirectTo: window.location.origin + window.location.pathname }
   });
-  if(error) showNotif('Hata', error.message);
+  if(error) showNotif(T('errorTitle'), error.message);
 }
 
 /* ┌─ FACEBOOK GİRİŞİ — YUVA ──────────────────────────────────────────────┐
@@ -2273,13 +2793,13 @@ function doLogin(){
 
   if(Date.now() < loginLockedUntil){
     const secs = Math.ceil((loginLockedUntil - Date.now()) / 1000);
-    err.textContent = `Çok fazla deneme. ${secs} saniye bekle.`;
+    err.textContent = T('loginTooMany',{n:secs});
     return;
   }
 
-  if(!email||!pass){ err.textContent='Tüm alanları doldurun.'; return; }
+  if(!email||!pass){ err.textContent=T('loginFillAll'); return; }
 
-  if(btn){ btn.textContent='Giriş yapılıyor...'; btn.disabled=true; }
+  if(btn){ btn.textContent=T('loginInProgress'); btn.disabled=true; }
 
   window._supabase.auth.signInWithPassword({ email, password: pass })
     .then(async ({ data, error: signInError }) => {
@@ -2288,16 +2808,16 @@ function doLogin(){
         if(loginAttempts >= 3){
           loginLockedUntil = Date.now() + 30000;
           loginAttempts = 0;
-          err.textContent = 'Çok fazla yanlış deneme. 30 saniye bekle.';
+          err.textContent = T('loginLocked30');
           const lockTimer = setInterval(() => {
             const secs = Math.ceil((loginLockedUntil - Date.now()) / 1000);
             if(secs <= 0){ clearInterval(lockTimer); err.textContent=''; }
-            else err.textContent = `Çok fazla deneme. ${secs} saniye bekle.`;
+            else err.textContent = T('loginTooMany',{n:secs});
           }, 1000);
         } else {
-          err.textContent = `E-posta veya şifre hatalı. (${3-loginAttempts} deneme hakkın kaldı)`;
+          err.textContent = T('loginBadCreds',{n:3-loginAttempts});
         }
-        if(btn){ btn.textContent='Giriş Yap'; btn.disabled=false; }
+        if(btn){ btn.textContent=T('loginBtn'); btn.disabled=false; }
         return;
       }
 
@@ -2309,7 +2829,7 @@ function doLogin(){
 
       loginAttempts = 0;
       err.textContent = '';
-      if(btn){ btn.textContent='Giriş Yap'; btn.disabled=false; }
+      if(btn){ btn.textContent=T('loginBtn'); btn.disabled=false; }
 
       const user = buildUser(data.user, profile);
       closeLoginModal();
@@ -2325,7 +2845,7 @@ async function doGoogleLogin(){
       redirectTo: window.location.origin + window.location.pathname
     }
   });
-  if(error) showNotif('Hata', error.message);
+  if(error) showNotif(T('errorTitle'), error.message);
 }
 
 // ── ONBOARDING ──
@@ -2424,7 +2944,15 @@ const LANG_LEVELS = {
   ],
 };
 
-function getLevelsForLang(lang){ return LANG_LEVELS[lang] || LANG_LEVELS['default']; }
+function getLevelsForLang(lang){
+  const base = LANG_LEVELS[lang] || LANG_LEVELS['default'];
+  const variant = LANG_LEVELS[lang] ? lang : 'default';
+  const tx = ((UI_LANGS[currentUILang] || {}).lvlTxt || {})[variant];
+  if(!tx) return base;                       // tr veya çeviri yoksa Türkçe temel
+  return base.map(l => tx[l.val]
+    ? Object.assign({}, l, { title: tx[l.val][0], sub: tx[l.val][1] })
+    : l);
+}
 
 const GOALS = [
   {icon:'☕', val:'5',  title:'Rahat',  sub:'Günde 5 kelime'},
@@ -2525,7 +3053,7 @@ function goOnboarding(isOAuth = false){
   }
 
   // Sırayla: önce "Hoş geldin." sonra sil, sonra "Başlamadan önce seni tanıyalım."
-  const msgs = ['Merhaba, Verla’ya hoş geldin.', 'Başlamadan önce seni tanıyalım.'];
+  const msgs = [T('obWelcome1'), T('obWelcome2')];
 
   // İlk mesajı daktilo ile yaz
   setTimeout(() => {
@@ -2575,47 +3103,47 @@ function getStepConfig() {
   if(!step) return null;
 
   if(step.id === 'username') return {
-    q: 'Sana nasıl seslenelim?',
+    q: T('obQUsername'),
     hint: null,
-    type: 'text', placeholder: 'İsmin veya takma adın', btn: 'Devam'
+    type: 'text', placeholder: T('obPhUsername'), btn: T('obContinue')
   };
   if(step.id === 'native') return {
-    q: name ? name + ', ana dilini seçelim.' : 'Ana dilini seçelim.',
-    hint: 'Birden fazla seçebilirsin.',
-    type: 'native', btn: 'Devam'
+    q: name ? T('obQNativeNamed', {name}) : T('obQNative'),
+    hint: T('obHintMulti'),
+    type: 'native', btn: T('obContinue')
   };
   if(step.id === 'learn') return {
-    q: 'Hangi dili öğrenmek istiyorsun?',
-    hint: 'Birden fazla seçebilirsin.',
-    type: 'learn', btn: 'Devam'
+    q: T('obQLearn'),
+    hint: T('obHintMulti'),
+    type: 'learn', btn: T('obContinue')
   };
   if(step.id === 'level') {
     const lang = step.lang;
     const flags = {'İngilizce':'🇬🇧','İspanyolca':'🇪🇸','Fransızca':'🇫🇷','Almanca':'🇩🇪','İtalyanca':'🇮🇹','Japonca':'🇯🇵','Portekizce':'🇵🇹','Rusça':'🇷🇺','Korece':'🇰🇷','Çince':'🇨🇳','Arapça':'🇸🇦'};
     return {
-      q: (flags[lang]||'🌐') + ' ' + lang + ' seviyeni nasıl tanımlarsın?',
+      q: T('obQLevel', {lang: (flags[lang]||'🌐') + ' ' + langName(lang)}),
       hint: null,
-      type: 'level', lang, btn: 'Devam'
+      type: 'level', lang, btn: T('obContinue')
     };
   }
   if(step.id === 'test_offer') return {
-    q: 'Seviyeni hemen öğrenmek ister misin?',
-    hint: 'Kısa bir test ile sana uygun seviyeyi bulalım.',
+    q: T('obQTest'),
+    hint: T('obHintTest'),
     type: 'test_offer', lang: step.lang, btn: null
   };
   if(step.id === 'goal') return {
-    q: 'Günlük hedefiniz ne olsun?',
+    q: T('obQGoal'),
     hint: null,
-    type: 'goal', btn: 'Devam'
+    type: 'goal', btn: T('obContinue')
   };
   if(step.id === 'account') return {
-    q: 'Son adım — hesabını oluştur.',
+    q: T('obQAccount'),
     hint: null,
-    type: obData.isOAuth ? 'account_skip' : 'account', btn: obData.isOAuth ? null : 'Hesabı Oluştur'
+    type: obData.isOAuth ? 'account_skip' : 'account', btn: obData.isOAuth ? null : T('obCreate')
   };
   if(step.id === 'verify') return {
-    q: 'E-postanı doğrula.',
-    hint: 'Spam klasörünü de kontrol et.',
+    q: T('obQVerify'),
+    hint: T('obHintSpam'),
     type: 'verify', btn: null
   };
   return null;
@@ -2638,7 +3166,7 @@ function renderObStep() {
     </div>
     ${cfg.btn ? `<div class="ob-actions ob-step-in">
       ${obStep > 0
-        ? '<button class="ob-back-link" onclick="obBack()">← Geri</button>'
+        ? `<button class="ob-back-link" onclick="obBack()">${T('obBackShort')}</button>`
         : '<div></div>'}
       <button class="ob-next" onclick="obNext()">${cfg.btn} →</button>
     </div>` : ''}`;
@@ -2660,7 +3188,7 @@ function renderObInput(cfg) {
           <div class="ob-lang-bg" style="background-image:url('${l.img}')"></div>
           <div class="ob-lang-overlay"></div>
           <div class="ob-lang-label">
-            <span class="ob-lang-name">${l.name}</span>
+            <span class="ob-lang-name">${langName(l.name)}</span>
             <span class="ob-lang-check">✓</span>
           </div>
         </button>`).join('')}
@@ -2676,8 +3204,8 @@ function renderObInput(cfg) {
           <div class="ob-lang-bg" style="background-image:url('${l.img||''}')"></div>
           <div class="ob-lang-overlay"></div>
           <div class="ob-lang-label">
-            <span class="ob-lang-name">${l.name}</span>
-            ${l.advanced ? `<span class="ob-lang-adv-badge">${l.advLabel||'İleri'}</span>` : ''}
+            <span class="ob-lang-name">${langName(l.name)}</span>
+            ${l.advanced ? `<span class="ob-lang-adv-badge">${T('obAdv')}</span>` : ''}
             <span class="ob-lang-check">✓</span>
           </div>
         </button>`).join('')}
@@ -2715,27 +3243,28 @@ function renderObInput(cfg) {
         onmouseover="this.style.background='rgba(160,143,122,0.18)';this.style.borderColor='rgba(160,143,122,0.5)'"
         onmouseout="this.style.background='rgba(160,143,122,0.1)';this.style.borderColor='rgba(160,143,122,0.25)'">
         <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;">
-          <span style="font-size:14px;font-weight:500;">✦ Evet, test edelim</span>
-          <span style="font-size:12px;color:#9C9278;">~2 dakika sürer, seviyeni bulalım</span>
+          <span style="font-size:14px;font-weight:500;">${T('obTestYes')}</span>
+          <span style="font-size:12px;color:#9C9278;">${T('obTestYesSub')}</span>
         </div>
         <span style="font-size:18px;opacity:0.7;">→</span>
       </button>
       <button onclick="obTestSkip('${cfg.lang}')" style="width:100%;padding:16px 22px;background:transparent;color:#9C9278;border:1px solid #3A3220;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:space-between;font-size:13px;transition:all 0.2s;"
         onmouseover="this.style.color='#EEE7D7';this.style.borderColor='#444'"
         onmouseout="this.style.color='#9C9278';this.style.borderColor='#3A3220'">
-        <span>Şimdilik atla</span>
+        <span>${T('obTestSkip')}</span>
         <span style="opacity:0.4;">→</span>
       </button>
     </div>`;
   }
   if(cfg.type === 'goal') {
+    const goalTxt = T('goals') || [];
     return `<div class="ob-opts">
-      ${GOALS.map(g => `
+      ${GOALS.map((g,gi) => `
         <button class="ob-opt ${obData.goal===g.val?'sel':''}"
           onclick="obSelOne(this,'goal','${g.val}')">
           <span class="ob-opt-icon">${g.icon}</span>
-          <div><div class="ob-opt-title">${g.title}</div>
-          <div class="ob-opt-sub">${g.sub}</div></div>
+          <div><div class="ob-opt-title">${(goalTxt[gi]||[])[0]||g.title}</div>
+          <div class="ob-opt-sub">${(goalTxt[gi]||[])[1]||g.sub}</div></div>
         </button>`).join('')}
     </div>`;
   }
@@ -2743,9 +3272,9 @@ function renderObInput(cfg) {
   if(cfg.type === 'account') {
     return `
       <div style="margin-bottom:20px;">
-        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;display:block;margin-bottom:8px;">E-posta</label>
+        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;display:block;margin-bottom:8px;">${T('fEmail')}</label>
         <input class="ob-input" id="obEmail" type="email"
-          placeholder="ornek@mail.com"
+          placeholder="${T('phEmail')}"
           value="${obData.email||''}"
           onblur="checkEmailBlur()">
         <div id="emailHints" style="display:none;flex-direction:column;gap:4px;margin-top:8px;"></div>
@@ -2753,10 +3282,10 @@ function renderObInput(cfg) {
       </div>
 
       <div style="margin-bottom:12px;">
-        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;display:block;margin-bottom:8px;">Şifre</label>
+        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;display:block;margin-bottom:8px;">${T('fPass')}</label>
         <div style="position:relative;">
           <input class="ob-input" id="obPass" type="password"
-            placeholder="Şifren"
+            placeholder="${T('obPhPass')}"
             oninput="checkPassCriteria()"
             style="padding-right:44px;margin-bottom:0;">
           <button type="button" onclick="togglePassVis('obPass','eyeBtn1')" id="eyeBtn1"
@@ -2767,10 +3296,10 @@ function renderObInput(cfg) {
       </div>
 
       <div style="margin-bottom:20px;">
-        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;display:block;margin-bottom:8px;">Şifre tekrar</label>
+        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;display:block;margin-bottom:8px;">${T('fPass2')}</label>
         <div style="position:relative;">
           <input class="ob-input" id="obPass2" type="password"
-            placeholder="Şifreni tekrar gir"
+            placeholder="${T('obPhPass2')}"
             onkeydown="if(event.key==='Enter')obNext()"
             style="padding-right:44px;margin-bottom:0;">
           <button type="button" onclick="togglePassVis('obPass2','eyeBtn2')" id="eyeBtn2"
@@ -2783,13 +3312,13 @@ function renderObInput(cfg) {
 
       <div id="passCriteria" style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;">
         <div id="crit-len"  style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);">
-          <span id="crit-len-icon"  style="font-size:13px;">○</span> En az 8 karakter
+          <span id="crit-len-icon"  style="font-size:13px;">○</span> ${T('critLen')}
         </div>
         <div id="crit-upper" style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);">
-          <span id="crit-upper-icon" style="font-size:13px;">○</span> En az 1 büyük harf
+          <span id="crit-upper-icon" style="font-size:13px;">○</span> ${T('critUpper')}
         </div>
         <div id="crit-lower" style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);">
-          <span id="crit-lower-icon" style="font-size:13px;">○</span> En az 1 küçük harf
+          <span id="crit-lower-icon" style="font-size:13px;">○</span> ${T('critLower')}
         </div>
 
       </div>`;
@@ -2797,8 +3326,7 @@ function renderObInput(cfg) {
   if(cfg.type === 'verify') {
     return `<div style="padding:4px 0;">
       <div style="font-size:14px;color:#9C9278;line-height:1.7;margin-bottom:28px;">
-        <span style="color:#A08F7A;font-weight:500;">${obData.email||''}</span> adresine<br>
-        6 haneli doğrulama kodu gönderdik.
+        ${T('obVerifySent', {email: obData.email||''})}
       </div>
 
       <div style="display:flex;gap:8px;justify-content:flex-start;margin-bottom:6px;">
@@ -2815,14 +3343,14 @@ function renderObInput(cfg) {
 
       <button id="vcSubmitBtn" onclick="verifyCode()"
         style="width:100%;padding:14px;background:#A08F7A;color:#15130F;border:none;border-radius:12px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.2s;">
-        Doğrula →
+        ${T('obVerifyBtn')}
       </button>
 
       <div style="margin-top:14px;display:flex;align-items:center;gap:8px;">
         <button id="resendBtn" onclick="resendCode()"
           style="background:none;border:none;color:#9C9278;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;padding:0;transition:color 0.2s;"
           onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='#9C9278'">
-          Kodu tekrar gönder
+          ${T('obResend')}
         </button>
         <span id="resendTimer" style="font-size:12px;color:#9C9278;display:none;"></span>
       </div>
@@ -2857,7 +3385,7 @@ function obSelLevel(btn, lang, val) {
 
 function obTestYes(lang) {
   // İleride gerçek test eklenecek - şimdilik bilgi ver
-  alert('Seviye testi yakında geliyor! Şimdilik A1 olarak ayarlıyoruz.');
+  alert(T('obTestSoon'));
   if(!obData.levels) obData.levels = {};
   obData.levels[lang] = 'A1';
   obGoNextStep();
@@ -2884,10 +3412,10 @@ function obNext() {
 
   if(step.id === 'username') {
     const v = (document.getElementById('obMainInput')?.value||'').trim();
-    if(!v){ err.textContent='Kullanıcı adı gerekli.'; return; }
-    if(v.length<3){ err.textContent='En az 3 karakter olmalı.'; return; }
-    if(v.length>18){ err.textContent='En fazla 18 karakter olabilir.'; return; }
-    if(!/^[a-zA-Z0-9_]+$/.test(v)){ err.textContent='Sadece İngilizce harf, rakam ve _ kullanabilirsin.'; return; }
+    if(!v){ err.textContent=T('errUsernameReq'); return; }
+    if(v.length<3){ err.textContent=T('errUsernameMin'); return; }
+    if(v.length>18){ err.textContent=T('errUsernameMax'); return; }
+    if(!/^[a-zA-Z0-9_]+$/.test(v)){ err.textContent=T('errUsernameChars'); return; }
     
     // Kullanıcı adı müsait mi kontrol et
     err.textContent='';
@@ -2898,7 +3426,7 @@ function obNext() {
       .then(({ data }) => {
         if(btn) btn.disabled = false;
         if(data) {
-          err.textContent = '❌ Bu kullanıcı adı zaten alınmış.';
+          err.textContent = T('errUsernameTaken');
         } else {
           err.textContent = '';
           obData.username = v;
@@ -2922,9 +3450,9 @@ function obNext() {
       });
     return; // Async kontrol yapılıyor, buradan çık
   } else if(step.id === 'native') {
-    if(obData.nativeLangs.length === 0){ err.textContent='En az bir ana dil seç.'; return; }
+    if(obData.nativeLangs.length === 0){ err.textContent=T('errNativeReq'); return; }
   } else if(step.id === 'learn') {
-    if(obData.learnLangs.length === 0){ err.textContent='En az bir dil seç.'; return; }
+    if(obData.learnLangs.length === 0){ err.textContent=T('errLearnReq'); return; }
     // Seçilen dillere göre adımları yeniden oluştur
     obSteps = [
       { id:'username' }, { id:'native' }, { id:'learn' },
@@ -2934,7 +3462,7 @@ function obNext() {
     ];
   } else if(step.id === 'level') {
     const lang = obSteps[obStep].lang;
-    if(!(obData.levels||{})[lang]){ err.textContent='Bir seviye seç.'; return; }
+    if(!(obData.levels||{})[lang]){ err.textContent=T('errLevelReq'); return; }
     // unknown seçildiyse araya test_offer adımı ekle
     if((obData.levels||{})[lang] === 'unknown') {
       err.textContent = '';
@@ -2950,7 +3478,7 @@ function obNext() {
       return;
     }
   } else if(step.id === 'goal') {
-    if(!obData.goal){ err.textContent='Bir hedef seç.'; return; }
+    if(!obData.goal){ err.textContent=T('errGoalReq'); return; }
     // OAuth kullanıcısı için goal sonrası direkt bitir
     if(obData.isOAuth) { obFinish(); return; }
   } else if(step.id === 'account' || step.id === 'account_skip') {
@@ -2974,7 +3502,7 @@ function obNext() {
     // Daha önce API'nin temp dediği domain
     const emailInp = document.getElementById('obEmail');
     if(emailInp && emailInp._isTemp === true){
-      if(emailErr2) emailErr2.textContent = 'Geçici e-posta adresleri kabul edilmiyor.';
+      if(emailErr2) emailErr2.textContent = T('errEmailTemp');
       return;
     }
     // NOT: Buradaki eski "e-posta zaten kayıtlı" kontrolü kaldırıldı — sadece sahte
@@ -2982,12 +3510,12 @@ function obNext() {
     // Gerçek kontrol obFinish'te: Supabase signUp 'User already registered' döndürünce yakalanıyor.
 
     // Şifre kriterleri
-    if(!pass){ err.textContent='Şifre gerekli.'; return; }
-    if(pass.length < 8){ err.textContent='Şifre en az 8 karakter olmalı.'; return; }
-    if(!/\p{Lu}/u.test(pass)){ err.textContent='En az 1 büyük harf gerekli.'; return; }
-    if(!/\p{Ll}/u.test(pass)){ err.textContent='En az 1 küçük harf gerekli.'; return; }
+    if(!pass){ err.textContent=T('errPassReq'); return; }
+    if(pass.length < 8){ err.textContent=T('errPassMin8'); return; }
+    if(!/\p{Lu}/u.test(pass)){ err.textContent=T('errPassUpper'); return; }
+    if(!/\p{Ll}/u.test(pass)){ err.textContent=T('errPassLower'); return; }
     // Şifre tekrar
-    if(pass !== pass2){ pass2Err&&(pass2Err.textContent='Şifreler eşleşmiyor.'); return; }
+    if(pass !== pass2){ pass2Err&&(pass2Err.textContent=T('errPassMatch')); return; }
 
     obData.email = email; obData.pass = pass;
     // Doğrulama kodu gönder, verify adımına geç
@@ -3104,12 +3632,12 @@ function looksLikeFakeDomain(domain) {
 }
 
 function validateEmailFull(email) {
-  if(!email) return 'E-posta gerekli.';
-  if(/\s/.test(email)) return 'E-posta boşluk içeremez.';
-  if(!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)) return 'Geçerli bir e-posta adresi gir.';
+  if(!email) return T('errEmailReq');
+  if(/\s/.test(email)) return T('errEmailSpace');
+  if(!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)) return T('errEmailInvalid');
   const domain = email.split('@')[1]?.toLowerCase();
-  if(TEMP_MAIL_DOMAINS.has(domain)) return 'Geçici e-posta adresleri kabul edilmiyor.';
-  if(looksLikeFakeDomain(domain)) return 'Gerçek bir e-posta adresi gir.';
+  if(TEMP_MAIL_DOMAINS.has(domain)) return T('errEmailTemp');
+  if(looksLikeFakeDomain(domain)) return T('errEmailFake');
   return null;
 }
 
@@ -3169,13 +3697,13 @@ async function checkEmailBlur() {
   hintsEl.style.display = 'flex';
   hintsEl.innerHTML = `<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);">
     <span style="animation:spin 0.8s linear infinite;display:inline-block;">◌</span>
-    <span>Kontrol ediliyor...</span></div>`;
+    <span>${T('emailChecking')}</span></div>`;
 
   // API kontrolü
   const isTemp = await checkTempMailAPI(email);
   if(isTemp) {
     hintsEl.innerHTML = `<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--red);">
-      <span>✗</span><span>Geçici e-posta adresleri kabul edilmiyor.</span></div>`;
+      <span>✗</span><span>${T('errEmailTemp')}</span></div>`;
     if(inp) inp.style.borderBottomColor = 'rgba(255,95,95,0.6)';
     inp._isTemp = true;
     return;
@@ -3183,7 +3711,7 @@ async function checkEmailBlur() {
 
   inp._isTemp = false;
   hintsEl.innerHTML = `<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#A08F7A;">
-    <span>✓</span><span>E-posta geçerli</span></div>`;
+    <span>✓</span><span>${T('emailValid')}</span></div>`;
   if(inp) inp.style.borderBottomColor = '#A08F7A';
 }
 
@@ -3258,7 +3786,7 @@ function generateCode() {
 
 async function sendVerificationCode() {
   const btn = document.querySelector('.ob-next');
-  if(btn){ btn.textContent = 'Gönderiliyor...'; btn.disabled = true; }
+  if(btn){ btn.textContent = T('sending'); btn.disabled = true; }
 
   verifyCode6 = generateCode();
 
@@ -3281,9 +3809,9 @@ async function sendVerificationCode() {
       setTimeout(() => document.getElementById('vc0')?.focus(), 100);
     }, 180);
   } catch(e) {
-    if(btn){ btn.textContent = 'Hesabı Oluştur'; btn.disabled = false; }
+    if(btn){ btn.textContent = T('obCreate'); btn.disabled = false; }
     const err = document.getElementById('obErr');
-    if(err) err.textContent = 'Mail gönderilemedi. Lütfen tekrar dene.';
+    if(err) err.textContent = T('errMailFail');
     console.error('EmailJS hatası:', e);
   }
 }
@@ -3332,7 +3860,7 @@ function verifyCode() {
   const errEl = document.getElementById('vcErr');
 
   if(entered.length < 6) {
-    if(errEl) errEl.textContent = 'Lütfen 6 haneli kodu gir.';
+    if(errEl) errEl.textContent = T('errCode6');
     return;
   }
 
@@ -3341,10 +3869,10 @@ function verifyCode() {
     // Doğru kod - hesabı oluştur
     clearInterval(resendInterval);
     const btn = document.getElementById('vcSubmitBtn');
-    if(btn){ btn.textContent = '✓ Doğrulandı'; btn.disabled = true; btn.style.background = 'rgba(160,143,122,0.15)'; btn.style.color = '#A08F7A'; btn.style.border = '1px solid rgba(160,143,122,0.3)'; }
+    if(btn){ btn.textContent = T('obVerified'); btn.disabled = true; btn.style.background = 'rgba(160,143,122,0.15)'; btn.style.color = '#A08F7A'; btn.style.border = '1px solid rgba(160,143,122,0.3)'; }
     setTimeout(() => obFinish(), 600);
   } else {
-    if(errEl) errEl.textContent = 'Kod yanlış. Tekrar dene.';
+    if(errEl) errEl.textContent = T('errCodeWrong');
     // Shake ve kırmızı border
     for(let i=0;i<6;i++){
       const inp = document.getElementById('vc'+i);
@@ -3377,7 +3905,7 @@ function startResendTimer() {
 
 async function resendCode() {
   const btn = document.getElementById('resendBtn');
-  if(btn){ btn.disabled = true; btn.textContent = 'Gönderiliyor...'; }
+  if(btn){ btn.disabled = true; btn.textContent = T('sending'); }
   verifyCode6 = generateCode();
   try {
     await emailjs.send('service_7l25ugb', 'template_ts4ds3a', {
@@ -3385,7 +3913,7 @@ async function resendCode() {
       to_name: obData.username || 'Kullanıcı',
       passcode: verifyCode6,
     });
-    if(btn) btn.textContent = 'Kodu tekrar gönder';
+    if(btn) btn.textContent = T('obResend');
     startResendTimer();
     // Kutucukları temizle
     for(let i=0;i<6;i++){
@@ -3396,7 +3924,7 @@ async function resendCode() {
     const errEl = document.getElementById('vcErr');
     if(errEl) errEl.textContent = '';
   } catch(e) {
-    if(btn){ btn.disabled = false; btn.textContent = 'Kodu tekrar gönder'; }
+    if(btn){ btn.disabled = false; btn.textContent = T('obResend'); }
   }
 }
 
@@ -3405,7 +3933,7 @@ async function obFinish() {
   if(wrap) wrap.innerHTML = `
     <div style="text-align:center;padding:40px 0;">
       <div style="width:36px;height:36px;border:2px solid #3A3220;border-top-color:#A08F7A;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px;"></div>
-      <div style="color:#9C9278;font-size:14px;">${obData.isOAuth ? 'Profil tamamlanıyor...' : 'Hesabın oluşturuluyor...'}</div>
+      <div style="color:#9C9278;font-size:14px;">${obData.isOAuth ? T('obFinishOauth') : T('obFinishNew')}</div>
     </div>`;
 
   try {
@@ -3489,9 +4017,9 @@ async function obFinish() {
     if(wrap) wrap.innerHTML = `
       <div style="text-align:center;padding:20px 0;">
         <div style="color:#ff5f5f;font-size:14px;margin-bottom:16px;">
-          ${err.message === 'User already registered' ? 'Bu e-posta zaten kayıtlı.' : 'Bir hata oluştu: ' + err.message}
+          ${err.message === 'User already registered' ? T('errEmailRegistered') : T('errGeneric', {msg: err.message})}
         </div>
-        <button onclick="obStep--;renderObStep()" style="background:none;border:1px solid #3A3220;color:#888;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;">← Geri dön</button>
+        <button onclick="obStep--;renderObStep()" style="background:none;border:1px solid #3A3220;color:#888;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;">${T('backReturn')}</button>
       </div>`;
   }
 }
