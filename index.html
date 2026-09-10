@@ -65,11 +65,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 
 .hero{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 
-/* orta bant: başlık bloğu ve buton DİKEY dizili (telefondaki gibi), buton
-   metnin altında — yan yana durunca masaüstünde "iç içe" görünüyordu.
-   Grup dikeyde ortalı; solda hizalı ama max-width + margin:auto ile
-   geniş ekranda ortada bir sütunda duruyor. */
-.hero-mid{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:44px;padding:96px 6vw 44px;max-width:940px;margin:0 auto;width:100%;}
+/* orta bant: yazılar solda, buton sağda (ayrık). max-width:1120 + margin:auto
+   ile grup ne ekran uçlarında ne de tam ortada — aradaki boşluk orta boy.
+   space-between'de buton kapsayıcının sağ kenarına, metin sol kenarına sabit;
+   kelimeler değişince sadece ortadaki boşluk esner, elemanlar oynamaz. */
+.hero-mid{flex:1;display:flex;align-items:center;justify-content:space-between;gap:48px;padding:96px 32px 44px;flex-wrap:wrap;width:min(82vw,1240px);margin:0 auto;}
 .hero-stack{width:auto;}
 .hl{font-family:var(--display);font-size:clamp(44px,9.2vw,138px);line-height:0.88;text-transform:uppercase;letter-spacing:-0.02em;cursor:default;white-space:nowrap;transform-origin:left center;transition:transform 0.32s cubic-bezier(.2,.8,.3,1),-webkit-text-stroke-color 0.32s;}
 .hl:hover{transform:scale(1.045);}
