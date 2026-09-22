@@ -724,45 +724,81 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
 .home-add svg{width:15px;height:15px;color:var(--accent);}
 .home-add:hover{border-color:rgba(160,143,122,.5);background:var(--accent-dim2);}
 
-/* ═══════════ PROFİL DÜZENLEME (3B) ═══════════ */
+/* ═══════════ PROFİL (3B, ortalanmış) ═══════════ */
 #screen-profile{max-width:none;padding:0;}
-.pe{display:grid;grid-template-columns:272px minmax(0,1fr);min-height:calc(100vh - 64px);}
-.pe-nav{border-right:1px solid var(--border);background:var(--surface);padding:26px 14px;display:flex;flex-direction:column;gap:2px;}
-.pe-id{display:flex;align-items:center;gap:12px;padding:0 8px 20px;margin-bottom:10px;border-bottom:1px solid var(--border);}
-.pe-idav{width:42px;height:42px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:15px;color:var(--accent);flex-shrink:0;overflow:hidden;}
-.pe-idnm{font-weight:600;font-size:14px;color:var(--text);word-break:break-word;}
-.pe-idun{font-size:12px;color:var(--muted);margin-top:2px;}
+.pe{max-width:1120px;margin:0 auto;padding:40px 40px 64px;}
+.pe-head{display:flex;align-items:center;gap:18px;padding-bottom:28px;margin-bottom:32px;border-bottom:1px solid var(--border);}
+.pe-hav{width:64px;height:64px;border-radius:50%;border:3px solid var(--bg);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:24px;color:var(--accent);overflow:hidden;}
+.pe-hav img,.pe-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;}
+.pe-hname{font-family:var(--display);font-size:26px;letter-spacing:-.015em;line-height:1.1;color:var(--text);word-break:break-word;}
+.pe-hsub{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:7px;font-size:13px;color:var(--muted);}
+.pe-hdot{width:3px;height:3px;border-radius:50%;background:#6E6553;}
+.pe-body{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;align-items:start;}
+.pe-nav{position:sticky;top:24px;display:flex;flex-direction:column;gap:2px;}
 .pe-item{display:flex;align-items:center;gap:11px;width:100%;padding:11px 12px;border:none;background:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--muted);text-align:left;cursor:pointer;transition:background .15s,color .15s;}
 .pe-item svg{width:17px;height:17px;flex-shrink:0;}
 .pe-item:hover{background:var(--accent-dim2);color:var(--text);}
 .pe-item.active{background:var(--accent-dim);color:var(--text);font-weight:500;}
 .pe-item.active svg{color:var(--accent);}
-.pe-item.out{margin-top:auto;color:#D98A8A;}
+.pe-item.out{color:#D98A8A;}
 .pe-item.out:hover{background:rgba(255,95,95,.08);color:var(--red);}
-.pe-main{padding:40px 48px 48px;max-width:1100px;}
-.pe-title{font-family:var(--display);font-size:30px;letter-spacing:-.02em;margin:0;line-height:1.05;color:var(--text);}
-.pe-lead{font-size:14px;color:var(--muted);margin:11px 0 30px;line-height:1.6;max-width:56ch;}
+.pe-sep{height:1px;background:var(--border);margin:10px 4px;}
+.pe-main{min-width:0;}
+.pe-title{font-family:var(--display);font-size:26px;letter-spacing:-.02em;margin:0;line-height:1.05;color:var(--text);}
+.pe-lead{font-size:14px;color:var(--muted);margin:9px 0 24px;line-height:1.6;max-width:60ch;}
+.pe-card{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:24px;}
+.pe-card + .pe-card{margin-top:16px;}
+.pe-ctitle{font-size:15px;font-weight:600;color:var(--text);margin-bottom:18px;}
 .pe-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.pe-grid + .pe-grid{margin-top:18px;}
+.pe-grid3{grid-template-columns:1.3fr .6fr 1.3fr;}
+.pe-fld{min-width:0;}
 .pe-fld.span2{grid-column:1/-1;}
 .pe-fld label{display:block;font-size:12.5px;font-weight:500;color:#C7BEAB;margin-bottom:7px;}
-.pe-inp{display:flex;align-items:center;gap:4px;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);transition:border-color .15s,box-shadow .15s;}
+.pe-inp{position:relative;display:flex;align-items:center;gap:4px;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);transition:border-color .15s,box-shadow .15s;}
 .pe-inp:focus-within{border-color:rgba(160,143,122,.6);box-shadow:0 0 0 3px rgba(160,143,122,.12);}
 .pe-inp .pre{color:#6E6553;font-size:14px;}
-.pe-inp input{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;}
-.pe-inp.dis{background:var(--surface);color:var(--muted);font-size:14px;gap:12px;}
+.pe-inp input,.pe-inp select{flex:1;min-width:0;height:100%;background:none;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;color-scheme:dark;}
+.pe-inp input::placeholder{color:#6E6553;}
+.pe-inp select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:22px;}
+.pe-inp select option{background:#201C15;color:#EEE7D7;}
+.pe-inp .caret{position:absolute;right:12px;top:50%;width:15px;height:15px;margin-top:-7.5px;color:var(--muted);pointer-events:none;}
+.pe-inp.ro{background:transparent;border-style:dashed;color:var(--muted);font-size:14px;}
+.pe-inp.dis{background:var(--bg);color:var(--muted);font-size:14px;gap:12px;}
 .pe-inp.dis > span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .pe-sidelink{font-size:12.5px;color:var(--accent);cursor:pointer;white-space:nowrap;}
-.pe-photo{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
-.pe-avwrap{position:relative;cursor:pointer;}
-.pe-av{width:96px;height:96px;border-radius:50%;border:3px solid var(--bg);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:34px;color:var(--accent);overflow:hidden;}
-.pe-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s;}
+.pe-photo{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.pe-avwrap{position:relative;cursor:pointer;flex-shrink:0;}
+.pe-ring{display:inline-block;padding:3px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--la-tone));}
+.pe-av{width:72px;height:72px;border-radius:50%;border:3px solid var(--surface);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:26px;color:var(--accent);overflow:hidden;}
+.pe-phtxt{flex:1;min-width:180px;}
+.pe-phtxt .t{font-size:14px;font-weight:600;color:var(--text);}
+.pe-phtxt .s{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
+.pe-divider{height:1px;background:var(--border);margin:22px 0;}
+.pe-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pe-row .pe-inp{flex:1;min-width:200px;}
+.pe-badge{font-size:11.5px;color:#E3B64B;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.25);padding:4px 10px;border-radius:999px;white-space:nowrap;}
+.pe-crit{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:12.5px;color:var(--muted);}
+.pe-crit span{display:inline-flex;align-items:center;gap:7px;transition:color .15s;}
+.pe-crit i{font-style:normal;width:12px;text-align:center;}
+.pe-crit span.ok{color:var(--accent);}
+.pe-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-top:20px;}
+.pe-trow{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.pe-trow .t{font-size:14px;font-weight:600;color:var(--text);}
+.pe-trow .s{font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
+.pe-list{padding:4px 24px;}
+.pe-list .pe-trow{padding:18px 0;}
+.pe-list .pe-trow + .pe-trow{border-top:1px solid var(--border);}
+.pe-tg{width:44px;height:24px;background:#A08F7A;border-radius:99px;cursor:pointer;position:relative;flex-shrink:0;transition:background .2s;}
+.pe-tgk{position:absolute;top:3px;left:23px;width:18px;height:18px;background:#15130F;border-radius:50%;transition:left .2s;}
+.pe-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .15s,background .15s;}
 .pe-btn svg{width:15px;height:15px;}
 .pe-btn:hover{border-color:rgba(160,143,122,.5);background:var(--accent-dim2);}
 .pe-btn.pri{background:var(--accent);border-color:var(--accent);color:#15130F;font-weight:600;}
 .pe-btn.pri:hover{background:#AE9D88;}
 .pe-btn:disabled{opacity:.6;cursor:default;}
-.pe-foot{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:32px;padding-top:22px;border-top:1px solid var(--border);}
-.pe-err{margin-right:auto;font-size:12.5px;color:var(--red);}
+.pe-foot{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:20px;}
+.pe-err{margin-right:auto;font-size:12.5px;color:var(--red);line-height:1.5;}
 
 /* ═══════════ DUEL + SIRALAMA (4B) ═══════════ */
 #screen-duel{max-width:1180px;padding:32px 36px 48px;}
@@ -829,15 +865,19 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
   .home-stats{width:100%;}
   .hst{flex:1;padding:0 12px;}
   .hst .n{font-size:22px;}
-  .pe{grid-template-columns:1fr;min-height:0;}
-  .pe-nav{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);padding:12px;gap:6px;}
+  .pe{padding:20px 14px 32px;}
+  .pe-head{padding-bottom:20px;margin-bottom:18px;}
+  .pe-hav{width:52px;height:52px;font-size:19px;}
+  .pe-hname{font-size:21px;}
+  .pe-body{grid-template-columns:1fr;gap:20px;}
+  .pe-nav{position:static;flex-direction:row;overflow-x:auto;gap:6px;margin:0 -14px;padding:0 14px;}
   .pe-nav::-webkit-scrollbar{display:none;}
-  .pe-id{display:none;}
+  .pe-sep{display:none;}
   .pe-item{width:auto;flex-shrink:0;white-space:nowrap;padding:9px 12px;font-size:12.5px;}
-  .pe-item.out{margin-top:0;}
-  .pe-main{padding:24px 16px 32px;}
-  .pe-title{font-size:24px;}
-  .pe-grid{grid-template-columns:1fr;}
+  .pe-title{font-size:22px;}
+  .pe-card{padding:18px 16px;}
+  .pe-list{padding:2px 16px;}
+  .pe-grid,.pe-grid3{grid-template-columns:1fr;}
   #screen-duel{padding:20px 14px 28px;}
   .duel-hero{padding:24px 20px;}
   .duel-h{font-size:28px;}
@@ -1458,49 +1498,91 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
     <!-- PROFİL (düzenleme) -->
     <div class="screen" id="screen-profile">
       <div class="pe">
-        <aside class="pe-nav">
-          <div class="pe-id"><span class="pe-idav" id="peIdAv">?</span><div><div class="pe-idnm" id="profileFullNameDisplay">—</div><div class="pe-idun" id="profileUsernameDisplay">@—</div></div></div>
-          <button class="pe-item active" id="psBtn-personal" onclick="switchProfileSection('personal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.7 3.3-5.6 7.2-5.6s7.2 1.9 7.2 5.6"/></svg>Kişisel bilgiler</button>
-          <button class="pe-item" id="psBtn-account" onclick="switchProfileSection('account')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 12v1.6a2.4 2.4 0 0 0 4.8 0V12a8.4 8.4 0 1 0-3.3 6.7"/></svg>Kullanıcı adı ve e-posta</button>
-          <button class="pe-item" id="psBtn-photo" onclick="switchProfileSection('photo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M8.6 7 10 4.6h4L15.4 7"/><circle cx="12" cy="13.2" r="3.2"/></svg>Fotoğraf</button>
-          <button class="pe-item out" onclick="doLogout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3"/><path d="M10 16.5 5.5 12 10 7.5M5.5 12H15"/></svg>Çıkış yap</button>
-        </aside>
-        <div class="pe-main">
-          <div id="ps-personal">
-            <h2 class="pe-title">Kişisel bilgiler</h2>
-            <p class="pe-lead">Adın ve soyadın, bir de herkesin gördüğü görünen adın.</p>
-            <div class="pe-grid">
-              <div class="pe-fld"><label for="profileFirstName">Ad</label><div class="pe-inp"><input id="profileFirstName" type="text" placeholder="Adın"></div></div>
-              <div class="pe-fld"><label for="profileLastName">Soyad</label><div class="pe-inp"><input id="profileLastName" type="text" placeholder="Soyadın"></div></div>
-              <div class="pe-fld span2"><label for="profileDisplayName">Görünen ad</label><div class="pe-inp"><input id="profileDisplayName" type="text" placeholder="Görünen adın" maxlength="18"></div></div>
-            </div>
+        <div class="pe-head">
+          <div class="pe-avwrap" onclick="triggerAvatarUpload()" title="Fotoğrafı değiştir"><span class="pe-ring"><span class="pe-hav" id="peIdAv">?</span></span></div>
+          <div>
+            <div class="pe-hname" id="profileFullNameDisplay">—</div>
+            <div class="pe-hsub"><span id="profileUsernameDisplay">@—</span><span class="pe-hdot"></span><span id="peHeadSince">—</span></div>
           </div>
-          <div id="ps-account" style="display:none;">
-            <h2 class="pe-title">Kullanıcı adı ve e-posta</h2>
-            <p class="pe-lead">Arkadaşların seni kullanıcı adınla arar. E-postan giriş yaparken kullanılır.</p>
-            <div class="pe-grid">
-              <div class="pe-fld span2"><label for="profileUsername">Kullanıcı adı</label><div class="pe-inp" id="profileUsernameWrap"><span class="pre">@</span><input id="profileUsername" type="text" maxlength="18" placeholder="kullanici_adi"></div></div>
-              <div class="pe-fld span2"><label>E-posta</label><div class="pe-inp dis"><span id="profileEmailDisplay">—</span><a class="pe-sidelink" onclick="showSettingsPage()">Değiştir</a></div></div>
-            </div>
-          </div>
-          <div id="ps-photo" style="display:none;">
-            <h2 class="pe-title">Fotoğraf</h2>
-            <p class="pe-lead">PNG veya JPG, en fazla 2 MB. Kare fotoğraflar en iyi görünür.</p>
-            <div class="pe-photo">
-              <div class="pe-avwrap" onclick="triggerAvatarUpload()">
-                <span class="pe-ring"><span class="pe-av" id="profileAvatar">?</span></span>
-                <div id="avatarLoading" style="position:absolute;inset:3px;border-radius:50%;background:rgba(0,0,0,0.55);display:none;align-items:center;justify-content:center;">
-                  <div style="width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+        </div>
+        <div class="pe-body">
+          <nav class="pe-nav">
+            <button class="pe-item active" id="psBtn-personal" onclick="switchProfileSection('personal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.7 3.3-5.6 7.2-5.6s7.2 1.9 7.2 5.6"/></svg>Kişisel bilgiler</button>
+            <button class="pe-item" id="psBtn-account" onclick="switchProfileSection('account')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 12v1.6a2.4 2.4 0 0 0 4.8 0V12a8.4 8.4 0 1 0-3.3 6.7"/></svg>Hesap</button>
+            <button class="pe-item" id="psBtn-security" onclick="switchProfileSection('security')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/><path d="M12 14.6v2"/></svg>Güvenlik</button>
+            <button class="pe-item" id="psBtn-privacy" onclick="switchProfileSection('privacy')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 12s3.4-6.3 9.2-6.3 9.2 6.3 9.2 6.3-3.4 6.3-9.2 6.3S2.8 12 2.8 12Z"/><circle cx="12" cy="12" r="2.8"/></svg>Gizlilik</button>
+            <div class="pe-sep"></div>
+            <button class="pe-item out" onclick="doLogout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3"/><path d="M10 16.5 5.5 12 10 7.5M5.5 12H15"/></svg>Çıkış yap</button>
+          </nav>
+          <div class="pe-main">
+            <section id="ps-personal">
+              <h2 class="pe-title">Kişisel bilgiler</h2>
+              <p class="pe-lead">Fotoğrafın, adın ve seni biraz daha tanımamıza yardım eden bilgiler.</p>
+              <div class="pe-card">
+                <div class="pe-photo">
+                  <div class="pe-avwrap" onclick="triggerAvatarUpload()">
+                    <span class="pe-ring"><span class="pe-av" id="profileAvatar">?</span></span>
+                    <div id="avatarLoading" style="position:absolute;inset:3px;border-radius:50%;background:rgba(0,0,0,0.55);display:none;align-items:center;justify-content:center;"><div style="width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></div></div>
+                  </div>
+                  <div class="pe-phtxt"><div class="t">Profil fotoğrafı</div><div class="s">PNG veya JPG, en fazla 2 MB. Kare fotoğraflar en iyi görünür.</div></div>
+                  <button class="pe-btn" onclick="triggerAvatarUpload()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M8.6 7 10 4.6h4L15.4 7"/><circle cx="12" cy="13.2" r="3.2"/></svg>Fotoğraf yükle</button>
+                  <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)">
+                </div>
+                <div class="pe-divider"></div>
+                <div class="pe-grid">
+                  <div class="pe-fld"><label for="profileFirstName">Ad</label><div class="pe-inp"><input id="profileFirstName" type="text" placeholder="Adın" autocomplete="given-name"></div></div>
+                  <div class="pe-fld"><label for="profileLastName">Soyad</label><div class="pe-inp"><input id="profileLastName" type="text" placeholder="Soyadın" autocomplete="family-name"></div></div>
+                </div>
+                <div class="pe-grid pe-grid3">
+                  <div class="pe-fld"><label for="pfBirth">Doğum tarihi</label><div class="pe-inp"><input id="pfBirth" type="date" oninput="pfCalcAge()" autocomplete="bday"></div></div>
+                  <div class="pe-fld"><label>Yaş</label><div class="pe-inp ro"><span id="pfAge">—</span></div></div>
+                  <div class="pe-fld"><label for="pfGender">Cinsiyet</label><div class="pe-inp"><select id="pfGender"><option value="">Seçilmedi</option><option value="kadin">Kadın</option><option value="erkek">Erkek</option><option value="diger">Diğer</option><option value="belirtmek-istemiyorum">Belirtmek istemiyorum</option></select><span class="caret"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6.5 9.5 5.5 5.5 5.5-5.5"/></svg></span></div></div>
                 </div>
               </div>
-              <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)">
-              <button class="pe-btn" onclick="triggerAvatarUpload()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M8.6 7 10 4.6h4L15.4 7"/><circle cx="12" cy="13.2" r="3.2"/></svg>Fotoğraf yükle</button>
+            </section>
+            <section id="ps-account" style="display:none;">
+              <h2 class="pe-title">Hesap</h2>
+              <p class="pe-lead">Sitede seni tanıtan adların ve iletişim bilgilerin.</p>
+              <div class="pe-card">
+                <div class="pe-grid">
+                  <div class="pe-fld"><label for="profileUsername">Kullanıcı adı</label><div class="pe-inp" id="profileUsernameWrap"><span class="pre">@</span><input id="profileUsername" type="text" maxlength="18" placeholder="kullanici_adi" autocomplete="username"></div></div>
+                  <div class="pe-fld"><label for="profileDisplayName">Görünen ad</label><div class="pe-inp"><input id="profileDisplayName" type="text" maxlength="18" placeholder="Görünen adın"></div></div>
+                  <div class="pe-fld span2"><label>E-posta</label><div class="pe-inp dis"><span id="profileEmailDisplay">—</span><a class="pe-sidelink" onclick="startEmailChange()">Değiştir</a></div></div>
+                  <div class="pe-fld span2"><label for="pfPhone">Telefon</label><div class="pe-row"><div class="pe-inp"><input id="pfPhone" type="tel" inputmode="tel" placeholder="+90 5xx xxx xx xx" autocomplete="tel"></div><span class="pe-badge" id="pfPhoneBadge">Doğrulanmadı</span><button class="pe-btn" onclick="pfSendPhoneCode()">Kod gönder</button></div></div>
+                </div>
+              </div>
+            </section>
+            <section id="ps-security" style="display:none;">
+              <h2 class="pe-title">Güvenlik</h2>
+              <p class="pe-lead">Şifreni değiştir ve hesabının açık olduğu cihazları yönet.</p>
+              <div class="pe-card">
+                <div class="pe-ctitle">Şifre değiştir</div>
+                <div class="pe-grid">
+                  <div class="pe-fld span2"><label for="pfPassCur">Mevcut şifre</label><div class="pe-inp"><input id="pfPassCur" type="password" autocomplete="current-password" placeholder="••••••••"></div></div>
+                  <div class="pe-fld"><label for="pfPassNew">Yeni şifre</label><div class="pe-inp"><input id="pfPassNew" type="password" autocomplete="new-password" oninput="pfPassCriteria()"></div></div>
+                  <div class="pe-fld"><label for="pfPassNew2">Yeni şifre tekrar</label><div class="pe-inp"><input id="pfPassNew2" type="password" autocomplete="new-password" onkeydown="if(event.key==='Enter')changePasswordFromProfile()"></div></div>
+                </div>
+                <div class="pe-crit"><span id="pfc-len"><i>○</i>En az 8 karakter</span><span id="pfc-up"><i>○</i>En az 1 büyük harf</span><span id="pfc-low"><i>○</i>En az 1 küçük harf</span></div>
+                <div class="pe-actions"><div class="pe-err" id="pfPassErr"></div><button class="pe-btn pri" id="pfPassBtn" onclick="changePasswordFromProfile()">Şifreyi güncelle</button></div>
+              </div>
+              <div class="pe-card">
+                <div class="pe-trow"><div><div class="t">Diğer cihazlardan çıkış yap</div><div class="s">Bu cihaz dışında hesabının açık olduğu her yerden çıkış yapılır.</div></div><button class="pe-btn" onclick="signOutOtherSessions()">Çıkış yap</button></div>
+              </div>
+            </section>
+            <section id="ps-privacy" style="display:none;">
+              <h2 class="pe-title">Gizlilik</h2>
+              <p class="pe-lead">Profilini kimlerin görebileceğini ve seninle nasıl bağlantı kurulabileceğini seç.</p>
+              <div class="pe-card pe-list">
+              <div class="pe-trow"><div><div class="t">Profilim herkese açık</div><div class="s">Kapalıyken profilini sadece arkadaşların görür.</div></div><div class="pe-tg" id="pfProfileVis" onclick="flipToggle('pfProfileVis')"><div class="pe-tgk" id="pfProfileVisThumb"></div></div></div>
+              <div class="pe-trow"><div><div class="t">Arkadaşlık istekleri</div><div class="s">Herkes sana arkadaşlık isteği gönderebilsin.</div></div><div class="pe-tg" id="pfFriendReq" onclick="flipToggle('pfFriendReq')"><div class="pe-tgk" id="pfFriendReqThumb"></div></div></div>
+              <div class="pe-trow"><div><div class="t">Sıralamada görün</div><div class="s">Adın lig sıralamasında yer alsın.</div></div><div class="pe-tg" id="pfLeaderboard" onclick="flipToggle('pfLeaderboard')"><div class="pe-tgk" id="pfLeaderboardThumb"></div></div></div>
+              </div>
+            </section>
+            <div class="pe-foot" id="peFoot">
+              <div class="pe-err" id="profileErr"></div>
+              <button class="pe-btn" onclick="loadProfileTab()">Vazgeç</button>
+              <button class="pe-btn pri" id="profileSaveBtn" onclick="saveDemoProfile();saveProfile()">Kaydet</button>
             </div>
-          </div>
-          <div class="pe-foot" id="peFoot">
-            <div class="pe-err" id="profileErr"></div>
-            <button class="pe-btn" onclick="loadProfileTab()">Vazgeç</button>
-            <button class="pe-btn pri" id="profileSaveBtn" onclick="saveProfile()">Kaydet</button>
           </div>
         </div>
       </div>
@@ -4624,7 +4706,7 @@ async function _doSaveProfile(displayName, firstName, lastName, username, displa
 
     // Banner güncelle
     const fullNameEl = document.getElementById('profileFullNameDisplay');
-    if(fullNameEl) fullNameEl.textContent = (firstName && lastName) ? firstName+' '+lastName : (firstName || displayName || username || '—');
+    if(fullNameEl) fullNameEl.textContent = displayName || username || '—';
     const unameEl = document.getElementById('profileUsernameDisplay');
     if(unameEl) unameEl.textContent = '@' + username;
 
@@ -4702,7 +4784,7 @@ function resetAppUI(){
   ['profileDisplayName','profileFirstName','profileLastName','profileEmail'].forEach(val);
 
   // Gizlilik anahtarları varsayılana dönsün (önceki kullanıcının ayarı görünmesin)
-  ['friendReqToggle','profileVisToggle','leaderboardToggle'].forEach(id => setToggle(id, true, false));
+  ['friendReqToggle','profileVisToggle','leaderboardToggle','pfFriendReq','pfProfileVis','pfLeaderboard'].forEach(id => setToggle(id, true, false));
 }
 
 async function doLogout(){
@@ -5145,15 +5227,100 @@ function switchSettingsTab(tab){
 
 // Profil sekmesi içindeki "Kişisel Bilgiler" / "Verla Bilgileri" geçişi
 function switchProfileSection(section){
-  ['personal','account','photo'].forEach(s => {
+  ['personal','account','security','privacy'].forEach(s => {
     const panel = document.getElementById('ps-'+s);
     if(panel) panel.style.display = s===section ? 'block' : 'none';
     const btn = document.getElementById('psBtn-'+s);
     if(btn) btn.classList.toggle('active', s===section);
   });
-  // Fotoğraf anında yükleniyor — orada Kaydet/Vazgeç gereksiz
+  // Kaydet/Vazgeç sadece form bölümlerinde; güvenlik ve gizlilik kendi düğmeleriyle çalışıyor
   const foot = document.getElementById('peFoot');
-  if(foot) foot.style.display = section === 'photo' ? 'none' : 'flex';
+  if(foot) foot.style.display = (section === 'personal' || section === 'account') ? 'flex' : 'none';
+}
+
+// ── Profil: henüz veritabanında karşılığı olmayan alanlar (doğum tarihi, cinsiyet, telefon) ──
+// Şimdilik bu tarayıcıda kullanıcıya özel saklanıyor; herkese açık profiles tablosuna yazılmıyor
+// (doğum tarihi kişisel veri — ileride sadece sahibinin okuyabildiği ayrı bir tabloya taşınacak).
+function demoProfKey(){ return 'verla_demo_profile_' + (currentUser ? currentUser.id : 'anon'); }
+function loadDemoProfile(){
+  try { return JSON.parse(localStorage.getItem(demoProfKey()) || '{}') || {}; } catch(e){ return {}; }
+}
+function saveDemoProfile(){
+  if(!currentUser) return;
+  const v = id => (document.getElementById(id)?.value || '').trim();
+  try {
+    localStorage.setItem(demoProfKey(), JSON.stringify({ birthDate: v('pfBirth'), gender: v('pfGender'), phone: v('pfPhone') }));
+  } catch(e){}
+}
+function pfCalcAge(){
+  const out = document.getElementById('pfAge');
+  const raw = document.getElementById('pfBirth')?.value;
+  if(!out) return;
+  if(!raw){ out.textContent = '—'; return; }
+  const b = new Date(raw + 'T00:00:00'), n = new Date();
+  let age = n.getFullYear() - b.getFullYear();
+  if(n.getMonth() < b.getMonth() || (n.getMonth() === b.getMonth() && n.getDate() < b.getDate())) age--;
+  out.textContent = (isNaN(age) || age < 0 || age > 120) ? '—' : age;
+}
+function pfSendPhoneCode(){
+  const ph = (document.getElementById('pfPhone')?.value || '').replace(/[\s()-]/g, '');
+  if(!/^\+?\d{10,14}$/.test(ph)){
+    showNotif('Geçersiz numara', 'Numaranı ülke koduyla yaz, örneğin +90 5xx xxx xx xx.', 'warn');
+    return;
+  }
+  saveDemoProfile();
+  showNotif('Telefon doğrulama yakında', 'SMS ile doğrulama henüz aktif değil. Numaran kaydedildi.', 'info');
+}
+function pfPassCriteria(){
+  const v = document.getElementById('pfPassNew')?.value || '';
+  [['pfc-len', v.length >= 8], ['pfc-up', /\p{Lu}/u.test(v)], ['pfc-low', /\p{Ll}/u.test(v)]].forEach(([id, ok]) => {
+    const el = document.getElementById(id); if(!el) return;
+    el.classList.toggle('ok', ok);
+    const i = el.querySelector('i'); if(i) i.textContent = ok ? '✓' : '○';
+  });
+}
+async function changePasswordFromProfile(){
+  const v = id => document.getElementById(id)?.value || '';
+  const cur = v('pfPassCur'), n1 = v('pfPassNew'), n2 = v('pfPassNew2');
+  const err = document.getElementById('pfPassErr');
+  const btn = document.getElementById('pfPassBtn');
+  const say = t => { if(err) err.textContent = t; };
+  say('');
+  if(!cur || !n1 || !n2) return say('Tüm alanları doldur.');
+  if(n1.length < 8) return say(T('errPassMinShort'));
+  if(!/\p{Lu}/u.test(n1)) return say(T('errPassUpper'));
+  if(!/\p{Ll}/u.test(n1)) return say(T('errPassLower'));
+  if(n1 !== n2) return say(T('errPassMatch'));
+  if(n1 === cur) return say('Yeni şifre mevcut şifreyle aynı olamaz.');
+  if(btn){ btn.disabled = true; btn.textContent = 'Güncelleniyor...'; }
+  try {
+    const { data: { user } } = await window._supabase.auth.getUser();
+    const providers = (user && user.app_metadata && user.app_metadata.providers) || [];
+    if(!providers.includes('email')){
+      return say('Hesabın Google veya Discord ile açıldığı için bir şifresi yok. Şifre belirlemek için çıkış yapıp "Şifremi unuttum"u kullanabilirsin.');
+    }
+    // Mevcut şifreyi doğrula (aynı kullanıcı — oturum akışı handledUserId ile yeniden işlenmiyor)
+    const { error: e1 } = await window._supabase.auth.signInWithPassword({ email: currentUser.email, password: cur });
+    if(e1) return say('Mevcut şifre yanlış.');
+    const { error: e2 } = await window._supabase.auth.updateUser({ password: n1 });
+    if(e2) return say('Şifre güncellenemedi: ' + e2.message);
+    ['pfPassCur','pfPassNew','pfPassNew2'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+    pfPassCriteria();
+    showNotif('Şifre güncellendi', 'Bir sonraki girişte yeni şifreni kullan.', 'ok');
+  } catch(e) {
+    say('Bir hata oluştu: ' + (e.message || e));
+  } finally {
+    if(btn){ btn.disabled = false; btn.textContent = 'Şifreyi güncelle'; }
+  }
+}
+async function signOutOtherSessions(){
+  try {
+    const { error } = await window._supabase.auth.signOut({ scope: 'others' });
+    if(error) throw error;
+    showNotif('Diğer oturumlar kapatıldı', 'Bu cihaz dışındaki her yerden çıkış yapıldı.', 'ok');
+  } catch(e) {
+    showNotif('Yapılamadı', e.message || 'Bağlantını kontrol et.', 'warn');
+  }
 }
 
 function setTheme(theme){
@@ -5179,9 +5346,13 @@ function setFontSize(size){
 // col'suz olan (animasyon) sadece arayüz tercihi → yalnızca localStorage.
 const TOGGLES = {
   animToggle:        {thumb:'animThumb',        key:'verla_anim'},
-  friendReqToggle:   {thumb:'friendReqThumb',   key:'verla_friendreq',   col:'allow_friend_requests', prop:'allowFriendRequests'},
-  profileVisToggle:  {thumb:'profileVisThumb',  key:'verla_profilevis',  col:'profile_public',        prop:'profilePublic'},
-  leaderboardToggle: {thumb:'leaderboardThumb', key:'verla_leaderboard', col:'show_on_leaderboard',   prop:'showOnLeaderboard'},
+  friendReqToggle:   {thumb:'friendReqThumb',   key:'verla_friendreq',   col:'allow_friend_requests', prop:'allowFriendRequests', twin:'pfFriendReq'},
+  profileVisToggle:  {thumb:'profileVisThumb',  key:'verla_profilevis',  col:'profile_public',        prop:'profilePublic',       twin:'pfProfileVis'},
+  leaderboardToggle: {thumb:'leaderboardThumb', key:'verla_leaderboard', col:'show_on_leaderboard',   prop:'showOnLeaderboard',   twin:'pfLeaderboard'},
+  // Profil > Gizlilik'teki aynı ayarlar — ikizleriyle birlikte güncellenir
+  pfFriendReq:       {thumb:'pfFriendReqThumb',   key:'verla_friendreq',   col:'allow_friend_requests', prop:'allowFriendRequests', twin:'friendReqToggle'},
+  pfProfileVis:      {thumb:'pfProfileVisThumb',  key:'verla_profilevis',  col:'profile_public',        prop:'profilePublic',       twin:'profileVisToggle'},
+  pfLeaderboard:     {thumb:'pfLeaderboardThumb', key:'verla_leaderboard', col:'show_on_leaderboard',   prop:'showOnLeaderboard',   twin:'leaderboardToggle'},
 };
 
 async function setToggle(id, on, save){
@@ -5193,6 +5364,7 @@ async function setToggle(id, on, save){
   // Animasyon anahtarı gerçekten animasyonları kapatsın
   if(id === 'animToggle') document.body.classList.toggle('no-anim', !on);
   if(!save) return;
+  if(cfg.twin) setToggle(cfg.twin, on, false);   // Ayarlar ve Profil'deki kopyası aynı görünsün
 
   localStorage.setItem(cfg.key, on ? '1' : '0');
 
@@ -5205,6 +5377,7 @@ async function setToggle(id, on, save){
       // Kaydedilemediyse anahtarı eski haline döndür, kullanıcı yanılmasın
       currentUser[cfg.prop] = !on;
       setToggle(id, !on, false);
+      if(cfg.twin) setToggle(cfg.twin, !on, false);
       showNotif('Ayar kaydedilemedi', 'Bağlantını kontrol et.');
     }
   }
@@ -5233,6 +5406,9 @@ function restoreSettings(){
 function applyAccountSettings(){
   if(!currentUser) return;
   setToggle('friendReqToggle',   currentUser.allowFriendRequests !== false, false);
+  setToggle('pfFriendReq',       currentUser.allowFriendRequests !== false, false);
+  setToggle('pfProfileVis',      currentUser.profilePublic       !== false, false);
+  setToggle('pfLeaderboard',     currentUser.showOnLeaderboard   !== false, false);
   setToggle('profileVisToggle',  currentUser.profilePublic       !== false, false);
   setToggle('leaderboardToggle', currentUser.showOnLeaderboard   !== false, false);
 }
@@ -5584,7 +5760,21 @@ function loadProfileTab(){
   txt('profileFullNameDisplay', u.displayName || u.username || '—');
   txt('profileUsernameDisplay', '@' + (u.username || '—'));
   txt('profileEmailDisplay', u.email || '—');
+  if(u.createdAt){
+    const d = new Date(u.createdAt);
+    txt('peHeadSince', isNaN(d) ? '' : 'Üye · ' + d.toLocaleDateString('tr-TR', { month:'long', year:'numeric' }));
+  }
   txt('profileErr', '');
+  txt('pfPassErr', '');
+  // Henüz veritabanında olmayan alanlar (bu tarayıcıda saklı)
+  const demo = loadDemoProfile();
+  val('pfBirth', demo.birthDate || '');
+  val('pfGender', demo.gender || '');
+  val('pfPhone', demo.phone || '');
+  pfCalcAge();
+  ['pfPassCur','pfPassNew','pfPassNew2'].forEach(id => val(id, ''));
+  pfPassCriteria();
+  applyAccountSettings();
   ['profileAvatar', 'peIdAv'].forEach(id => {
     const el = document.getElementById(id);
     if(!el) return;
