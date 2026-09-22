@@ -648,6 +648,200 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
   .players{grid-template-columns:1fr;gap:10px;}
   .vs{display:none;}
 }
+
+/* ═══════════ UYGULAMA KABUĞU — sol ray (1C) ═══════════ */
+.app-shell{display:grid;grid-template-columns:92px minmax(0,1fr);min-height:100vh;}
+.app-rail{position:sticky;top:0;height:100vh;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:22px 0;gap:4px;z-index:50;}
+.app-rail .logo{font-size:14px;margin-bottom:24px;}
+.rail-item{width:76px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 0;border:none;background:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--muted);cursor:pointer;transition:color .15s;}
+.rail-item .rb{width:44px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;}
+.rail-item svg{width:20px;height:20px;}
+.rail-item:hover{color:var(--text);}
+.rail-item:hover .rb{background:var(--accent-dim2);}
+.rail-item.active{color:var(--text);font-weight:500;}
+.rail-item.active .rb{background:var(--accent-dim);color:var(--accent);}
+.app-main{min-width:0;}
+.app-nav{height:64px;padding:0 32px;}
+.app-nav-left .logo{display:none;}
+.streak-badge{display:flex;align-items:center;gap:5px;}
+.streak-badge svg{width:15px;height:15px;}
+#avatarLoading.show{display:flex!important;}
+.notif-btn{left:22px;}
+.notif-panel{left:104px;bottom:24px;transform-origin:bottom left;}
+
+/* ═══════════ EV (2A) ═══════════ */
+.home{max-width:1180px;margin:0 auto;padding:32px 36px 48px;}
+.home-hero{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:28px 30px;border:1px solid var(--border);border-radius:18px;background-color:var(--surface);background-image:radial-gradient(circle at 1px 1px,rgba(160,143,122,.1) 1px,transparent 0);background-size:16px 16px;}
+.home-id{display:flex;align-items:center;gap:22px;min-width:0;}
+.home-ring,.pe-ring{display:inline-block;padding:3px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--la-tone));flex-shrink:0;}
+.home-av{width:88px;height:88px;border-radius:50%;border:3px solid var(--surface);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:32px;color:var(--accent);overflow:hidden;}
+.home-av img,.pe-av img,.pe-idav img,.home-fav img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;}
+.home-name{font-family:var(--display);font-size:30px;letter-spacing:-.015em;line-height:1.05;word-break:break-word;color:var(--text);}
+.home-meta{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:13px;color:var(--muted);flex-wrap:wrap;}
+.home-chip{display:inline-flex;padding:3px 10px;border-radius:999px;background:var(--accent-dim);color:var(--accent);font-size:12px;font-weight:500;}
+.home-dot{width:3px;height:3px;border-radius:50%;background:#6E6553;}
+.home-langs{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap;}
+.home-lchip{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid var(--border);border-radius:999px;font-size:12.5px;color:#C7BEAB;background:var(--bg);}
+.home-lchip b{font-family:var(--display);font-size:10.5px;color:var(--accent);font-weight:400;}
+.home-lchip em{font-style:normal;color:#6E6553;font-size:11.5px;}
+.home-stats{display:flex;}
+.hst{padding:0 26px;border-left:1px solid var(--border);}
+.hst:first-child{border-left:none;padding-left:0;}
+.hst .n{font-family:var(--display);font-size:30px;line-height:1;font-variant-numeric:tabular-nums;color:var(--text);}
+.hst .n.gold{color:var(--gold);}
+.hst .l{font-size:12.5px;color:var(--muted);margin-top:9px;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.hst .l svg{width:13px;height:13px;color:var(--accent);}
+.hst .l svg.g{color:var(--gold);}
+.home-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;margin-top:28px;align-items:start;}
+.home-main > section + section{margin-top:26px;}
+.hblk-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+.hblk-h h4{margin:0;font-size:15px;font-weight:600;color:var(--text);}
+.hblk-h > span{font-size:12.5px;color:var(--muted);}
+.hblk-h > .home-count{font-size:11.5px;color:var(--accent);background:var(--accent-dim);padding:1px 8px;border-radius:999px;font-weight:600;}
+.home-link{margin-left:auto;font-size:12.5px;color:var(--accent);cursor:pointer;}
+.home .dash-lvl-card{margin-bottom:0;}
+.home-rows{border:1px solid var(--border);border-radius:14px;background:var(--surface);overflow:hidden;}
+.home-row{display:flex;align-items:center;gap:14px;padding:15px 18px;cursor:pointer;transition:background .15s;}
+.home-row + .home-row{border-top:1px solid var(--border);}
+.home-row:hover{background:var(--accent-dim2);}
+.home-ibox{width:38px;height:38px;border-radius:11px;background:var(--accent-dim);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.home-ibox svg{width:18px;height:18px;}
+.home-row .t{font-size:14px;font-weight:500;color:var(--text);}
+.home-row .s{font-size:12.5px;color:var(--muted);margin-top:3px;}
+.home-row .end{margin-left:auto;color:var(--muted);display:flex;}
+.home-row .end svg{width:15px;height:15px;transition:transform .15s,color .15s;}
+.home-row:hover .end svg{transform:translateX(3px);color:var(--accent);}
+.home-side{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:18px 18px 16px;}
+.home-fr{display:flex;align-items:center;gap:11px;padding:10px 2px;}
+.home-fr + .home-fr{border-top:1px solid var(--border);}
+.home-fav{width:34px;height:34px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;color:var(--accent);flex-shrink:0;overflow:hidden;}
+.home-frtxt{min-width:0;}
+.home-frtxt .nm{font-size:13.5px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.home-frtxt .un{font-size:12px;color:var(--muted);margin-top:1px;}
+.home-lv{margin-left:auto;font-size:10.5px;font-family:var(--display);color:var(--accent);background:var(--accent-dim);padding:3px 8px;border-radius:7px;flex-shrink:0;}
+.home-empty{font-size:13px;color:var(--muted);padding:12px 2px 4px;line-height:1.6;}
+.home-add{width:100%;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;height:40px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s;}
+.home-add svg{width:15px;height:15px;color:var(--accent);}
+.home-add:hover{border-color:rgba(160,143,122,.5);background:var(--accent-dim2);}
+
+/* ═══════════ PROFİL DÜZENLEME (3B) ═══════════ */
+#screen-profile{max-width:none;padding:0;}
+.pe{display:grid;grid-template-columns:272px minmax(0,1fr);min-height:calc(100vh - 64px);}
+.pe-nav{border-right:1px solid var(--border);background:var(--surface);padding:26px 14px;display:flex;flex-direction:column;gap:2px;}
+.pe-id{display:flex;align-items:center;gap:12px;padding:0 8px 20px;margin-bottom:10px;border-bottom:1px solid var(--border);}
+.pe-idav{width:42px;height:42px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:15px;color:var(--accent);flex-shrink:0;overflow:hidden;}
+.pe-idnm{font-weight:600;font-size:14px;color:var(--text);word-break:break-word;}
+.pe-idun{font-size:12px;color:var(--muted);margin-top:2px;}
+.pe-item{display:flex;align-items:center;gap:11px;width:100%;padding:11px 12px;border:none;background:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--muted);text-align:left;cursor:pointer;transition:background .15s,color .15s;}
+.pe-item svg{width:17px;height:17px;flex-shrink:0;}
+.pe-item:hover{background:var(--accent-dim2);color:var(--text);}
+.pe-item.active{background:var(--accent-dim);color:var(--text);font-weight:500;}
+.pe-item.active svg{color:var(--accent);}
+.pe-item.out{margin-top:auto;color:#D98A8A;}
+.pe-item.out:hover{background:rgba(255,95,95,.08);color:var(--red);}
+.pe-main{padding:40px 48px 48px;max-width:1100px;}
+.pe-title{font-family:var(--display);font-size:30px;letter-spacing:-.02em;margin:0;line-height:1.05;color:var(--text);}
+.pe-lead{font-size:14px;color:var(--muted);margin:11px 0 30px;line-height:1.6;max-width:56ch;}
+.pe-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.pe-fld.span2{grid-column:1/-1;}
+.pe-fld label{display:block;font-size:12.5px;font-weight:500;color:#C7BEAB;margin-bottom:7px;}
+.pe-inp{display:flex;align-items:center;gap:4px;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);transition:border-color .15s,box-shadow .15s;}
+.pe-inp:focus-within{border-color:rgba(160,143,122,.6);box-shadow:0 0 0 3px rgba(160,143,122,.12);}
+.pe-inp .pre{color:#6E6553;font-size:14px;}
+.pe-inp input{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;}
+.pe-inp.dis{background:var(--surface);color:var(--muted);font-size:14px;gap:12px;}
+.pe-inp.dis > span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pe-sidelink{font-size:12.5px;color:var(--accent);cursor:pointer;white-space:nowrap;}
+.pe-photo{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.pe-avwrap{position:relative;cursor:pointer;}
+.pe-av{width:96px;height:96px;border-radius:50%;border:3px solid var(--bg);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:34px;color:var(--accent);overflow:hidden;}
+.pe-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s;}
+.pe-btn svg{width:15px;height:15px;}
+.pe-btn:hover{border-color:rgba(160,143,122,.5);background:var(--accent-dim2);}
+.pe-btn.pri{background:var(--accent);border-color:var(--accent);color:#15130F;font-weight:600;}
+.pe-btn.pri:hover{background:#AE9D88;}
+.pe-btn:disabled{opacity:.6;cursor:default;}
+.pe-foot{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:32px;padding-top:22px;border-top:1px solid var(--border);}
+.pe-err{margin-right:auto;font-size:12.5px;color:var(--red);}
+
+/* ═══════════ DUEL + SIRALAMA (4B) ═══════════ */
+#screen-duel{max-width:1180px;padding:32px 36px 48px;}
+#duelGame{max-width:820px;margin:0 auto;}
+.duel-lobby{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:26px;align-items:start;}
+.duel-hero{border:1px solid var(--border);border-radius:18px;background-color:var(--surface);background-image:radial-gradient(circle at 1px 1px,rgba(160,143,122,.1) 1px,transparent 0);background-size:16px 16px;padding:32px;}
+.duel-league{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:var(--accent-dim);color:var(--accent);font-family:var(--display);font-size:11px;letter-spacing:.03em;}
+.duel-league svg{width:13px;height:13px;}
+.duel-h{font-family:var(--display);font-size:34px;letter-spacing:-.02em;margin:18px 0 0;line-height:1.02;color:var(--text);}
+.duel-p{font-size:14px;color:var(--muted);margin:12px 0 0;max-width:46ch;line-height:1.62;}
+.duel-hero .find-btn{width:auto;display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 24px;margin-top:24px;border-radius:12px;font-weight:600;font-size:14px;}
+.duel-hero .find-btn svg{width:17px;height:17px;}
+.duel-hero .finding{text-align:left;padding:24px 0 0;}
+.duel-hero .finding.show{display:flex;align-items:center;gap:14px;}
+.duel-hero .spinner{margin:0;width:26px;height:26px;}
+.duel-you{display:flex;margin-top:18px;border:1px solid var(--border);border-radius:14px;background:var(--surface);}
+.duel-you > div{flex:1;padding:16px 18px;min-width:0;}
+.duel-you > div + div{border-left:1px solid var(--border);}
+.duel-you .n{font-family:var(--display);font-size:20px;font-variant-numeric:tabular-nums;color:var(--text);}
+.duel-you .l{font-size:12px;color:var(--muted);margin-top:5px;}
+.duel-side{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:18px 18px 14px;}
+.dsl-row{display:flex;align-items:center;gap:11px;padding:9px 4px;font-size:13px;color:var(--text);}
+.dsl-row + .dsl-row{border-top:1px solid var(--border);}
+.dsl-rk{font-family:var(--display);font-size:12.5px;color:var(--muted);width:22px;font-variant-numeric:tabular-nums;flex-shrink:0;}
+.dsl-rk.r1,.lb-rank.r1{color:var(--gold);} .dsl-rk.r2,.lb-rank.r2{color:var(--la-tone);} .dsl-rk.r3,.lb-rank.r3{color:var(--accent);}
+.dsl-av{width:28px;height:28px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:10.5px;color:var(--accent);flex-shrink:0;}
+.dsl-nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.dsl-num{margin-left:auto;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.dsl-gap{text-align:center;color:#6E6553;font-size:12px;letter-spacing:.2em;padding:2px 0;}
+.dsl-row.me{background:var(--accent-dim2);border-radius:10px;padding:9px 10px;margin:4px -6px 0;border-top:none;}
+.dsl-row.me b{color:var(--accent);font-weight:600;}
+.duel-all{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12.5px;color:var(--accent);cursor:pointer;}
+.duel-all svg{width:14px;height:14px;transition:transform .15s;}
+.duel-all:hover svg{transform:translateX(3px);}
+.board-back{display:inline-flex;align-items:center;gap:6px;background:none;border:none;padding:0;margin-bottom:20px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:color .15s;}
+.board-back svg{width:15px;height:15px;}
+.board-back:hover{color:var(--text);}
+.lb-rank{font-family:var(--display);font-size:12.5px;}
+.lb-streak2{display:inline-flex;align-items:center;gap:4px;}
+.lb-streak2 svg{width:12px;height:12px;}
+
+/* ═══════════ duyarlı ═══════════ */
+@media(max-width:900px){
+  .home-grid,.duel-lobby{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .app-shell{display:block;}
+  .app-rail{position:fixed;top:auto;left:0;right:0;bottom:0;height:auto;flex-direction:row;justify-content:space-around;align-items:stretch;padding:6px 6px calc(8px + env(safe-area-inset-bottom));border-right:none;border-top:1px solid var(--border);gap:0;z-index:800;}
+  .app-rail .logo{display:none;}
+  .rail-item{width:auto;flex:1;gap:3px;padding:3px 0;font-size:10.5px;}
+  .rail-item .rb{width:42px;height:28px;border-radius:999px;}
+  .rail-item svg{width:19px;height:19px;}
+  .app-nav{height:auto;padding:12px 14px;}
+  .app-nav-left .logo{display:block;font-size:17px;}
+  .app-main{padding-bottom:84px;}
+  .notif-btn{bottom:92px;left:14px;}
+  .notif-panel{left:14px;right:14px;bottom:150px;}
+  .notif{bottom:88px;}
+  .home{padding:20px 14px 28px;}
+  .home-hero{padding:22px 18px;gap:20px;}
+  .home-id{gap:16px;}
+  .home-av{width:68px;height:68px;font-size:24px;}
+  .home-name{font-size:24px;}
+  .home-stats{width:100%;}
+  .hst{flex:1;padding:0 12px;}
+  .hst .n{font-size:22px;}
+  .pe{grid-template-columns:1fr;min-height:0;}
+  .pe-nav{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);padding:12px;gap:6px;}
+  .pe-nav::-webkit-scrollbar{display:none;}
+  .pe-id{display:none;}
+  .pe-item{width:auto;flex-shrink:0;white-space:nowrap;padding:9px 12px;font-size:12.5px;}
+  .pe-item.out{margin-top:0;}
+  .pe-main{padding:24px 16px 32px;}
+  .pe-title{font-size:24px;}
+  .pe-grid{grid-template-columns:1fr;}
+  #screen-duel{padding:20px 14px 28px;}
+  .duel-hero{padding:24px 20px;}
+  .duel-h{font-size:28px;}
+}
 </style>
 </head>
 <body>
@@ -1073,100 +1267,103 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
      APP
 ══════════════════════════════ -->
 <div id="page-app" class="page">
-  <nav class="app-nav">
-    <div class="app-nav-left">
-      <div class="logo"><span class="ver">ver</span><span class="la">la</span></div>
-    </div>
-    <div class="app-nav-right">
-      <div class="streak-badge">🔥 <span id="navStreak">0</span></div>
-      <div class="vc-badge">◈ <span id="vcAmt">0</span> VC</div>
-      <div class="lvl-pill">
-        <span class="lvl-tag" id="navLvl">A1</span>
-        <div class="prog-track"><div class="prog-fill" id="navFill" style="width:0%"></div></div>
-        <span class="prog-txt" id="navTxt">0/500</span>
+  <div class="app-shell">
+    <aside class="app-rail" id="appRail">
+      <div class="logo" onclick="showDash()"><span class="ver">ver</span><span class="la">la</span></div>
+      <button class="rail-item active" data-nav="home" onclick="showDash()"><span class="rb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.6 12 3.6l8.5 7"/><path d="M5.8 9.4V20h12.4V9.4"/><path d="M9.8 20v-5.4h4.4V20"/></svg></span>Ev</button>
+      <button class="rail-item" data-nav="read" onclick="showTab('read')"><span class="rb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.3 5.3 7.9 4.7 4 4.9v12.9c3.9-.2 6.3.4 8 1.7 1.7-1.3 4.1-1.9 8-1.7V4.9c-3.9-.2-6.3.4-8 1.7Z"/><path d="M12 6.6v12.9"/></svg></span>Oku</button>
+      <button class="rail-item" data-nav="duel" onclick="showTab('duel')"><span class="rb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 2.8 5.4 13.6h5.3l-1 7.6 7.9-10.9h-5.4z"/></svg></span>Duel</button>
+      <button class="rail-item" data-nav="friends" onclick="showTab('friends')"><span class="rb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.2" r="3.3"/><path d="M3 19.6c0-3.3 2.9-5.1 6.4-5.1s6.4 1.8 6.4 5.1"/><path d="M16.4 5.6a3.3 3.3 0 0 1 0 5.2"/><path d="M18.2 14.9c1.9.7 3 2.1 3 4.7"/></svg></span>Arkadaşlar</button>
+    </aside>
+    <div class="app-main">
+    <nav class="app-nav">
+      <div class="app-nav-left">
+        <div class="logo"><span class="ver">ver</span><span class="la">la</span></div>
       </div>
-      <div class="user-menu" id="userMenu">
-        <div class="user-av" id="userAv" onclick="toggleDD()">?</div>
-        <div class="user-dd" id="userDD">
-          <div class="dd-head">
-            <div class="dd-head-av" id="ddAv">?</div>
-            <div>
-              <div class="dd-name" id="ddName">—</div>
-              <div class="dd-lvl" id="ddLvl">A1 · İngilizce</div>
+      <div class="app-nav-right">
+        <div class="streak-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.4c.7 2.2-.3 3.5-1.8 5-1.6 1.7-2.8 3.4-2.8 5.6a4.6 4.6 0 0 0 9.2 0c0-1.6-.7-2.9-1.7-4-.2 1.1-.8 1.9-1.7 2.4.4-1.8 0-3.7-1-5.3-.5.9-.8 1.8-.7 2.7-.6-2-.3-4.4.5-6.4Z"/></svg><span id="navStreak">0</span></div>
+        <div class="vc-badge">◈ <span id="vcAmt">0</span> VC</div>
+        <div class="lvl-pill">
+          <span class="lvl-tag" id="navLvl">A1</span>
+          <div class="prog-track"><div class="prog-fill" id="navFill" style="width:0%"></div></div>
+          <span class="prog-txt" id="navTxt">0/500</span>
+        </div>
+        <div class="user-menu" id="userMenu">
+          <div class="user-av" id="userAv" onclick="toggleDD()">?</div>
+          <div class="user-dd" id="userDD">
+            <div class="dd-head">
+              <div class="dd-head-av" id="ddAv">?</div>
+              <div>
+                <div class="dd-name" id="ddName">—</div>
+                <div class="dd-lvl" id="ddLvl">A1 · İngilizce</div>
+              </div>
+            </div>
+            <div class="dd-list">
+              <div class="dd-item" onclick="showDash()"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 10.4 12 3.4l8.8 7"/><path d="M5.6 9.3V20h12.8V9.3"/><path d="M9.6 20v-5.2h4.8V20"/></svg></span>Ana sayfa</div>
+              <div class="dd-item" onclick="showTab('profile');document.getElementById('userDD').classList.remove('open');"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.7 3.3-5.6 7.2-5.6s7.2 1.9 7.2 5.6"/></svg></span>Profilim</div>
+              <div class="dd-item" onclick="showSettingsPage();document.getElementById('userDD').classList.remove('open');"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 7h9M17 7h3.4M3.6 17h6.6M14.6 17h5.8M3.6 12h3.2M11.2 12h9.2"/><circle cx="14.8" cy="7" r="2.2"/><circle cx="12.4" cy="17" r="2.2"/><circle cx="9" cy="12" r="2.2"/></svg></span>Ayarlar</div>
+              <div class="dd-item" onclick="showFriendsScreen();document.getElementById('userDD').classList.remove('open');"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.4" cy="8.2" r="3.3"/><path d="M3 19.6c0-3.3 2.9-5.1 6.4-5.1s6.4 1.8 6.4 5.1"/><path d="M16.4 5.6a3.3 3.3 0 0 1 0 5.2"/><path d="M18.2 14.9c1.9.7 3 2.1 3 4.7"/></svg></span>Arkadaşlar</div>
+              <div id="adminPanelLink" style="display:none;">
+                <div class="dd-sep"></div>
+                <div class="dd-item" onclick="openAdminPanel()"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.3 19 6v5.3c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.6-7-8.8V6z"/><path d="m9.3 12.1 1.9 1.9 3.6-3.8"/></svg></span>Admin Paneli</div>
+              </div>
             </div>
           </div>
-          <div class="dd-list">
-            <div class="dd-item" onclick="showDash()"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 10.4 12 3.4l8.8 7"/><path d="M5.6 9.3V20h12.8V9.3"/><path d="M9.6 20v-5.2h4.8V20"/></svg></span>Ana sayfa</div>
-            <div class="dd-item" onclick="showTab('profile');document.getElementById('userDD').classList.remove('open');"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.7 3.3-5.6 7.2-5.6s7.2 1.9 7.2 5.6"/></svg></span>Profilim</div>
-            <div class="dd-item" onclick="showSettingsPage();document.getElementById('userDD').classList.remove('open');"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 7h9M17 7h3.4M3.6 17h6.6M14.6 17h5.8M3.6 12h3.2M11.2 12h9.2"/><circle cx="14.8" cy="7" r="2.2"/><circle cx="12.4" cy="17" r="2.2"/><circle cx="9" cy="12" r="2.2"/></svg></span>Ayarlar</div>
-            <div class="dd-item" onclick="showFriendsScreen();document.getElementById('userDD').classList.remove('open');"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.4" cy="8.2" r="3.3"/><path d="M3 19.6c0-3.3 2.9-5.1 6.4-5.1s6.4 1.8 6.4 5.1"/><path d="M16.4 5.6a3.3 3.3 0 0 1 0 5.2"/><path d="M18.2 14.9c1.9.7 3 2.1 3 4.7"/></svg></span>Arkadaşlar</div>
-            <div id="adminPanelLink" style="display:none;">
-              <div class="dd-sep"></div>
-              <div class="dd-item" onclick="openAdminPanel()"><span class="dd-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.3 19 6v5.3c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.6-7-8.8V6z"/><path d="m9.3 12.1 1.9 1.9 3.6-3.8"/></svg></span>Admin Paneli</div>
+        </div>
+      </div>
+    </nav>
+
+      <!-- EV -->
+      <div id="dashView">
+        <div class="home">
+          <div class="home-hero">
+            <div class="home-id">
+              <span class="home-ring"><span class="home-av" id="homeAv">?</span></span>
+              <div>
+                <div class="home-name" id="homeName">—</div>
+                <div class="home-meta"><span class="home-chip" id="homeUser">@—</span><span class="home-dot"></span><span id="homeSince">—</span></div>
+                <div class="home-langs" id="homeLangs"></div>
+              </div>
             </div>
+            <div class="home-stats">
+              <div class="hst"><div class="n" id="dashLearned">0</div><div class="l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6.8h14M5 12h9.5M5 17.2h11.5"/></svg>kelime</div></div>
+              <div class="hst"><div class="n gold" id="dashStreak">0</div><div class="l"><svg class="g" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.4c.7 2.2-.3 3.5-1.8 5-1.6 1.7-2.8 3.4-2.8 5.6a4.6 4.6 0 0 0 9.2 0c0-1.6-.7-2.9-1.7-4-.2 1.1-.8 1.9-1.7 2.4.4-1.8 0-3.7-1-5.3-.5.9-.8 1.8-.7 2.7-.6-2-.3-4.4.5-6.4Z"/></svg>gün streak</div></div>
+              <div class="hst"><div class="n" id="dashVC">0</div><div class="l">◈ Ver Coin</div></div>
+            </div>
+          </div>
+          <div class="home-grid">
+            <div class="home-main">
+              <section>
+                <div class="hblk-h"><h4>Seviye</h4><span id="homeLvlLang"></span></div>
+                <div class="dash-lvl-card">
+                  <div class="dlc-circle"><div class="dlc-tag" id="dashLvlTag">A1</div><div class="dlc-sub">Seviye</div></div>
+                  <div class="dlc-info">
+                    <div class="dlc-top"><div class="dlc-name" id="dashLvlName">Başlangıç</div><div class="dlc-count" id="dashLvlCount">0 / 500</div></div>
+                    <div class="big-track"><div class="big-fill" id="dashBigFill" style="width:0%"></div></div>
+                    <div class="dlc-hint" id="dashLvlHint"></div>
+                  </div>
+                  <div class="dlc-next"><div class="dlc-next-circle" id="dashNextCircle">A2</div><div class="dlc-next-lbl">Sonraki</div></div>
+                </div>
+              </section>
+              <section>
+                <div class="hblk-h"><h4>Kaldığın yerden</h4></div>
+                <div class="home-rows">
+                  <div class="home-row" onclick="showTab('read')"><span class="home-ibox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.6C10.3 5.3 7.9 4.7 4 4.9v12.9c3.9-.2 6.3.4 8 1.7 1.7-1.3 4.1-1.9 8-1.7V4.9c-3.9-.2-6.3.4-8 1.7Z"/><path d="M12 6.6v12.9"/></svg></span><div><div class="t">The Mystery of Sleep</div><div class="s" id="dashReadSub">A1 seviyesi · Bilim</div></div><span class="end"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></span></div>
+                  <div class="home-row" onclick="showTab('duel')"><span class="home-ibox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 2.8 5.4 13.6h5.3l-1 7.6 7.9-10.9h-5.4z"/></svg></span><div><div class="t">Duel'e gir</div><div class="s" id="dashDuelSub">A1 liginde oyna</div></div><span class="end"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></span></div>
+                </div>
+              </section>
+            </div>
+            <aside class="home-side">
+              <div class="hblk-h"><h4>Arkadaşlar</h4><span class="home-count" id="homeFrCount">0</span><a class="home-link" onclick="showTab('friends')">Tümü</a></div>
+              <div id="homeFriends"><div class="home-empty">Henüz arkadaşın yok.</div></div>
+              <button class="home-add" onclick="showTab('friends')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.2 19.5c0-3.4 2.9-5.3 6.3-5.3 1.1 0 2.2.2 3.1.6"/><path d="M17.5 14v6M14.5 17h6"/></svg>Arkadaş ekle</button>
+            </aside>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
 
-  <!-- DASHBOARD -->
-  <div id="dashView">
-    <div class="dash">
-      <div class="dash-welcome" id="dashWelcome">Merhaba!</div>
-      <div class="dash-sub" id="dashSub">Bugün ne öğreneceksin?</div>
-
-      <div class="dash-grid">
-        <div class="dash-card">
-          <div class="dc-ic" style="background:var(--accent-dim);color:var(--accent);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6.8h14M5 12h9.5M5 17.2h11.5"/></svg></div>
-          <div class="dc-label">Öğrenilen</div><div class="dc-val accent" id="dashLearned">0</div>
-        </div>
-        <div class="dash-card">
-          <div class="dc-ic" style="background:rgba(245,200,66,0.15);color:var(--gold);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.4c.7 2.2-.3 3.5-1.8 5-1.6 1.7-2.8 3.4-2.8 5.6a4.6 4.6 0 0 0 9.2 0c0-1.6-.7-2.9-1.7-4-.2 1.1-.8 1.9-1.7 2.4.4-1.8 0-3.7-1-5.3-.5.9-.8 1.8-.7 2.7-.6-2-.3-4.4.5-6.4Z"/></svg></div>
-          <div class="dc-label">Streak</div><div class="dc-val gold"><span id="dashStreak">0</span></div>
-        </div>
-        <div class="dash-card">
-          <div class="dc-ic" style="background:var(--accent-dim);color:var(--la-tone);font-size:15px;line-height:1;">◈</div>
-          <div class="dc-label">Ver Coin</div><div class="dc-val">◈ <span id="dashVC">0</span></div>
-        </div>
-      </div>
-
-      <div class="dash-lvl-card">
-        <div class="dlc-circle"><div class="dlc-tag" id="dashLvlTag">A1</div><div class="dlc-sub">Seviye</div></div>
-        <div class="dlc-info">
-          <div class="dlc-top"><div class="dlc-name" id="dashLvlName">Başlangıç</div><div class="dlc-count" id="dashLvlCount">0 / 500</div></div>
-          <div class="big-track"><div class="big-fill" id="dashBigFill" style="width:0%"></div></div>
-          <div class="dlc-hint" id="dashLvlHint">A2'ye geçmek için 500 kelime daha öğren</div>
-        </div>
-        <div class="dlc-next"><div class="dlc-next-circle" id="dashNextCircle">A2</div><div class="dlc-next-lbl">Sonraki</div></div>
-      </div>
-
-      <div class="dash-quick">
-        <div class="quick-card" onclick="showApp('read')">
-          <div class="qc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.6c2.3-1 4.6-1 6.8.4v12.4c-2.2-1.4-4.5-1.4-6.8-.4z"/><path d="M20.5 5.6c-2.3-1-4.6-1-6.8.4v12.4c2.2-1.4 4.5-1.4 6.8-.4z"/></svg></div>
-          <div class="qc-top"><div class="qc-title">Okumaya devam et</div><svg class="qc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></div>
-          <div class="qc-sub" id="dashReadSub">A1 seviyesi · Bilim</div>
-        </div>
-        <div class="quick-card" onclick="showApp('duel')">
-          <div class="qc-icon"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13.2 2.4 5 14h5.6l-1.4 7.6L18 10h-5.6z"/></svg></div>
-          <div class="qc-top"><div class="qc-title">Duel'e gir</div><svg class="qc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></div>
-          <div class="qc-sub" id="dashDuelSub">A1 liginde oyna</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- APP TABS (Oku/Duel/Sıralama) -->
-  <div id="appTabsView" style="display:none">
-    <div class="app-tabs">
-      <div class="tab active" data-tab="read" onclick="showTab('read')">Oku</div>
-      <div class="tab" data-tab="duel" onclick="showTab('duel')">Duel</div>
-      <div class="tab" data-tab="board" onclick="showTab('board')">Sıralama</div>
-      <div class="tab" data-tab="friends" onclick="showTab('friends')">Arkadaşlar</div>
-      <div class="tab" data-tab="profile" onclick="showTab('profile')">Profil</div>
-      <div class="tab" data-tab="settings" onclick="showSettingsPage()">Ayarlar</div>
-    </div>
-
+      <!-- SEKME EKRANLARI -->
+      <div id="appTabsView" style="display:none">
     <!-- OKU -->
     <div class="screen active" id="screen-read">
       <div class="level-card">
@@ -1192,15 +1389,27 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
     <!-- DUEL -->
     <div class="screen" id="screen-duel">
       <div id="duelLobby">
-        <div class="duel-hd"><div class="duel-title">Duel modu</div><div style="font-size:13px;color:var(--muted)" id="duelLig">A1 ligi</div></div>
-        <div class="duel-sg">
-          <div class="ds-box"><div class="ds-val">8</div><div class="ds-lbl">Kazanma</div></div>
-          <div class="ds-box"><div class="ds-val">3</div><div class="ds-lbl">Kaybetme</div></div>
-          <div class="ds-box"><div class="ds-val" style="color:var(--accent)">72%</div><div class="ds-lbl">Oran</div></div>
+        <div class="duel-lobby">
+          <div>
+            <div class="duel-hero">
+              <span class="duel-league"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20V9.5h6V20"/><path d="M3.5 20v-6.5H9"/><path d="M15 11.5h5.5V20"/><path d="M3 20h18"/></svg><span id="duelLig">A1 ligi</span></span>
+              <h2 class="duel-h">Rakibini bul.</h2>
+              <p class="duel-p">Aynı seviyedeki kullanıcılarla gerçek zamanlı yarış. Kendi liginde en üste çık.</p>
+              <div class="finding" id="finding"><div class="spinner"></div><div style="color:var(--muted);font-size:14px" id="findingTxt">A1 liginde rakip aranıyor...</div></div>
+              <button class="find-btn" id="findBtn" onclick="startFinding()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 2.8 5.4 13.6h5.3l-1 7.6 7.9-10.9h-5.4z"/></svg>Duel'e gir</button>
+            </div>
+            <div class="duel-you">
+              <div><div class="n" id="duelRank">#24</div><div class="l">Ligdeki sıran</div></div>
+              <div><div class="n" id="duelWeek">0</div><div class="l">Bu hafta kelime</div></div>
+              <div><div class="n" id="duelGapTop">0</div><div class="l">İlk 5'e kalan</div></div>
+            </div>
+          </div>
+          <aside class="duel-side">
+            <div class="hblk-h"><h4>Sıralama</h4><span id="duelSideLbl">A1 · bu hafta</span></div>
+            <div id="duelSideList"></div>
+            <a class="duel-all" onclick="showTab('board')">Tüm sıralama<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></a>
+          </aside>
         </div>
-        <p style="color:var(--muted);font-size:14px;margin-bottom:22px;line-height:1.7">Aynı seviyedeki rakiplerle eşleşiyorsun. Kendi liginde en üste çık.</p>
-        <div class="finding" id="finding"><div class="spinner"></div><div style="color:var(--muted);font-size:14px" id="findingTxt">A1 liginde rakip aranıyor...</div></div>
-        <button class="find-btn" id="findBtn" onclick="startFinding()">Rakip Bul</button>
       </div>
       <div id="duelGame" style="display:none">
         <div class="duel-hd">
@@ -1221,6 +1430,7 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
 
     <!-- SIRALAMA -->
     <div class="screen" id="screen-board">
+      <button class="board-back" onclick="showTab('duel')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 5.5-6.5 6.5 6.5 6.5"/></svg>Duel</button>
       <div style="margin-bottom:18px">
         <div class="sec-title">Seviye seç</div>
         <div class="lb-tabs">
@@ -1240,156 +1450,59 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
           <div class="lb-rank" style="color:var(--accent)">#24</div>
           <div class="lb-av" style="background:rgba(160,143,122,0.12);color:var(--accent)" id="lbYourAv">?</div>
           <div class="lb-info"><div class="lb-name you" id="lbYourName">—</div><div class="lb-sub2"><span id="lbYourLvl">A1</span> · <span id="lbYourLang">İngilizce</span></div></div>
-          <div class="lb-right"><div class="lb-words" style="color:var(--accent)" id="lbYourWords">0 kelime</div><div class="lb-streak2">🔥 0</div></div>
+          <div class="lb-right"><div class="lb-words" style="color:var(--accent)" id="lbYourWords">0 kelime</div><div class="lb-streak2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.4c.7 2.2-.3 3.5-1.8 5-1.6 1.7-2.8 3.4-2.8 5.6a4.6 4.6 0 0 0 9.2 0c0-1.6-.7-2.9-1.7-4-.2 1.1-.8 1.9-1.7 2.4.4-1.8 0-3.7-1-5.3-.5.9-.8 1.8-.7 2.7-.6-2-.3-4.4.5-6.4Z"/></svg>0</div></div>
         </div>
       </div>
     </div>
 
-    <!-- PROFİL -->
+    <!-- PROFİL (düzenleme) -->
     <div class="screen" id="screen-profile">
-      <div class="pf-grid" style="max-width:960px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start;">
-
-        <!-- Sol Sütun -->
-        <div style="display:flex;flex-direction:column;gap:14px;">
-
-          <!-- Kimlik kartı -->
-          <div class="pf-card" style="text-align:center;padding:28px 22px 22px;">
-            <div style="position:relative;display:inline-block;margin-bottom:14px;" onclick="triggerAvatarUpload()">
-              <div style="padding:3px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--la-tone));">
-                <div id="profileAvatar" style="width:88px;height:88px;border-radius:50%;border:3px solid var(--surface);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:32px;color:var(--accent);cursor:pointer;overflow:hidden;">?</div>
-              </div>
-              <div id="avatarLoading" style="position:absolute;inset:3px;border-radius:50%;background:rgba(0,0,0,0.55);display:none;align-items:center;justify-content:center;">
-                <div style="width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
-              </div>
-              <div style="position:absolute;bottom:1px;right:1px;width:26px;height:26px;border-radius:50%;background:var(--accent);border:2px solid var(--surface);display:flex;align-items:center;justify-content:center;font-size:11px;color:#15130F;cursor:pointer;">✎</div>
-            </div>
-            <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)">
-            <div id="profileFullNameDisplay" style="font-family:var(--display);font-size:19px;color:var(--text);margin-bottom:8px;">—</div>
-            <div><span id="profileUsernameDisplay" class="pf-chip" style="margin:0;">@—</span></div>
-            <div id="profileEmailDisplay" style="font-size:11px;color:var(--muted);margin-top:9px;word-break:break-all;">—</div>
-
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border);">
-              <div><div id="miniWords" style="font-family:var(--display);font-size:16px;color:var(--accent);">0</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:3px;">Kelime</div></div>
-              <div><div id="miniStreak" style="font-family:var(--display);font-size:16px;color:var(--gold);">0</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:3px;">Streak</div></div>
-              <div><div id="miniCoins" style="font-family:var(--display);font-size:16px;color:var(--text);">0</div><div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:3px;">Ver Coin</div></div>
-            </div>
-          </div>
-
-          <!-- Bölüm menüsü -->
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;">
-            <button onclick="switchProfileSection('personal')" id="psBtn-personal" class="profile-sidebar-btn active-ps"><span>👤</span> Kişisel Bilgiler</button>
-            <button onclick="switchProfileSection('verla')" id="psBtn-verla" class="profile-sidebar-btn"><span>🌱</span> Verla Bilgileri</button>
-          </div>
-
-          <!-- Çıkış -->
-          <button onclick="doLogout()" style="width:100%;padding:12px;background:transparent;border:1px solid rgba(255,95,95,0.3);border-radius:12px;color:#ff5f5f;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,95,95,0.08)'" onmouseout="this.style.background='transparent'">Çıkış Yap</button>
-        </div>
-
-        <!-- Sağ İçerik -->
-        <div>
-
-          <!-- Kişisel Bilgiler -->
+      <div class="pe">
+        <aside class="pe-nav">
+          <div class="pe-id"><span class="pe-idav" id="peIdAv">?</span><div><div class="pe-idnm" id="profileFullNameDisplay">—</div><div class="pe-idun" id="profileUsernameDisplay">@—</div></div></div>
+          <button class="pe-item active" id="psBtn-personal" onclick="switchProfileSection('personal')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20c0-3.7 3.3-5.6 7.2-5.6s7.2 1.9 7.2 5.6"/></svg>Kişisel bilgiler</button>
+          <button class="pe-item" id="psBtn-account" onclick="switchProfileSection('account')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.6"/><path d="M15.6 12v1.6a2.4 2.4 0 0 0 4.8 0V12a8.4 8.4 0 1 0-3.3 6.7"/></svg>Kullanıcı adı ve e-posta</button>
+          <button class="pe-item" id="psBtn-photo" onclick="switchProfileSection('photo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M8.6 7 10 4.6h4L15.4 7"/><circle cx="12" cy="13.2" r="3.2"/></svg>Fotoğraf</button>
+          <button class="pe-item out" onclick="doLogout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3"/><path d="M10 16.5 5.5 12 10 7.5M5.5 12H15"/></svg>Çıkış yap</button>
+        </aside>
+        <div class="pe-main">
           <div id="ps-personal">
-            <div class="pf-card">
-              <div class="pf-head">
-                <div class="pf-head-ic">👤</div>
-                <div><h3>Kişisel Bilgiler</h3><p>Adın, görünen adın ve kullanıcı adın</p></div>
-              </div>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
-                <div>
-                  <label class="pf-label">Ad</label>
-                  <input id="profileFirstName" type="text" placeholder="Adın" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(160,143,122,0.4)'" onblur="this.style.borderColor='#3A3220'">
-                </div>
-                <div>
-                  <label class="pf-label">Soyad</label>
-                  <input id="profileLastName" type="text" placeholder="Soyadın" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(160,143,122,0.4)'" onblur="this.style.borderColor='#3A3220'">
-                </div>
-              </div>
-
-              <div style="margin-bottom:16px;">
-                <label class="pf-label">Görünen Ad</label>
-                <input id="profileDisplayName" type="text" placeholder="Görünen adın" maxlength="18" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(160,143,122,0.4)'" onblur="this.style.borderColor='#3A3220'">
-              </div>
-
-              <div style="margin-bottom:22px;">
-                <label class="pf-label">Kullanıcı Adı</label>
-                <div id="profileUsernameWrap" style="display:flex;align-items:center;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0 13px;transition:border-color 0.2s;">
-                  <span style="color:var(--muted);font-size:14px;">@</span>
-                  <input id="profileUsername" type="text" maxlength="18" placeholder="kullanici_adi" style="flex:1;min-width:0;background:transparent;border:none;padding:11px 0 11px 2px;font-size:14px;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;" onfocus="document.getElementById('profileUsernameWrap').style.borderColor='rgba(160,143,122,0.4)'" onblur="document.getElementById('profileUsernameWrap').style.borderColor='#3A3220'">
-                </div>
-              </div>
-
-              <div id="profileErr" style="font-size:12px;color:var(--red);margin-bottom:10px;min-height:16px;"></div>
-              <button onclick="saveProfile()" id="profileSaveBtn" style="width:100%;padding:13px;background:var(--accent);color:#15130F;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:filter 0.2s;" onmouseover="this.style.filter='brightness(1.06)'" onmouseout="this.style.filter='none'">Kaydet</button>
+            <h2 class="pe-title">Kişisel bilgiler</h2>
+            <p class="pe-lead">Adın ve soyadın, bir de herkesin gördüğü görünen adın.</p>
+            <div class="pe-grid">
+              <div class="pe-fld"><label for="profileFirstName">Ad</label><div class="pe-inp"><input id="profileFirstName" type="text" placeholder="Adın"></div></div>
+              <div class="pe-fld"><label for="profileLastName">Soyad</label><div class="pe-inp"><input id="profileLastName" type="text" placeholder="Soyadın"></div></div>
+              <div class="pe-fld span2"><label for="profileDisplayName">Görünen ad</label><div class="pe-inp"><input id="profileDisplayName" type="text" placeholder="Görünen adın" maxlength="18"></div></div>
             </div>
           </div>
-
-          <!-- Verla Bilgileri -->
-          <div id="ps-verla" style="display:none;">
-            <div class="pf-card">
-              <div class="pf-head">
-                <div class="pf-head-ic">🌱</div>
-                <div><h3>Verla Bilgileri</h3><p>İlerlemen ve istatistiklerin</p></div>
-              </div>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
-                <div class="pf-stat">
-                  <div class="pf-stat-ic">📚</div>
-                  <div class="pf-stat-n" style="color:var(--accent);" id="statWords">0</div>
-                  <div class="pf-stat-l">Öğrenilen Kelime</div>
-                </div>
-                <div class="pf-stat">
-                  <div class="pf-stat-ic">🔥</div>
-                  <div class="pf-stat-n" style="color:var(--gold);" id="statStreak">0</div>
-                  <div class="pf-stat-l">Günlük Streak</div>
-                </div>
-                <div class="pf-stat">
-                  <div class="pf-stat-ic">◈</div>
-                  <div class="pf-stat-n" style="color:var(--text);" id="statCoins">0</div>
-                  <div class="pf-stat-l">Ver Coin</div>
-                </div>
-                <div class="pf-stat">
-                  <div class="pf-stat-ic">🎯</div>
-                  <div class="pf-stat-n" style="color:var(--text);" id="statLevel">A1</div>
-                  <div class="pf-stat-l">Seviye</div>
-                </div>
-              </div>
-
-              <div class="pf-stat" style="margin-bottom:14px;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                  <span id="statLevelName" style="font-size:13px;font-weight:600;color:var(--text);">Başlangıç</span>
-                  <span id="statLevelCount" style="font-size:12px;color:var(--muted);">0 / 500</span>
-                </div>
-                <div style="height:10px;background:var(--border);border-radius:99px;overflow:hidden;">
-                  <div id="statLevelBar" style="height:100%;background:linear-gradient(90deg,var(--accent),var(--la-tone));border-radius:99px;transition:width 0.8s ease;width:0%;"></div>
-                </div>
-                <div id="statNextLevel" style="font-size:11px;color:var(--muted);margin-top:9px;"></div>
-              </div>
-
-              <div class="pf-stat">
-                <div style="margin-bottom:14px;">
-                  <div class="pf-label" style="margin-bottom:8px;">🗣️ Ana Dil</div>
-                  <div id="profileNativeLangs" style="font-size:14px;color:var(--text);">—</div>
-                </div>
-                <div style="margin-bottom:14px;padding-top:14px;border-top:1px solid var(--border);">
-                  <div class="pf-label" style="margin-bottom:8px;">📖 Öğrenilen Diller</div>
-                  <div id="profileLangsDisplay" style="font-size:14px;color:var(--text);">—</div>
-                </div>
-                <div style="padding-top:14px;border-top:1px solid var(--border);">
-                  <div class="pf-label" style="margin-bottom:8px;">📅 Üyelik Tarihi</div>
-                  <div id="profileJoinedDisplay" style="font-size:14px;color:var(--text);">—</div>
-                </div>
-              </div>
+          <div id="ps-account" style="display:none;">
+            <h2 class="pe-title">Kullanıcı adı ve e-posta</h2>
+            <p class="pe-lead">Arkadaşların seni kullanıcı adınla arar. E-postan giriş yaparken kullanılır.</p>
+            <div class="pe-grid">
+              <div class="pe-fld span2"><label for="profileUsername">Kullanıcı adı</label><div class="pe-inp" id="profileUsernameWrap"><span class="pre">@</span><input id="profileUsername" type="text" maxlength="18" placeholder="kullanici_adi"></div></div>
+              <div class="pe-fld span2"><label>E-posta</label><div class="pe-inp dis"><span id="profileEmailDisplay">—</span><a class="pe-sidelink" onclick="showSettingsPage()">Değiştir</a></div></div>
             </div>
           </div>
-
+          <div id="ps-photo" style="display:none;">
+            <h2 class="pe-title">Fotoğraf</h2>
+            <p class="pe-lead">PNG veya JPG, en fazla 2 MB. Kare fotoğraflar en iyi görünür.</p>
+            <div class="pe-photo">
+              <div class="pe-avwrap" onclick="triggerAvatarUpload()">
+                <span class="pe-ring"><span class="pe-av" id="profileAvatar">?</span></span>
+                <div id="avatarLoading" style="position:absolute;inset:3px;border-radius:50%;background:rgba(0,0,0,0.55);display:none;align-items:center;justify-content:center;">
+                  <div style="width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+                </div>
+              </div>
+              <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)">
+              <button class="pe-btn" onclick="triggerAvatarUpload()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2.5"/><path d="M8.6 7 10 4.6h4L15.4 7"/><circle cx="12" cy="13.2" r="3.2"/></svg>Fotoğraf yükle</button>
+            </div>
+          </div>
+          <div class="pe-foot" id="peFoot">
+            <div class="pe-err" id="profileErr"></div>
+            <button class="pe-btn" onclick="loadProfileTab()">Vazgeç</button>
+            <button class="pe-btn pri" id="profileSaveBtn" onclick="saveProfile()">Kaydet</button>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
       </div>
     </div>
 
@@ -1427,6 +1540,8 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
 
       </div>
     </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1438,7 +1553,7 @@ body.no-anim *,body.no-anim *::before,body.no-anim *::after{
     
     <!-- Başlık -->
     <div style="padding:0 24px 28px;border-bottom:1px solid var(--border);margin-bottom:12px;">
-      <button onclick="showPage('page-app');showTab(window._lastTab||'read')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='var(--muted)'">
+      <button onclick="showPage('page-app');showTab(window._lastTab||'home')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;transition:color 0.2s;" onmouseover="this.style.color='#EEE7D7'" onmouseout="this.style.color='var(--muted)'">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Geri
       </button>
@@ -4552,6 +4667,12 @@ function updateNavAvatar(){
       dd.textContent = init;
     }
   }
+  ['homeAv','peIdAv'].forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(currentUser && currentUser.avatarUrl) el.innerHTML = '<img src="' + currentUser.avatarUrl + '?t=' + Date.now() + '" alt="">';
+    else el.textContent = init;
+  });
 }
 
 // Çıkışta önceki kullanıcıya ait tüm arayüz izlerini siler.
@@ -4600,29 +4721,97 @@ document.addEventListener('click',e=>{
 });
 
 // DASHBOARD / TAB GEÇIŞI
+// Sol raydaki aktif öğe (Sıralama Duel'e, Profil hiçbirine bağlı)
+function setRail(key){
+  document.querySelectorAll('.rail-item').forEach(b => b.classList.toggle('active', b.dataset.nav === key));
+}
 function showDash(){
   document.getElementById('dashView').style.display='block';
   document.getElementById('appTabsView').style.display='none';
+  setRail('home');
+  window._lastTab = 'home';
   updateDash();
+  loadHomeFriends();
+  window.scrollTo(0,0);
 }
-function showApp(tab){
-  document.getElementById('dashView').style.display='none';
-  document.getElementById('appTabsView').style.display='block';
-  showTab(tab||'read');
-}
+function showApp(tab){ showTab(tab||'read'); }
 function showFriendsScreen(){ showTab('friends'); }  // loadFriends'i showTab çağırıyor
 
 function showTab(t){
-  // Önce appTabsView'i göster, dashView'i gizle
+  if(t === 'home'){ showDash(); return; }
   document.getElementById('dashView').style.display='none';
   document.getElementById('appTabsView').style.display='block';
-
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  // data-tab ile eşleştir (eskiden buton metnine bakılıyordu, 'friends' listede yoktu)
-  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===t));
+  document.querySelectorAll('#appTabsView .screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('screen-'+t)?.classList.add('active');
+  setRail(t === 'board' ? 'duel' : t);
+  window._lastTab = t;
   if(t==='profile') loadProfileTab();
   if(t==='friends') loadFriends();
+  if(t==='duel') renderDuelSide();
+  window.scrollTo(0,0);
+}
+
+function homeEsc(v){
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Ev: arkadaş listesi (en fazla 6)
+async function loadHomeFriends(){
+  const box = document.getElementById('homeFriends');
+  const cnt = document.getElementById('homeFrCount');
+  if(!box || !currentUser || !window._supabase) return;
+  try {
+    const { data: fs } = await window._supabase
+      .from('friendships')
+      .select('sender_id, receiver_id')
+      .or(`sender_id.eq.${currentUser.id},receiver_id.eq.${currentUser.id}`)
+      .eq('status', 'accepted');
+    const ids = (fs || []).map(f => f.sender_id === currentUser.id ? f.receiver_id : f.sender_id);
+    if(cnt) cnt.textContent = ids.length;
+    if(!ids.length){
+      box.innerHTML = '<div class="home-empty">Henüz arkadaşın yok. Arkadaş ekleyerek başla.</div>';
+      return;
+    }
+    const { data: ps } = await window._supabase
+      .from('profiles')
+      .select('id, username, display_name, avatar_url, levels, learn_langs')
+      .in('id', ids.slice(0, 6));
+    box.innerHTML = (ps || []).map(pr => {
+      const name = pr.display_name || pr.username || '?';
+      const av = pr.avatar_url
+        ? '<img src="' + homeEsc(pr.avatar_url) + '" alt="">'
+        : homeEsc(name[0].toUpperCase());
+      const lang = (pr.learn_langs || [])[0];
+      const lvl = lang ? (pr.levels || {})[lang] : '';
+      return '<div class="home-fr"><span class="home-fav">' + av + '</span>'
+        + '<div class="home-frtxt"><div class="nm">' + homeEsc(name) + '</div><div class="un">@' + homeEsc(pr.username) + '</div></div>'
+        + (lvl ? '<span class="home-lv">' + homeEsc(lvl) + '</span>' : '') + '</div>';
+    }).join('');
+  } catch(e) {
+    console.warn('loadHomeFriends:', e);
+  }
+}
+
+// Duel: sağdaki kısa sıralama + "senin durumun" şeridi
+function renderDuelSide(){
+  if(!currentUser) return;
+  const tag = lv().tag;
+  const rows = (lbData[tag] || []).slice(0, 5);
+  const set = (id, v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+  const list = document.getElementById('duelSideList');
+  if(list){
+    list.innerHTML = rows.map((pl, i) =>
+      '<div class="dsl-row"><span class="dsl-rk r' + (i+1) + '">' + (i+1) + '</span><span class="dsl-av">' + pl.n[0] + '</span>'
+      + '<span class="dsl-nm">' + pl.n + '</span><span class="dsl-num">' + pl.w.toLocaleString('tr-TR') + '</span></div>'
+    ).join('')
+      + '<div class="dsl-gap">···</div>'
+      + '<div class="dsl-row me"><span class="dsl-rk">24</span><span class="dsl-av">' + homeEsc(currentUser.initials || '?') + '</span>'
+      + '<span class="dsl-nm"><b>Sen</b></span><span class="dsl-num">' + learned + '</span></div>';
+  }
+  set('duelSideLbl', tag + ' · bu hafta');
+  set('duelWeek', learned);
+  const fifth = rows[4] ? rows[4].w : 0;
+  set('duelGapTop', Math.max(0, fifth - learned));
 }
 
 // ── ARK ADAŞLIK SİSTEMİ ──
@@ -4956,12 +5145,15 @@ function switchSettingsTab(tab){
 
 // Profil sekmesi içindeki "Kişisel Bilgiler" / "Verla Bilgileri" geçişi
 function switchProfileSection(section){
-  ['personal','verla'].forEach(s => {
+  ['personal','account','photo'].forEach(s => {
     const panel = document.getElementById('ps-'+s);
     if(panel) panel.style.display = s===section ? 'block' : 'none';
     const btn = document.getElementById('psBtn-'+s);
-    if(btn) btn.classList.toggle('active-ps', s===section);
+    if(btn) btn.classList.toggle('active', s===section);
   });
+  // Fotoğraf anında yükleniyor — orada Kaydet/Vazgeç gereksiz
+  const foot = document.getElementById('peFoot');
+  if(foot) foot.style.display = section === 'photo' ? 'none' : 'flex';
 }
 
 function setTheme(theme){
@@ -5051,7 +5243,7 @@ function showSettingsPage(){
   const emailEl = document.getElementById('profileEmail');
   if(emailEl && currentUser) emailEl.value = currentUser.email || '';
   // Aktif sekmeyi kaydet
-  window._lastTab = document.querySelector('.tab.active')?.dataset.tab || 'read';
+  window._lastTab = window._lastTab || 'home';
   showPage('page-settings');
   // Nav'ı gizle
   const landingNav = document.getElementById('landingNav');
@@ -5381,80 +5573,66 @@ function toggleModeration(){
 
 function loadProfileTab(){
   if(!currentUser) return;
-  const usernameEl = document.getElementById('profileUsername');
-  if(usernameEl) usernameEl.value = currentUser.username || '';
-  const displayEl = document.getElementById('profileDisplayName');
-  if(displayEl) displayEl.value = currentUser.displayName || currentUser.username || '';
-  document.getElementById('profileFirstName').value = currentUser.firstName || '';
-  document.getElementById('profileLastName').value  = currentUser.lastName  || '';
-  document.getElementById('profileEmail').value     = currentUser.email     || '';
-  const fullName = (currentUser.firstName && currentUser.lastName)
-    ? currentUser.firstName + ' ' + currentUser.lastName
-    : (currentUser.firstName || currentUser.displayName || currentUser.username || '—');
-  const fullNameEl = document.getElementById('profileFullNameDisplay');
-  if(fullNameEl) fullNameEl.textContent = fullName;
-  const unameEl = document.getElementById('profileUsernameDisplay');
-  if(unameEl) unameEl.textContent = '@' + (currentUser.username || '—');
-  const emailDispEl = document.getElementById('profileEmailDisplay'); if(emailDispEl) emailDispEl.textContent = currentUser.email || '—';
-  const emailInput = document.getElementById('profileEmail');
-  if(emailInput) emailInput.value = currentUser.email || '';
-  // Dilleri chip olarak göster (dil adları kontrollü değerler — XSS riski yok)
-  const langChips = arr => (arr && arr.length)
-    ? arr.map(l => '<span class="pf-chip">' + l + '</span>').join('')
-    : '—';
-  const langsEl = document.getElementById('profileLangsDisplay');
-  if(langsEl) langsEl.innerHTML = langChips(currentUser.learnLangs);
-  if(currentUser.createdAt){
-    const joinEl = document.getElementById('profileJoinedDisplay'); if(joinEl) joinEl.textContent = new Date(currentUser.createdAt).toLocaleDateString('tr-TR');
-  }
-  const natEl = document.getElementById('profileNativeLangs');
-  if(natEl) natEl.innerHTML = langChips(currentUser.nativeLangs);
-  const learnEl = document.getElementById('profileLearnLangs');
-  if(learnEl) learnEl.innerHTML = langChips(currentUser.learnLangs);
-  document.getElementById('statWords').textContent = currentUser.learnedWords || 0;
-  document.getElementById('statStreak').textContent = currentUser.streak || 0;
-  document.getElementById('statCoins').textContent = currentUser.verCoins || 0;
-  const _mw = document.getElementById('miniWords'); if(_mw) _mw.textContent = currentUser.learnedWords || 0;
-  const _ms = document.getElementById('miniStreak'); if(_ms) _ms.textContent = currentUser.streak || 0;
-  const _mc = document.getElementById('miniCoins'); if(_mc) _mc.textContent = currentUser.verCoins || 0;
-  document.getElementById('statLevel').textContent = lv().tag;
-  document.getElementById('statLevelName').textContent = lv().name;
-  document.getElementById('statLevelCount').textContent = learned + ' / ' + (lv().target||'∞');
-  const pct = lv().target ? Math.min((learned/lv().target)*100,100) : 100;
-  document.getElementById('statLevelBar').style.width = pct + '%';
-  document.getElementById('statNextLevel').textContent = lv().next ? (lv().target-learned) + " kelime daha → " + lv().next : 'En üst seviye!';
-
-  // Avatar
-  const av = document.getElementById('profileAvatar');
-  if(av){
-    if(currentUser.avatarUrl){
-      av.innerHTML = '<img src="' + currentUser.avatarUrl + '?t=' + Date.now() + '" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">';
-    } else {
-      av.textContent = currentUser.initials || '?';
-      av.style.display = 'flex';
-      av.style.alignItems = 'center';
-      av.style.justifyContent = 'center';
-    }
-  }
+  const u = currentUser;
+  const val = (id, v) => { const el = document.getElementById(id); if(el) el.value = v; };
+  const txt = (id, v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+  val('profileUsername', u.username || '');
+  val('profileDisplayName', u.displayName || u.username || '');
+  val('profileFirstName', u.firstName || '');
+  val('profileLastName', u.lastName || '');
+  val('profileEmail', u.email || '');
+  txt('profileFullNameDisplay', u.displayName || u.username || '—');
+  txt('profileUsernameDisplay', '@' + (u.username || '—'));
+  txt('profileEmailDisplay', u.email || '—');
+  txt('profileErr', '');
+  ['profileAvatar', 'peIdAv'].forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(u.avatarUrl) el.innerHTML = '<img src="' + homeEsc(u.avatarUrl) + '?t=' + Date.now() + '" alt="">';
+    else el.textContent = u.initials || '?';
+  });
 }
 
 function updateDash(){
   if(!currentUser)return;
-  const l=lv();
-  document.getElementById('dashWelcome').textContent='Merhaba, '+currentUser.username+'!';
-  document.getElementById('dashSub').textContent='Bugün ne öğreneceksin?';
-  document.getElementById('dashLearned').textContent=learned;
-  document.getElementById('dashStreak').textContent=0;
-  document.getElementById('dashVC').textContent=0;
-  document.getElementById('dashLvlTag').textContent=l.tag;
-  document.getElementById('dashLvlName').textContent=l.name;
-  document.getElementById('dashLvlCount').textContent=learned+' / '+(l.target||'∞');
-  const pct=l.target?Math.min((learned/l.target)*100,100):100;
-  document.getElementById('dashBigFill').style.width=pct+'%';
-  document.getElementById('dashLvlHint').textContent=l.next?(l.target-learned)+' kelime daha → '+l.next:'En üst seviye!';
-  document.getElementById('dashNextCircle').textContent=l.next||'★';
-  document.getElementById('dashReadSub').textContent=l.tag+' seviyesi · Bilim';
-  document.getElementById('dashDuelSub').textContent=l.tag+' liginde oyna';
+  const l=lv(), u=currentUser;
+  const set=(id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
+  set('homeName', u.displayName || u.username || '—');
+  set('homeUser', '@' + (u.username || '—'));
+  if(u.createdAt){
+    const d = new Date(u.createdAt);
+    set('homeSince', isNaN(d) ? '' : 'Üye · ' + d.toLocaleDateString('tr-TR', { month:'long', year:'numeric' }));
+  }
+  const langsEl = document.getElementById('homeLangs');
+  if(langsEl){
+    const nat = (u.nativeLangs || []).map(n => '<span class="home-lchip">' + homeEsc(langName(n)) + ' <em>ana dil</em></span>');
+    const lrn = (u.learnLangs || []).map(n => {
+      const lvl = (u.levels || {})[n];
+      return '<span class="home-lchip">' + homeEsc(langName(n)) + (lvl && lvl !== 'new' && lvl !== 'unknown' ? ' <b>' + homeEsc(lvl) + '</b>' : '') + '</span>';
+    });
+    langsEl.innerHTML = nat.concat(lrn).join('');
+  }
+  const av = document.getElementById('homeAv');
+  if(av){
+    if(u.avatarUrl) av.innerHTML = '<img src="' + homeEsc(u.avatarUrl) + '" alt="">';
+    else av.textContent = u.initials || '?';
+  }
+  set('homeLvlLang', u.lang ? langName(u.lang) : '');
+  set('dashLearned', learned);
+  set('dashStreak', u.streak || 0);
+  set('dashVC', u.verCoins || 0);
+  // Üst çubuk da aynı sayıyı göstersin (eskiden sabit 0'dı)
+  set('navStreak', u.streak || 0);
+  set('vcAmt', u.verCoins || 0);
+  set('dashLvlTag', l.tag);
+  set('dashLvlName', l.name);
+  set('dashLvlCount', learned + ' / ' + (l.target || '∞'));
+  const pct = l.target ? Math.min((learned / l.target) * 100, 100) : 100;
+  const fill = document.getElementById('dashBigFill'); if(fill) fill.style.width = pct + '%';
+  set('dashLvlHint', l.next ? (l.target - learned) + ' kelime daha → ' + l.next : 'En üst seviye!');
+  set('dashNextCircle', l.next || '★');
+  set('dashReadSub', l.tag + ' · Bilim');
+  set('dashDuelSub', l.tag + ' ligi · sıran #24');
 }
 
 // ── LEVELS ──
@@ -5648,11 +5826,11 @@ function startDTimer(){
 }
 function endDuel(){
   clearInterval(dT);
-  showNotif(myS>=oppS?'🏆 Duel kazandın!':'💪 İyi deneme!',myS+' - '+oppS+' · '+lv().tag+' ligi');
+  showNotif(myS>=oppS?'Duel kazandın!':'İyi deneme!',myS+' - '+oppS+' · '+lv().tag+' ligi', myS>=oppS?'reward':'info');
   setTimeout(()=>{
     document.getElementById('duelGame').style.display='none';
-    document.getElementById('duelLobby').style.display='block';
-    document.getElementById('findBtn').style.display='block';
+    document.getElementById('duelLobby').style.display='';
+    document.getElementById('findBtn').style.display='';
     document.getElementById('finding').classList.remove('show');
     document.getElementById('dTimer').textContent='45';
     document.getElementById('dTimer').classList.remove('urgent');
@@ -5668,17 +5846,16 @@ const lbData={
   C1:[{n:'David_UK',w:3900,s:90,c:'#5faaff'},{n:'Yuna_KR',w:3750,s:78,c:'#ff9f5f'},{n:'Felix_DE',w:3600,s:65,c:'#c05fff'},{n:'Zoe_AU',w:3400,s:55,c:'#5fc8ff'},{n:'Hugo_ES',w:3200,s:47,c:'#ff5f8a'}],
   C2:[{n:'Lin_CN',w:3980,s:120,c:'#5faaff'},{n:'Anna_FI',w:3850,s:105,c:'#ff9f5f'},{n:'Max_AT',w:3700,s:92,c:'#c05fff'},{n:'Rose_CA',w:3500,s:80,c:'#5fc8ff'},{n:'Ali_TR2',w:3300,s:71,c:'#ff5f8a'}],
 };
-const medals=['🥇','🥈','🥉'];
 function showLb(tag,btn){
   document.querySelectorAll('.lb-tab').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
   document.getElementById('lbTitle').textContent=tag+' sıralaması — Bu hafta';
   document.getElementById('lbList').innerHTML=(lbData[tag]||[]).map((p,i)=>`
     <div class="lb-row">
-      <div class="lb-rank">${i<3?medals[i]:'#'+(i+1)}</div>
+      <div class="lb-rank${i<3?' r'+(i+1):''}">${i+1}</div>
       <div class="lb-av" style="background:${p.c}22;color:${p.c}">${p.n[0]}</div>
       <div class="lb-info"><div class="lb-name">${p.n}</div><div class="lb-sub2">${tag} · İngilizce</div></div>
-      <div class="lb-right"><div class="lb-words">${p.w.toLocaleString()} kelime</div><div class="lb-streak2">🔥 ${p.s}</div></div>
+      <div class="lb-right"><div class="lb-words">${p.w.toLocaleString()} kelime</div><div class="lb-streak2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.4c.7 2.2-.3 3.5-1.8 5-1.6 1.7-2.8 3.4-2.8 5.6a4.6 4.6 0 0 0 9.2 0c0-1.6-.7-2.9-1.7-4-.2 1.1-.8 1.9-1.7 2.4.4-1.8 0-3.7-1-5.3-.5.9-.8 1.8-.7 2.7-.6-2-.3-4.4.5-6.4Z"/></svg>${p.s}</div></div>
     </div>
   `).join('');
 }
